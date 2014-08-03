@@ -7,8 +7,8 @@ class Feed {
     Boolean isShared
 //    sharedContentsType
     String sharedResponseId
-    Long likeCount
-    Long claimCount
+    int likeCount
+    int claimCount
     String feedContent
     Date insertDate
     Date updateDate
@@ -18,6 +18,13 @@ class Feed {
     Boolean isSharedGP
     String feedUrl
 
+    static hasMany = [feedReplies: FeedReply, feedAttachments: FeedAttachment]
     static constraints = {
+        isShared(nullable:false)
+        feedContent (blank:false, nullable: false, maxSize: 4000)
+        feedUrl(nullable: true, url: true)
+        likeCount(nullable: true)
+        claimCount(nullable: true)
+
     }
 }

@@ -10,6 +10,8 @@ class FeedReply {
     String feedReplyContent
     Boolean isDeleted
 
+    static belongsTo = Feed
     static constraints = {
+        feedReplyContent (blank:false, nullable: false, maxSize: 4000)
     }
 }

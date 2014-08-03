@@ -10,6 +10,11 @@ class FeedAttachment {
     Date updateDate
     Long feedId
 
+    static belongsTo = Feed
     static constraints = {
+        fileName (blank:false, nullable: false, size:5..500)
+        fileSize (blank:false, nullable: false)
+        downloadCount (nullable: true)
+
     }
 }
