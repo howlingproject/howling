@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EclipseCodeFormatter">
+    <option name="defaultSettings" value="true" />
+    <option name="formatOtherFileTypesWithIntelliJ" value="false" />
+    <option name="formatter" value="ECLIPSE" />
+    <option name="id" value="1386323262335" />
+    <option name="name" value="default" />
+    <option name="pathToConfigFileJava" value="$USER_HOME$/Dropbox/Files/skplanet_formatter_eclipse.xml" />
+    <option name="selectedJavaProfile" value="skplanet formatter" />
+  </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
   <component name="IdProvider" IDEtalkID="0831A73F42C432B963DD0BA7A36ED382" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.7.0_51" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="VssConfiguration">
