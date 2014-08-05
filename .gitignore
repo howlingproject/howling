@@ -46,6 +46,7 @@ local.properties
 .settings/
 .loadpath
 .project
+.classpath
 
 # External tool builders
 .externalToolBuilders/
@@ -100,7 +101,6 @@ local.properties
 # "temporary" build files
 /target
 
-
 ### Java ###
 *.class
 
@@ -117,3 +117,35 @@ hs_err_pid*
 
 # Ignore Gradle GUI config
 gradle-app.setting
+
+### Eclipse ###
+*.pydevproject
+.metadata
+.gradle
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# TeXlipse plugin
+.texlipse
