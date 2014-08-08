@@ -1,6 +1,6 @@
 package com.archivemode.space
 
-class Space {
+class Space_temp {
 
     static constraints = {
     }
