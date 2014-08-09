@@ -46,7 +46,8 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
 
-    dependencies {
+// build.gradle로 대체함.
+//    dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
         // runtime 'mysql:mysql-connector-java:5.1.27'
         // runtime 'org.postgresql:postgresql:9.3-1100-jdbc41'
@@ -64,7 +65,7 @@ grails.project.dependency.resolution = {
 //            excludes 'commons-el', 'ant', 'sl4j-api', 'sl4j-simple', 'jcl104-over-slf4j', 'xmlParserAPIs'
 //            excludes 'mail', 'commons-lang'
 //        }
-    }
+//    }
 
     plugins {
         // plugins for the build system only

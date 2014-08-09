@@ -100,7 +100,8 @@ local.properties
 
 # "temporary" build files
 /target
-
+/build
+/buildPlugins
 ### Java ###
 *.class
 
@@ -131,6 +132,7 @@ tmp/
 local.properties
 .settings/
 .loadpath
+gradle/
 
 # External tool builders
 .externalToolBuilders/
@@ -147,5 +149,3 @@ local.properties
 # sbteclipse plugin
 .target
 
-# TeXlipse plugin
-.texlipse

@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "http://repo.grails.org/grails/repo"}
+    }
+    dependencies {
+        classpath "org.grails:grails-gradle-plugin:2.0.0"
+    }
+}
+
+version '0.1'
+group 'com.archivemode'
+
+apply plugin: 'grails'
+
+repositories {
+    grailsPlugins()
+    grailsHome()
+    mavenLocal()
+    grailsCentral()
+    mavenCentral()
+    maven {url 'http://repo.grails.org/grails/repo'}
+}
+
+grails {
+    grailsVersion = '2.3.5'
+}
+
+dependencies {
+    bootstrap 'org.grails.plugins:tomcat:7.0.50'
+    //runtime 'mysql:mysql-connector-java:5.1.27'
+    // runtime 'org.postgresql:postgresql:9.3-1100-jdbc41'
+}
