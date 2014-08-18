@@ -87,5 +87,6 @@ grails.project.dependency.resolution = {
 
         // plugins for Standalone
         runtime ':war-exec:1.0.1'
+        runtime ':twitter-bootstrap:3.2.0'
     }
 }
