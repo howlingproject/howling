@@ -7,7 +7,7 @@
 *  layout
 **/
 html {position: relative; min-height: 100%; min-width: 480px;}
-body { margin-bottom: 100px; font-size:12px; }
+body { margin-bottom: 100px; font-size:14px; }
 img { vertical-align: middle; border: 0 none; }
 .wrap { margin-left:0; margin-right:0; }
 .login_member_form {padding:15px;width:470px;}
@@ -88,7 +88,7 @@ label.error-label.hide {display: none;}
 .feed ul li ul li .config { background: none repeat scroll 0 0 transparent; right: 10px; }
 .feed ul li .feed-comment button{ margin-left:-15px;}
 
-.best-feed { max-height: 540px; overflow-y:scroll;}
+.best-feed { max-height: 780px; overflow-y:scroll;}
 .best-feed .media-body {cursor: pointer;}
 .popover-content a, .popover-feed-image-content a { padding: 3px; }
 

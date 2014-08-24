@@ -573,7 +573,24 @@
 </div>
 <!-- popover-config end -->
 
-<script type="text/javascript">
+<jq:jquery>
+    $('.popover-config').popover({
+        trigger: 'click',
+        html: true,
+        content: function () {
+            return $('#popover-config-content').html();
+        }
+    });
+
+    $('.popover-feed-image').popover({
+        trigger: 'click',
+        html: true,
+        content: function () {
+            return $('#popover-feed-image-content').html();
+        }
+    });
+</jq:jquery>
+<r:script>
     var BestFeed = (function () {
         var isClosed = false;
         return {
@@ -592,21 +609,4 @@
             }
         }
     })();
-
-
-    $('.popover-config').popover({
-        trigger: 'click',
-        html: true,
-        content: function () {
-            return $('#popover-config-content').html();
-        }
-    });
-
-    $('.popover-feed-image').popover({
-        trigger: 'click',
-        html: true,
-        content: function () {
-            return $('#popover-feed-image-content').html();
-        }
-    })
-</script>
+</r:script>

@@ -1,4 +1,3 @@
-<!-- header -->
 <header class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
@@ -39,4 +38,3 @@
         </nav>
     </div>
 </header>
-<!--// header -->

@@ -1,4 +1,3 @@
-<!-- footer -->
 <footer id="footer">
     <div class="container">
         <div class="col-md-12 text-center">
@@ -16,4 +15,3 @@
         </div>
     </div>
 </footer>
-<!--// footer -->
