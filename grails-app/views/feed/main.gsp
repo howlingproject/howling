@@ -1,52 +1,10 @@
 <div class="container">
-    <div class="col-md-11" id="feed-area">
+    <div class="col-md-12 col-xs-12" id="feed-area">
         <!-- feed 글 쓰기 start -->
         <div class="feed feed-write well">
             <div class="feed-write-top">
                 <div class="action-buttons text-right">
-                    <button class="btn btn-primary" type="button">동영상</button>
-                    <button class="btn btn-primary popover-feed-image" type="button" data-container="body" data-toggle="popover" data-placement="bottom">이미지</button>
-                    <button class="btn btn-primary" type="button" onclick="$('#attachmentForm').toggle();">파일첨부</button>
-                    <button class="btn btn-primary" type="button" onclick="$('#linkForm').toggle();">링크</button>
-                </div>
-                <div class="action-forms text-right">
-                    <form class="form-horizontal attachmentForm" role="form" id="attachmentForm">
-                        <input id="attachment" type="file" style="display:none">
-
-                        <div class="form-group">
-                            <label for="attachmentInput" class="col-sm-2 control-label">파일첨부</label>
-                            <div class="col-sm-10">
-                                <div class="row"></div>
-                                <div class="col-xs-9 col-md-10">
-                                    <input id="attachmentInput" class="form-control" type="text" placeholder="파일을 선택해주세요.">
-                                </div>
-                                <div class="col-xs-3 col-md-2">
-                                    <button class="btn btn-info" type="button" onclick="$('input[id=attachment]').click();">파일선택
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <script type="text/javascript">
-                            $('input[id=attachment]').change(function () {
-                                $('#attachmentInput').val($(this).val());
-                            });
-                        </script>
-                    </form>
-
-                    <form class="form-horizontal linkForm" role="form" id="linkForm">
-                        <div class="form-group">
-                            <label for="inputLinkAddress" class="col-sm-2 control-label">링크주소</label>
-                            <div class="col-sm-10">
-                                <div class="row"></div>
-                                <div class="col-xs-9 col-md-10">
-                                    <input type="text" class="form-control" id="inputLinkAddress" placeholder="링크 주소를 입력해주세요.">
-                                </div>
-                                <div class="col-xs-3 col-md-2">
-                                    <button class="btn btn-info" type="button">확인</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#fileUploadModal">파일첨부</button>
                 </div>
             </div>
             <ul>
@@ -102,8 +60,8 @@
                             </div>
                         </div>
                         <div class="action-buttons">
-                            <i class="fa fa-thumbs-o-up"></i>
-                            <i class="fa fa-bullhorn"></i>
+                            <i class="fa fa-thumbs-o-up"><span class="like-count">(72)</span></i>
+                            <i class="fa fa-bullhorn"><span class="claim-count">(0)</span></i>
                         </div>
                     </div>
                     <ul>
@@ -146,8 +104,8 @@
                             </div>
                         </div>
                         <div class="action-buttons">
-                            <i class="fa fa-thumbs-o-up"></i>
-                            <i class="fa fa-bullhorn"></i>
+                            <i class="fa fa-thumbs-o-up"><span class="like-count">(9)</span></i>
+                            <i class="fa fa-bullhorn"><span class="claim-count">(0)</span></i>
                         </div>
                     </div>
                     <ul>
@@ -168,7 +126,7 @@
                 <!-- 일반 글 & 댓글 start -->
                 <li class="thread">
                     <div class="author">
-                        <div class="user-profile-sm">
+                        <div class="user-profile">
                             <img alt="avatar" class="profile-image" src="../images/avatar.png" />
                         </div>
                     </div>
@@ -181,8 +139,8 @@
                             객체지향 프로그래밍에 있어서 가장 중요한 개념 중 하나인 "캡슐화"에 대한 제 생각을 정리해 보았습니다. 어떻게 생각하시는지 많은 의견 부탁드립니다.
                         </div>
                         <div class="action-buttons">
-                            <i class="fa fa-thumbs-o-up"></i>
-                            <i class="fa fa-bullhorn"></i>
+                            <i class="fa fa-thumbs-o-up"><span class="like-count">(0)</span></i>
+                            <i class="fa fa-bullhorn"><span class="claim-count">(0)</span></i>
                         </div>
                     </div>
 
@@ -210,8 +168,8 @@
                                     개념'이라고 보는 게 맞습니다. 다만 일반적인 C프로그래밍을 할 때 객체지향으로 프로그래밍 하는 경우는 많지는 않겠죠..
                                 </div>
                                 <div class="action-buttons">
-                                    <i class="fa fa-thumbs-o-up"></i>
-                                    <i class="fa fa-bullhorn"></i>
+                                    <i class="fa fa-thumbs-o-up"><span class="like-count">(1)</span></i>
+                                    <i class="fa fa-bullhorn"><span class="claim-count">(0)</span></i>
                                 </div>
                             </div>
                         </li>
@@ -230,8 +188,8 @@
                                     저 동적 바인딩도 알려주시면 안됄까요? 너무 어려워서 그런데
                                 </div>
                                 <div class="action-buttons">
-                                    <i class="fa fa-thumbs-o-up"></i>
-                                    <i class="fa fa-bullhorn"></i>
+                                    <i class="fa fa-thumbs-o-up"><span class="like-count">(72)</span></i>
+                                    <i class="fa fa-bullhorn"><span class="claim-count">(0)</span></i>
                                 </div>
                             </div>
                         </li>
@@ -252,8 +210,8 @@
                                     않았다는 내용이 담긴 주민 녹취록 등을 공개했습니다.
                                 </div>
                                 <div class="action-buttons">
-                                    <i class="fa fa-thumbs-o-up"></i>
-                                    <i class="fa fa-bullhorn"></i>
+                                    <i class="fa fa-thumbs-o-up"><span class="like-count">(30)</span></i>
+                                    <i class="fa fa-bullhorn"><span class="claim-count">(0)</span></i>
                                 </div>
                             </div>
                         </li>
@@ -273,178 +231,182 @@
             </ul>
         </div>
         <!-- feed 글 목록 end -->
-    </div>
-
-    <div class="col-md-1" id="best-feed-area">
-        <div id="best-feed-close">
-            <a href="javascript:void(0)" onclick="BestFeed.toggle()"><i class="fa fa-chevron-left fa-3x"></i></a>
+        <div id="right-panel-container">
+            <a id="right-panel-link" href="#right-panel"><i class="fa fa-bars fa-3x"></i></a>
         </div>
-        <div id="best-feed-open" style="display: none;">
-            <div class="col-md-1">
-                <a href="javascript:void(0)" onclick="BestFeed.toggle()"><i class="fa fa-chevron-right fa-3x"></i></a>
-            </div>
-            <div class="col-md-10">
-                <div class="panel panel-default panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">이달의 Best Feed</h3>
+    </div>
+</div>
+
+<div id="right-panel" class="right-panel">
+    <div class="panel panel-default panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">이달의 Best Feed</h3>
+        </div>
+        <div class="panel-body best-feed">
+            <ul class="media-list">
+                <li class="media">
+                    <a href="#" class="pull-left">
+                        <div class="author">
+                            <div class="user-profile-sm">
+                                <img alt="avatar" class="profile-image" src="../images/avatar.png"/>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
+                        <p>첫번째 타임라인 어쩌구 저쭈구 해서.... &nbsp;<span class="badge">30</span></p>
                     </div>
-                    <div class="panel-body best-feed">
-                        <ul class="media-list">
-                            <li class="media">
-                                <a href="#" class="pull-left">
-                                    <div class="author">
-                                        <div class="user-profile-sm">
-                                            <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
-                                    <p>첫번째 타임라인 어쩌구 저쭈구 해서리 잉~? 어쩌고 저쩌고 블라블라 저쩌고.... &nbsp;<span class="badge">30</span></p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a href="#" class="pull-left">
-                                    <div class="author">
-                                        <div class="user-profile-sm">
-                                            <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
-                                    <p>첫번째 타임라인 어쩌구 저쭈구 해서리 잉~? 어쩌고 저쩌고 블라블라 저쩌고.... &nbsp;<span class="badge">30</span></p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a href="#" class="pull-left">
-                                    <div class="author">
-                                        <div class="user-profile-sm">
-                                            <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
-                                    <p>첫번째 타임라인 어쩌구 저쭈구 해서리 잉~? 어쩌고 저쩌고 블라블라 저쩌고.... &nbsp;<span class="badge">30</span></p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a href="#" class="pull-left">
-                                    <div class="author">
-                                        <div class="user-profile-sm">
-                                            <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
-                                    <p>첫번째 타임라인 어쩌구 저쭈구 해서리 잉~? 어쩌고 저쩌고 블라블라 저쩌고.... &nbsp;<span class="badge">30</span></p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a href="#" class="pull-left">
-                                    <div class="author">
-                                        <div class="user-profile-sm">
-                                            <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
-                                    <p>첫번째 타임라인 어쩌구 저쭈구 해서리 잉~? 어쩌고 저쩌고 블라블라 저쩌고.... &nbsp;<span class="badge">30</span></p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a href="#" class="pull-left">
-                                    <div class="author">
-                                        <div class="user-profile-sm">
-                                            <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
-                                    <p>첫번째 타임라인 어쩌구 저쭈구 해서리 잉~? 어쩌고 저쩌고 블라블라 저쩌고.... &nbsp;<span class="badge">30</span></p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a href="#" class="pull-left">
-                                    <div class="author">
-                                        <div class="user-profile-sm">
-                                            <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
-                                    <p>첫번째 타임라인 어쩌구 저쭈구 해서리 잉~? 어쩌고 저쩌고 블라블라 저쩌고.... &nbsp;<span class="badge">30</span></p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a href="#" class="pull-left">
-                                    <div class="author">
-                                        <div class="user-profile-sm">
-                                            <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
-                                    <p>첫번째 타임라인 어쩌구 저쭈구 해서리 잉~? 어쩌고 저쩌고 블라블라 저쩌고.... &nbsp;<span class="badge">30</span></p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a href="#" class="pull-left">
-                                    <div class="author">
-                                        <div class="user-profile-sm">
-                                            <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
-                                    <p>첫번째 타임라인 어쩌구 저쭈구 해서리 잉~? 어쩌고 저쩌고 블라블라 저쩌고.... &nbsp;<span class="badge">30</span></p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a href="#" class="pull-left">
-                                    <div class="author">
-                                        <div class="user-profile-sm">
-                                            <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
-                                    <p>첫번째 타임라인 어쩌구 저쭈구 해서리 잉~? 어쩌고 저쩌고 블라블라 저쩌고.... &nbsp;<span class="badge">30</span></p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a href="#" class="pull-left">
-                                    <div class="author">
-                                        <div class="user-profile-sm">
-                                            <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
-                                    <p>첫번째 타임라인 어쩌구 저쭈구 해서리 잉~? 어쩌고 저쩌고 블라블라 저쩌고.... &nbsp;<span class="badge">30</span></p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a href="#" class="pull-left">
-                                    <div class="author">
-                                        <div class="user-profile-sm">
-                                            <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
-                                    <p>첫번째 타임라인 어쩌구 저쭈구 해서리 잉~? 어쩌고 저쩌고 블라블라 저쩌고.... &nbsp;<span class="badge">30</span></p>
-                                </div>
-                            </li>
-                        </ul>
+                </li>
+                <li class="media">
+                    <a href="#" class="pull-left">
+                        <div class="author">
+                            <div class="user-profile-sm">
+                                <img alt="avatar" class="profile-image" src="../images/avatar.png"/>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
+                        <p>첫번째 타임라인 어쩌구 저쭈구 해서.... &nbsp;<span class="badge">30</span></p>
                     </div>
-                </div>
-            </div>
+                </li>
+                <li class="media">
+                    <a href="#" class="pull-left">
+                        <div class="author">
+                            <div class="user-profile-sm">
+                                <img alt="avatar" class="profile-image" src="../images/avatar.png"/>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
+                        <p>첫번째 타임라인 어쩌구 저쭈구 해서.... &nbsp;<span class="badge">30</span></p>
+                    </div>
+                </li>
+                <li class="media">
+                    <a href="#" class="pull-left">
+                        <div class="author">
+                            <div class="user-profile-sm">
+                                <img alt="avatar" class="profile-image" src="../images/avatar.png"/>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
+                        <p>첫번째 타임라인 어쩌구 저쭈구 해서.... &nbsp;<span class="badge">30</span></p>
+                    </div>
+                </li>
+                <li class="media">
+                    <a href="#" class="pull-left">
+                        <div class="author">
+                            <div class="user-profile-sm">
+                                <img alt="avatar" class="profile-image" src="../images/avatar.png"/>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
+                        <p>첫번째 타임라인 어쩌구 저쭈구 해서.... &nbsp;<span class="badge">30</span></p>
+                    </div>
+                </li>
+                <li class="media">
+                    <a href="#" class="pull-left">
+                        <div class="author">
+                            <div class="user-profile-sm">
+                                <img alt="avatar" class="profile-image" src="../images/avatar.png"/>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
+                        <p>첫번째 타임라인 어쩌구 저쭈구 해서.... &nbsp;<span class="badge">30</span></p>
+                    </div>
+                </li>
+                <li class="media">
+                    <a href="#" class="pull-left">
+                        <div class="author">
+                            <div class="user-profile-sm">
+                                <img alt="avatar" class="profile-image" src="../images/avatar.png"/>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
+                        <p>첫번째 타임라인 어쩌구 저쭈구 해서.... &nbsp;<span class="badge">30</span></p>
+                    </div>
+                </li>
+                <li class="media">
+                    <a href="#" class="pull-left">
+                        <div class="author">
+                            <div class="user-profile-sm">
+                                <img alt="avatar" class="profile-image" src="../images/avatar.png"/>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
+                        <p>첫번째 타임라인 어쩌구 저쭈구 해서.... &nbsp;<span class="badge">30</span></p>
+                    </div>
+                </li>
+                <li class="media">
+                    <a href="#" class="pull-left">
+                        <div class="author">
+                            <div class="user-profile-sm">
+                                <img alt="avatar" class="profile-image" src="../images/avatar.png"/>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
+                        <p>첫번째 타임라인 어쩌구 저쭈구 해서.... &nbsp;<span class="badge">30</span></p>
+                    </div>
+                </li>
+                <li class="media">
+                    <a href="#" class="pull-left">
+                        <div class="author">
+                            <div class="user-profile-sm">
+                                <img alt="avatar" class="profile-image" src="../images/avatar.png"/>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
+                        <p>첫번째 타임라인 어쩌구 저쭈구 해서.... &nbsp;<span class="badge">30</span></p>
+                    </div>
+                </li>
+                <li class="media">
+                    <a href="#" class="pull-left">
+                        <div class="author">
+                            <div class="user-profile-sm">
+                                <img alt="avatar" class="profile-image" src="../images/avatar.png"/>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
+                        <p>첫번째 타임라인 어쩌구 저쭈구 해서.... &nbsp;<span class="badge">30</span></p>
+                    </div>
+                </li>
+                <li class="media">
+                    <a href="#" class="pull-left">
+                        <div class="author">
+                            <div class="user-profile-sm">
+                                <img alt="avatar" class="profile-image" src="../images/avatar.png"/>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="media-body" data-toggle="modal" data-target="#bestFeedModal">
+                        <p>첫번째 타임라인 어쩌구 저쭈구 해서.... &nbsp;<span class="badge">30</span></p>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
 
 <!-- best feed modal start -->
-<div class="modal fade" id="bestFeedModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     aria-hidden="true">
+<div class="modal fade" id="bestFeedModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -468,8 +430,8 @@
                                     객체지향 프로그래밍에 있어서 가장 중요한 개념 중 하나인 "캡슐화"에 대한 제 생각을 정리해 보았습니다. 어떻게 생각하시는지 많은 의견 부탁드립니다.
                                 </div>
                                 <div class="action-buttons">
-                                    <i class="fa fa-thumbs-o-up"></i>
-                                    <i class="fa fa-bullhorn"></i>
+                                    <i class="fa fa-thumbs-o-up"><span class="like-count">(30)</span></i>
+                                    <i class="fa fa-bullhorn"><span class="claim-count">(0)</span></i>
                                 </div>
                             </div>
 
@@ -502,8 +464,8 @@
                                             개념'이라고 보는 게 맞습니다. 다만 일반적인 C프로그래밍을 할 때 객체지향으로 프로그래밍 하는 경우는 많지는 않겠죠..
                                         </div>
                                         <div class="action-buttons">
-                                            <i class="fa fa-thumbs-o-up"></i>
-                                            <i class="fa fa-bullhorn"></i>
+                                            <i class="fa fa-thumbs-o-up"><span class="like-count">(30)</span></i>
+                                            <i class="fa fa-bullhorn"><span class="claim-count">(0)</span></i>
                                         </div>
                                     </div>
                                 </li>
@@ -523,8 +485,8 @@
                                             저 동적 바인딩도 알려주시면 안됄까요? 너무 어려워서 그런데
                                         </div>
                                         <div class="action-buttons">
-                                            <i class="fa fa-thumbs-o-up"></i>
-                                            <i class="fa fa-bullhorn"></i>
+                                            <i class="fa fa-thumbs-o-up"><span class="like-count">(30)</span></i>
+                                            <i class="fa fa-bullhorn"><span class="claim-count">(0)</span></i>
                                         </div>
                                     </div>
                                 </li>
@@ -547,8 +509,8 @@
                                             않았다는 내용이 담긴 주민 녹취록 등을 공개했습니다.
                                         </div>
                                         <div class="action-buttons">
-                                            <i class="fa fa-thumbs-o-up"></i>
-                                            <i class="fa fa-bullhorn"></i>
+                                            <i class="fa fa-thumbs-o-up"><span class="like-count">(30)</span></i>
+                                            <i class="fa fa-bullhorn"><span class="claim-count">(0)</span></i>
                                         </div>
                                     </div>
                                 </li>
@@ -562,6 +524,80 @@
 </div>
 <!-- best feed modal end -->
 
+<!-- file upload start -->
+<div class="modal fade" id="fileUploadModal" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="fileUploadModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="fileUploadModalLabel">파일 첨부</h4>
+            </div>
+            <div class="modal-body">
+                <div class="feed well">
+                    <form class="form-horizontal attachmentForm" role="form">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 col-md-2 control-label">타입</label>
+
+                            <div class="col-sm-10 col-md-10">
+                                <label class="radio-inline">
+                                    <input type="radio" name="fileType" id="fileType1" value="file" checked="checked">
+                                    파일
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="fileType" id="fileTyp2" value="image"> 이미지
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input id="file-attachment" type="file" style="display:none">
+                            <label for="fileAttachmentInput" class="col-sm-2 control-label">파일첨부</label>
+
+                            <div class="col-sm-10 col-md-10">
+                                <div class="row">
+                                    <div class="col-sm-9 col-xs-9 col-md-9">
+                                        <input id="fileAttachmentInput" class="form-control" type="text" placeholder="파일을 선택해주세요.">
+                                    </div>
+                                    <div class="col-sm-3 col-xs-3 col-md-3">
+                                        <button class="btn btn-info btn-default" type="button" onclick="$('input[id=file-attachment]').click();">파일선택
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group image-options">
+                            <label class="col-sm-2 col-md-2 control-label">미리보기</label>
+
+                            <div class="col-sm-10 col-md-10">
+                                <img src="https://octodex.github.com/images/droctocat.png" alt="이미지 미리보기" class="img-thumbnail image-preview">
+                            </div>
+                        </div>
+                    </form>
+                    <script type="text/javascript">
+                        $('input[id="file-attachment"]').change(function () {
+                            $('#attachmentInput').val($(this).val());
+                        });
+                        $('input[name="fileType"]').change(function () {
+                            if($(this).val() == 'file') {
+                               $('.image-options').hide();
+                            } else {
+                                $('.image-options').show();
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-info" type="button">확인</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- file upload modal end -->
+
 <!-- popover-config start -->
 <div id="popover-config-content" style="display: none;">
     <div class="button"><a href="#">수정</a></div>
@@ -573,7 +609,8 @@
 </div>
 <!-- popover-config end -->
 
-<jq:jquery>
+<script type="text/javascript">
+
     $('.popover-config').popover({
         trigger: 'click',
         html: true,
@@ -588,25 +625,10 @@
         content: function () {
             return $('#popover-feed-image-content').html();
         }
-    });
-</jq:jquery>
-<r:script>
-    var BestFeed = (function () {
-        var isClosed = false;
-        return {
-            toggle: function () {
-                if (!isClosed) {
-                    $('#feed-area').removeClass().addClass('col-md-7');
-                    $('#best-feed-area').removeClass().addClass('col-md-5');
-                } else {
-                    $('#feed-area').removeClass().addClass('col-md-11');
-                    $('#best-feed-area').removeClass().addClass('col-md-1');
-                }
+    })
+</script>
 
-                $('#best-feed-close').toggle();
-                $('#best-feed-open').toggle();
-                isClosed = !isClosed;
-            }
-        }
-    })();
-</r:script>
+<script src="http://eduardomb.github.io/jquery-panelslider/jquery.panelslider.min.js"></script>
+<script type="text/javascript">
+    $('#right-panel-link').panelslider({side: 'right', clickClose: true, duration: 200 });
+</script>

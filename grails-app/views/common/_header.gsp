@@ -1,4 +1,5 @@
-<header class="navbar navbar-default">
+<!-- header -->
+<header class="navbar navbar-default" id="header">
     <div class="container">
         <div class="navbar-header">
             <button data-target=".bs-navbar-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
@@ -11,7 +12,7 @@
         </div>
 
         <nav role="navigation" class="navbar-collapse bs-navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navi-menu">
                 <li class="active">
                     <a href="#">Feeds</a>
                 </li>
@@ -31,10 +32,11 @@
                     <a href="#">Admin</a>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><i class="fa fa-user"></i></a></li>
-                <li><a href="#"><i class="fa fa-weixin"></i></a></li>
+            <ul class="nav navbar-nav navbar-right navi-info">
+                <li class="user"><a href="#"><i class="fa fa-user fa-2x"></i></a></li>
+                <li class="messenger"><a href="#"><i class="fa fa-weixin fa-2x"></i></a></li>
             </ul>
         </nav>
     </div>
 </header>
+<!--// header -->

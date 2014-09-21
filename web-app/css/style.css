@@ -7,14 +7,18 @@
 *  layout
 **/
 html {position: relative; min-height: 100%; min-width: 480px;}
-body { margin-bottom: 100px; font-size:14px; }
+body { font-family: 'verdana', 'tohoma', 'nanumgothic', '나눔고딕'; font-size:14px; margin-bottom: 100px; }
 img { vertical-align: middle; border: 0 none; }
 .wrap { margin-left:0; margin-right:0; }
 .login_member_form {padding:15px;width:470px;}
 .top-buffer { margin-top:20px; }
 .container .text-muted { margin: 20px 0; }
-.contents-container { padding:0px;}
+.contents-container { padding:0;}
 
+/*header */
+#header .navi-menu li {width:90px; text-align: center; }
+#header .navi-info li a {padding: 10px 10px 12px 10px}
+#header ul.nav li.messenger i {color:#333433;}
 /**
 * Sticky footer styles
 **/
@@ -60,9 +64,6 @@ label.error-label.hide {display: none;}
 .feed-write {margin-bottom: 20px;}
 .feed-write .write-box { height:150px;}
 .feed-write .feed-write-top {margin-bottom:10px;}
-.feed-write .feed-write-top .action-forms {margin: 20px 0 20px 79px}
-.feed-write .feed-write-top .action-forms label {font-size: 14px;}
-.feed-write .feed-write-top .action-forms .attachmentForm, .feed-write .feed-write-top .action-forms .linkForm {display: none;}
 .feed-write .feed-write-top, .feed-write .feed-write-bottom {margin-right:50px;}
 
 .feed ul { list-style: none outside none; margin: 0; padding: 0; }
@@ -71,6 +72,7 @@ label.error-label.hide {display: none;}
 .feed ul li .author { float: left; left: -80px; position: absolute; top: 0; width: 60px; z-index: 1; }
 .feed ul li .action-buttons { margin-bottom: 3px; padding-right: 15px; text-align: right; }
 .feed ul li .action-buttons i { padding: 3px; cursor: pointer; }
+.feed ul li .action-buttons span.like-count, .feed ul li .action-buttons span.claim-count{ padding-left:3px; color: #2682C4; font-weight: bold;}
 .feed ul li .threaad-message-box {margin-bottom: 10px}
 .feed ul li .message { margin: 20px -10px 0; padding: 20px; }
 .feed ul li .message .feed-url { padding-top:50px; height:150px; }
@@ -88,12 +90,20 @@ label.error-label.hide {display: none;}
 .feed ul li ul li .config { background: none repeat scroll 0 0 transparent; right: 10px; }
 .feed ul li .feed-comment button{ margin-left:-15px;}
 
-.best-feed { max-height: 780px; overflow-y:scroll;}
+.best-feed { max-height: 600px; overflow-y:scroll;}
 .best-feed .media-body {cursor: pointer;}
 .popover-content a, .popover-feed-image-content a { padding: 3px; }
 
+#bestFeedModal {z-index: 999999;}
 #bestFeedModal .modal-dialog {width:900px;}
 #bestFeedModal .modal-body {max-height: 580px; overflow-y:scroll;}
+
+#fileUploadModal .image-options {display:none;}
+#fileUploadModal .modal-dialog { width: 550px;}
+#fileUploadModal .image-preview {height:100px;}
+
+#right-panel-container { position: absolute; right: -5%; top: 0; }
+.right-panel { display: none; width: 230px; padding: 20px; background-color: #F5F5F5;    box-shadow: inset 0 0 1px 1px #DDDDDD;}
 
 .btn-file {
     position: relative;
@@ -132,6 +142,14 @@ div.best-qna-bottom {font-size: 14px; margin: 5px 0 0 10px; padding-left: 10px;}
 div.best-qna-bottom span { padding:5px}
 span.my-qna-writer {margin-left:20px;}
 .my-qna-rating button {margin:5px;}
+
+.cat-keyword{font-size: 13px; text-align: right}
+.cat-keyword li{line-height: 0.7;}
+
+.readCnt{margin-left: 30px}
+
+.form-group .readCnt{margin-left: 10px}
+
 
 /**
 *   Wiki
