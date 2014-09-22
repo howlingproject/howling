@@ -2,5 +2,17 @@ package com.libqa.space
 
 class SpaceController {
 
-    def index() {}
+    static layout = 'space'
+
+    def space() {
+        log.debug("SpaceController space main!")
+    }
+
+    def form() {
+        log.debug("SpaceController form!")
+    }
+
+    def main() {
+        log.debug("SpaceController main!")
+    }
 }
