@@ -139,7 +139,12 @@ div.best-qna-item .media{}
 
 div.qna-rating-info {width:30px; padding:0px; margin-left:5px;}
 div.best-qna-bottom {font-size: 14px; margin: 5px 0 0 10px; padding-left: 10px;}
-div.best-qna-bottom span { padding:5px}
+div.best-qna-bottom span {padding:5px}
+div.qna-top-search{padding-left: 0}
+div.qna-main-top {padding-right: 0px;}
+div.qna-title span {font-weight: bold;}
+div.alert-info span.qna-alert-title{font-size: 16px; color:#555;}
+span.qna-alert-info {font-size: 16px;}
 span.my-qna-writer {margin-left:20px;}
 .my-qna-rating button {margin:5px;}
 
