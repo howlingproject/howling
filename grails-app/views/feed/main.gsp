@@ -609,26 +609,24 @@
 </div>
 <!-- popover-config end -->
 
-<script type="text/javascript">
-
-    $('.popover-config').popover({
-        trigger: 'click',
-        html: true,
-        content: function () {
-            return $('#popover-config-content').html();
-        }
-    });
-
-    $('.popover-feed-image').popover({
-        trigger: 'click',
-        html: true,
-        content: function () {
-            return $('#popover-feed-image-content').html();
-        }
-    })
-</script>
-
 <script src="http://eduardomb.github.io/jquery-panelslider/jquery.panelslider.min.js"></script>
 <script type="text/javascript">
     $('#right-panel-link').panelslider({side: 'right', clickClose: true, duration: 200 });
+    $(function(){
+        $('.popover-config').popover({
+            trigger: 'click',
+            html: true,
+            content: function () {
+                return jQuery('#popover-config-content').html();
+            }
+        });
+
+        $('.popover-feed-image').popover({
+            trigger: 'click',
+            html: true,
+            content: function () {
+                return $('#popover-feed-image-content').html();
+            }
+        })
+    });
 </script>

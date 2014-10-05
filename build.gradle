@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        jcenter()
         mavenCentral()
         maven { url "http://repo.grails.org/grails/repo"}
     }
@@ -9,7 +10,7 @@ buildscript {
 }
 
 version '0.1'
-group 'com.archivemode'
+group 'com.libqna'
 
 apply plugin: 'grails'
 
@@ -20,10 +21,17 @@ repositories {
 
 grails {
     grailsVersion = '2.3.5'
+    groovyVersion = '2.1.9'
+    springLoadedVersion '1.1.3'
 }
 
 dependencies {
     bootstrap 'org.grails.plugins:tomcat:7.0.50'
+    compile 'org.grails.plugins:resources:1.2'
+    compile 'org.grails.plugins:jquery:1.11.1'
+    compile 'org.grails.plugins:twitter-bootstrap:3.2.0'
+    compile 'org.grails.plugins:font-awesome-resources:4.2.0.0'
+
     //runtime 'mysql:mysql-connector-java:5.1.27'
     // runtime 'org.postgresql:postgresql:9.3-1100-jdbc41'
 }
