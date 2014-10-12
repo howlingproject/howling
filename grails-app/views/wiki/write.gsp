@@ -15,21 +15,11 @@
         </div>
         <!--// 에디터 -->
 
-        <div class="form-inline">
+        <div class="form-inline" id="tag-info">
             <label for="keyword" class="sr-only">키워드</label>
-            <input type="text" class="form-control" id="keyword" style="width: 30%;" placeholder="키워드를 입력하세요. (최대 5개)">
-            <button type="button" class="btn btn-primary btn-sm">키워드추가</button>
-
-            <button type="button" class="btn btn-default btn-sm">
-                JAVA <a href="#"><i class="fa fa-times"></i></a>
-            </button>
-            <button type="button" class="btn btn-default btn-sm">
-                Spring <a href="#"><i class="fa fa-times"></i></a>
-            </button>
-            <button type="button" class="btn btn-default btn-sm">
-                Ubuntu <a href="#"><i class="fa fa-times"></i></a>
-            </button>
-
+            <input type="te xt" class="form-control" id="keyword" style="width: 30%;" placeholder="키워드를 입력하세요. (최대 5개)">
+            <button type="button" class="btn btn-primary btn-sm">키워드추가 <i class="glyphicon glyphicon-plus"></i></button>
+            <ul id="tag-cloud" style="padding-left: 0px; width:100%;"></ul>
         </div>
         <br>
         <div class="form-group">
@@ -44,3 +34,6 @@
     </div>
 
 </div>
+
+<g:javascript src="bootstrap-tag-cloud/bootstrap-tag-cloud.js" />
+<link type="stylesheet" href="${resource(dir: 'css/bootstrap-tag-cloud', file: 'bootstrap-tag-cloud.css')}" />

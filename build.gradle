@@ -26,6 +26,8 @@ grails {
 }
 
 dependencies {
+    compile 'javax.servlet:javax.servlet-api:3.0.1'
+
     bootstrap 'org.grails.plugins:tomcat:7.0.50'
     compile 'org.grails.plugins:resources:1.2'
     compile 'org.grails.plugins:jquery:1.11.1'

@@ -14,16 +14,16 @@
         <nav role="navigation" class="navbar-collapse bs-navbar-collapse collapse">
             <ul class="nav navbar-nav navi-menu">
                 <li class="active">
-                    <a href="#">Feeds</a>
+                    <g:link resource="feed" action="main">Feeds</g:link>
                 </li>
                 <li>
-                    <a href="#">Q&amp;A</a>
+                    <g:link resource="qa" action="main">Q&amp;A</g:link>
                 </li>
                 <li>
-                    <a href="#">Space</a>
+                    <g:link resource="space" action="main">Space</g:link>
                 </li>
                 <li>
-                    <a href="#">Wiki</a>
+                    <g:link resource="wiki" action="main">Wiki</g:link>
                 </li>
                 <li>
                     <a href="#">My Info</a>

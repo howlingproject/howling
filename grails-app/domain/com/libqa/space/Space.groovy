@@ -9,9 +9,19 @@ class Space {
     String titleImagePath
     char isPrivate // (Y,N)
     char isDeleted // (Y,N)
-    Date InsertDate
-    // layoutType(left, default, right)
+    String layoutType
+    Date insertDate
+    Date updateDate
+    Long insertUserId
+    Long updateUserId
+
+
+    static hasMany = [spaceAccessUsers : SpaceAccessUser]
 
     static constraints = {
+        spaceId nullable: false
+        description nullable: false
+        title nullable: false, maxSize : 200
+        layoutType nullable: false
     }
 }
