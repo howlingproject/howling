@@ -4,11 +4,14 @@ class FeedReply {
     Long replyId
     String userId
     String userNick
-    Date insertDate
-    Date updateDate
     Long feedId
     String feedReplyContent
     Boolean isDeleted
+
+    Date insertDate
+    Date updateDate
+    Long insertUserId
+    Long updateUserId
 
     static belongsTo = Feed
     static constraints = {
