@@ -75,3 +75,6 @@
     </form>
     <!--/form-->
 </div>
+
+<g:javascript src="bootstrap-tag-cloud/bootstrap-tag-cloud.js" />
+<link href="<g:resource dir="css/bootstrap-tag-cloud" file="bootstrap-tag-cloud.css" />" rel="stylesheet">
