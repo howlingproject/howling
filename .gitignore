@@ -149,3 +149,5 @@ gradle/
 # sbteclipse plugin
 .target
 
+# DB
+*.db
