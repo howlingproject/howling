@@ -15,3 +15,21 @@ CREATE TABLE `space` (
   PRIMARY KEY (`spaceId`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8
 
+
+/* 공간 접근자 */
+
+CREATE TABLE `howling`.`spaceaccessuser` (
+  `spaceid` INT NOT NULL COMMENT '공간번호 FK',
+  `userId` INT NOT NULL COMMENT '사용자 아이디 ',
+  `isDeleted` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '삭제여부',
+  `insertDate` DATETIME NULL COMMENT '입력일 ',
+  `updateDate` DATETIME NULL COMMENT '수정일',
+  `insertUserId` INT NULL COMMENT '입력자',
+  `updateUserId` INT NULL COMMENT '수정자 ',
+  PRIMARY KEY (`spaceid`, `userId`),
+  CONSTRAINT `spaceId`
+    FOREIGN KEY (`spaceid`)
+    REFERENCES `howling`.`space` (`spaceId`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+    ENGINE=INNODB DEFAULT CHARSET=utf8;
