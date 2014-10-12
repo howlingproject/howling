@@ -2,7 +2,7 @@ package com.libqa.space
 
 class SpaceController {
 
-    static layout = 'space'
+    static layout = 'main'
 
     def space() {
         log.debug("SpaceController space main!")
