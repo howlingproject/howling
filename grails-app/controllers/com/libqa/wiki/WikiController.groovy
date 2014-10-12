@@ -1,7 +1,7 @@
 package com.libqa.wiki
 
 class WikiController {
-    static layout = 'wiki'
+    static layout = 'main'
 
     def main() {
         log.debug("Wiki Main page is called!")
