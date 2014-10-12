@@ -23,8 +23,13 @@
         </div>
         <br>
         <div class="form-group">
-            <label for="file" class="sr-only">파일첨부</label>
-            <input type="file" class="form-control" id="file" placeholder="파일 첨부 (최대 3개) ">
+            <div class="form-inline col-md-pull-10">
+                <input id="file-attachment" type="file" style="display:none">
+                <input id="fileAttachmentInput" class="form-control" type="text"placeholder="공간을 표현할 수 있는 대표 이미지를 등록하세요.">
+                <button class="btn btn-info btn-default" type="button" onclick="$('input[id=file-attachment]').click();">파일선택
+                </button>
+                <p class="help-block"></p>
+            </div>
         </div>
 
     </form>
