@@ -1,6 +1,9 @@
 package com.libqa.user
 
 class UserController {
+    static layout = 'main'
 
-    def index() {}
+    def registration() {
+        log.debug("Wiki Main page is called!")
+    }
 }
