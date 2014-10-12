@@ -10,7 +10,7 @@ class Space {
     char isPrivate // (Y,N)
     char isDeleted // (Y,N)
     String layoutType
-    Date InsertDate
+    Date insertDate
     Date updateDate
     Long insertUserId
     Long updateUserId
