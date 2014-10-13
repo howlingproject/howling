@@ -2,7 +2,7 @@ modules = {
 
     bootstrapTheme {
         dependsOn 'font-awesome'
-        resource url: 'bootstrap/theme/bootswatch/cerulean/bootstrap.min.css' // bootstrap theme
+        resource url: 'css/bootstrap/theme/bootswatch/cerulean/bootstrap.min.css' // bootstrap theme
     }
 
     application {

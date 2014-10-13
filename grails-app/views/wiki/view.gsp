@@ -1,3 +1,4 @@
+
 <div class="container">
 <div class="col-md" >
 <div style="padding-bottom: 45px;">
@@ -611,3 +612,51 @@
 
 </div>
 </div>
+
+
+<div class="modal fade" id="askModal" tabindex="-1" role="dialog" aria-labelledby="askModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="askModalLabel">위키에 질문하기</h4>
+            </div>
+            <div class="modal-body" id="askEdit">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="emailShareModal" tabindex="-1" role="dialog" aria-labelledby="emailShareModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="emailShareModalLabel">이메일로 공유하기</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control">
+                    </div>
+                    <button type="button" class="btn btn-primary">추가</button>
+                </form>
+                <br>
+                <button type="button" class="btn btn-default btn-sm">cafeciel@hanmail.net <span class="glyphicon glyphicon-remove"></span></button>
+                <button type="button" class="btn btn-default btn-sm">cafeciel@hanmail.net <span class="glyphicon glyphicon-remove"></span></button>
+                <button type="button" class="btn btn-default btn-sm">cafeciel@hanmail.net <span class="glyphicon glyphicon-remove"></span></button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="http://getbootstrap.com/assets/css/docs.min.css" rel="stylesheet">

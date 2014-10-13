@@ -66,27 +66,27 @@ grails.project.dependency.resolution = {
 //        }
 //    }
 
-//    plugins {
-//        // plugins for the build system only
-//        build ":tomcat:7.0.50"
-//
-//        // plugins for the compile step
-//        compile ":scaffolding:2.0.1"
-//        compile ':cache:1.1.1'
-//        compile ":jquery:1.11.1"
-//        runtime ':twitter-bootstrap:3.2.0'
-//        compile ":font-awesome-resources:4.2.0.0"
-//
-//        // plugins needed at runtime but not for compilation
-//        runtime ":hibernate:3.6.10.7" // or ":hibernate4:4.1.11.6"
-//        runtime ":database-migration:1.3.8"
-//        runtime ":resources:1.2.8"
-//        // Uncomment these (or add new ones) to enable additional resources capabilities
-//        //runtime ":zipped-resources:1.0.1"
-//        //runtime ":cached-resources:1.1"
-//        //runtime ":yui-minify-resources:0.1.5"
-//
-//        // plugins for Standalone
-//        runtime ':war-exec:1.0.1'
-//    }
+    plugins {
+        // plugins for the build system only
+        build ":tomcat:7.0.50"
+
+        // plugins for the compile step
+        compile ":scaffolding:2.0.1"
+        compile ':cache:1.1.1'
+        compile ":jquery:1.11.1"
+        runtime ':twitter-bootstrap:3.2.0'
+        compile ":font-awesome-resources:4.2.0.0"
+
+        // plugins needed at runtime but not for compilation
+        runtime ":hibernate:3.6.10.7" // or ":hibernate4:4.1.11.6"
+        runtime ":database-migration:1.3.8"
+        runtime ":resources:1.2.8"
+        // Uncomment these (or add new ones) to enable additional resources capabilities
+        //runtime ":zipped-resources:1.0.1"
+        //runtime ":cached-resources:1.1"
+        //runtime ":yui-minify-resources:0.1.5"
+
+        // plugins for Standalone
+        runtime ':war-exec:1.0.1'
+    }
 }

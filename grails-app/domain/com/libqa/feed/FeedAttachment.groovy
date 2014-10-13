@@ -6,9 +6,12 @@ class FeedAttachment {
     Long fileSize
     String fileType
     Integer downloadCount
+    Long feedId
+
     Date insertDate
     Date updateDate
-    Long feedId
+    Long insertUserId
+    Long updateUserId
 
     static belongsTo = Feed
     static constraints = {
