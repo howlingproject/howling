@@ -26,6 +26,11 @@ grails {
 }
 
 dependencies {
+    compile "org.grails:grails-crud:1.2.0",
+            "org.grails:grails-gorm:1.2.0",
+            "org.apache.httpcomponents:httpclient:4.0",
+            "org.apache.httpcomponents:httpmime:4.0"
+
     bootstrap 'org.grails.plugins:tomcat:7.0.50'
     compile 'org.grails.plugins:resources:1.2'
     compile 'org.grails.plugins:jquery:1.11.1'
