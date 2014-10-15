@@ -150,3 +150,177 @@ CREATE TABLE `feed` (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 
+CREATE  TABLE `howling`.`feed_file` (
+  `feedFileId` INT NOT NULL AUTO_INCREMENT COMMENT '피드첨부번호' ,
+  `feedId` INT NOT NULL ,
+  `realName` VARCHAR(45) NOT NULL COMMENT '파일명' ,
+  `saveName` VARCHAR(45) NOT NULL COMMENT '파일저장명' ,
+  `fileSize` INT NOT NULL ,
+  `fileType` VARCHAR(20) NOT NULL COMMENT '파일타입' ,
+  `userId` INT NOT NULL COMMENT '사용자번호' ,
+  `downloadCount` INT NOT NULL COMMENT '다운로드수' ,
+  `isDeleted` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '삭제여부' ,
+  `insertDate` DATETIME NOT NULL COMMENT '입력일' ,
+  `updateDate` DATETIME NULL COMMENT '삭제일' ,
+  PRIMARY KEY (`feedFileId`) ,
+  INDEX `feedId_idx` (`feedId` ASC),
+  FOREIGN KEY (`feedId`)
+  REFERENCES `howling`.`feed` (`feedId`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION)
+ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '피드첨부파일';
+
+
+CREATE  TABLE `howling`.`feed_reply` (
+  `replyId` INT NOT NULL AUTO_INCREMENT COMMENT '피드댓글번호' ,
+  `feedId` INT NOT NULL ,
+  `userId` INT NOT NULL COMMENT '사용자 번호',
+  `userNick` VARCHAR(40) NOT NULL COMMENT '사용자닉네임' ,
+  `contents` TEXT NOT NULL COMMENT '내용' ,
+  `isDeleted` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '삭제여부' ,
+  `insertDate` DATETIME NOT NULL COMMENT '입력일' ,
+  `updateDate` DATETIME NULL COMMENT '삭제일' ,
+  PRIMARY KEY (`replyId`) ,
+  INDEX `feedreply_feedid_idx` (`feedId` ASC),
+  FOREIGN KEY (`feedId`)
+  REFERENCES `howling`.`feed` (`feedId`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION)
+ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '피드 댓글';
+
+
+
+CREATE  TABLE `howling`.`feed_like_user` (
+  `feedLikeId` INT NOT NULL AUTO_INCREMENT COMMENT '피드공감번호' ,
+  `feedId` INT ,
+  `replyId` INT , 
+  `feedLikeType` VARCHAR(40) NOT NULL COMMENT '공감 타입 (FEED, REPLY)' ,
+  `isCanceled` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '취소여부' ,
+  `userId` INT NOT NULL COMMENT '사용자 번호',
+  `userNick` VARCHAR(40) NOT NULL COMMENT '사용자닉네임' ,
+  `insertDate` DATETIME NOT NULL COMMENT '입력일' ,
+  `updateDate` DATETIME NULL COMMENT '삭제일' ,
+  PRIMARY KEY (`feedLikeId`) ,
+  INDEX `feedlikeuser_feedid_idx` (`feedId` ASC),
+  INDEX `feedlikeuser_replyid_idx` (`replyId` ASC),
+  FOREIGN KEY (`feedId`)
+  REFERENCES `howling`.`feed` (`feedId`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION)
+ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '피드 댓글';
+
+
+
+CREATE  TABLE `howling`.`user` (
+  `userId` INT NOT NULL AUTO_INCREMENT COMMENT '사용자번호' ,
+  `userEmail` VARCHAR(50) NOT NULL COMMENT '사용자이메일' ,
+  `userNick` VARCHAR(40) NOT NULL COMMENT '사용자닉네임' ,
+  `userSite` VARCHAR(200) COMMENT '사용자홈페이지' ,
+  `userImage` VARCHAR(100) COMMENT '사용자이미지' ,
+  `isDeleted` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '탈퇴여부' ,
+  `facebookKey` VARCHAR(200) COMMENT '페이스북연동키' ,
+  `googleKey` VARCHAR(200) COMMENT '구글연동키' ,
+  `tweeterKey` VARCHAR(200) COMMENT '트위터연동키' ,
+  `userPass` VARCHAR(200) NOT NULL COMMENT '비밀번호' ,
+  `visiteCount` INT NOT NULL DEFAULT 1 COMMENT '방문카운트',
+  `lastVisiteDate` DATETIME NOT NULL COMMENT '방문일' ,
+  `insertDate` DATETIME NOT NULL COMMENT '입력일' ,
+  `updateDate` DATETIME NULL COMMENT '수정일' ,
+  `userPoint` INT NOT NULL DEFAULT 0 COMMENT '포인트',
+  `interestKeyword` VARCHAR(50) COMMENT '관심분야' ,
+  `isCertification` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '인증여부' ,
+  `certificationValue` VARCHAR(50) COMMENT '인증키값' ,
+  PRIMARY KEY (`userId`) )
+ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '사용자정보';
+
+CREATE  TABLE `howling`.`favorite` (
+  `favoriteId` INT NOT NULL AUTO_INCREMENT COMMENT '즐겨찾기번호' ,
+  `userId` INT NOT NULL COMMENT '사용자번호',
+  `favoriteType` VARCHAR(20) NOT NULL COMMENT '즐겨찾기타입(SPACE, WIKI, QA)' ,
+  `spaceId` INT NOT NULL COMMENT '공간번호' ,
+  `wikiId` INT NOT NULL COMMENT '위키번호' ,
+  `qaId` INT NOT NULL COMMENT '질문번호' ,
+  `isDeleted` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '삭제여부' ,
+  `insertDate` DATETIME NOT NULL COMMENT '입력일' ,
+  `updateDate` DATETIME NULL COMMENT '수정일' ,
+  PRIMARY KEY (`favoriteId`) )
+ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '즐겨찾기';
+
+
+
+CREATE  TABLE `howling`.`user_point_history` (
+  `userId` INT NOT NULL COMMENT '사용자 번호',
+  `pointType` VARCHAR(20) NOT NULL COMMENT '포인트타입(Wiki글 쓰기, QA답변, QA 추천,  공유갯수, 로그인횟수, Feed쓰기, Feed 답변, Feed 좋아요,즐겨찾기)' ,
+  `userPoint` INT NOT NULL COMMENT '포인트' ,
+  `insertDate` DATETIME NOT NULL COMMENT '입력일' 
+)
+ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '사용자포인트내역';
+
+
+
+
+
+CREATE  TABLE `howling`.`notification_type` (
+  `notificationTypeId` INT NOT NULL AUTO_INCREMENT COMMENT '알람정의번호' ,
+  `notificationType` VARCHAR(40) NOT NULL COMMENT '알람종류(댓글, 수정, 추가, 답변, 즐겨찾기, 공감, 추천)' ,
+  `notificationDesc` VARCHAR(200) NOT NULL COMMENT '알람설명문구' ,
+  `isDeleted` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '삭제여부' ,
+  `insertDate` DATETIME NOT NULL COMMENT '입력일' ,
+  PRIMARY KEY (`notificationTypeId`) 
+)
+ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '알람타입정의정보';
+
+
+
+
+
+CREATE  TABLE `howling`.`notification` (
+  `notificationId` INT NOT NULL AUTO_INCREMENT COMMENT '알람번호' ,
+  `notificationTypeId` INT NOT NULL COMMENT '알람타입정의번호' ,
+  `userId` INT NOT NULL COMMENT '사용자 번호',
+  `notificationDesc` VARCHAR(200) NOT NULL COMMENT '알람설명문구' ,
+  `notificationLink` VARCHAR(200) NOT NULL COMMENT '알람링크' ,
+  `insertDate` DATETIME NOT NULL COMMENT '입력일' ,
+  `confirmDate` DATETIME NOT NULL COMMENT '확인일' ,
+  `isConfirmed` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '확인여부' ,
+  PRIMARY KEY (`notificationId`) ,
+  INDEX `notification_idx` (`notificationTypeId` ASC),
+  FOREIGN KEY (`notificationTypeId`)
+  REFERENCES `howling`.`notification_type` (`notificationTypeId`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION
+)
+ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '알람정보';
+
+
+
+
+CREATE  TABLE `howling`.`activity_type` (
+  `activityTypeId` INT NOT NULL AUTO_INCREMENT COMMENT '활동내역타입번호' ,
+  `activityType` VARCHAR(40) NOT NULL COMMENT '활동내역타입종류(수정, 추가,추천)' ,
+  `activityDesc` VARCHAR(200) NOT NULL COMMENT '활동내역문구' ,
+  `isDeleted` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '삭제여부' ,
+  `insertDate` DATETIME NOT NULL COMMENT '입력일' ,
+  PRIMARY KEY (`activityTypeId`) 
+)
+ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '활동내역타입정보';
+
+
+
+CREATE  TABLE `howling`.`activity` (
+  `activityId` INT NOT NULL AUTO_INCREMENT COMMENT '활동내역번호' ,
+  `activityTypeId` INT NOT NULL COMMENT '활동내역타입번호' ,
+  `userId` INT NOT NULL COMMENT '사용자 번호',
+  `activityDesc` VARCHAR(200) NOT NULL COMMENT '활동내역문구' ,
+  `activityLink` VARCHAR(200) NOT NULL COMMENT '활동내역링크' ,
+  `insertDate` DATETIME NOT NULL COMMENT '입력일' ,
+  `confirmDate` DATETIME NOT NULL COMMENT '확인일' ,
+  `isConfirmed` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '확인여부' ,
+  PRIMARY KEY (`activityId`) ,
+  INDEX `activity_idx` (`activityTypeId` ASC),
+  FOREIGN KEY (`activityTypeId`)
+  REFERENCES `howling`.`activity_type` (`activityTypeId`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION
+)
+ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '활동내역';
