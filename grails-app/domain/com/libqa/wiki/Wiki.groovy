@@ -2,7 +2,7 @@ package com.libqa.wiki
 
 class Wiki {
 
-    Long spaceid
+    Long spaceId
     Long wikiId
     Long parentsId
     String title
@@ -25,7 +25,7 @@ class Wiki {
     char isDeleted //(Y,N)
 
 
-    static hasMany = [wikibacks: Wikiback, wikireplys: WikiReply, wikifiles: WikiFiles]
+    static hasMany = [wikibacks: WikiBack, wikireplys: WikiReply, wikifiles: WikiFiles]
     static constraints = {
     }
 }
