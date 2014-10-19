@@ -23,9 +23,11 @@
                 <span class="col-md-12 pull-left section-category qna-alert-info">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#">관련 키워드</a></li>
-                        <li class="pull-right">
+                        <li class="pull-left readCnt">
                             <span class="label label-primary">Spring</span>
                             <span class="label label-success">JAVA</span>
+                        </li>
+                        <li class="pull-right">
                             <div class="user-profile-sm">
                                 <span class="nickname">sjune</span>
                                 <img alt="avatar" class="profile-image" src="../images/avatar.png" />
@@ -61,13 +63,13 @@
                 </div>
                 <!--// 본문 제목, 내용 -->
                 <div>
-                    <div class="text-right">
+                    <div class="text-left">
                         <i class="fa fa-thumbs-o-up"><span class="like-count">(30)</span></i>
                         <i class="fa fa-share-alt"><span class="claim-count">(0)</span></i>
                     </div>
-                    <div class="text-center">
+                    <div class="text-right">
                         <button type="button" class="btn btn-primary btn-sm">수정</button>
-                        <button type="button" class="btn btn-primary btn-sm">삭제</button>
+                        <button type="button" class="btn btn-danger btn-sm">삭제</button>
                         <button type="button" class="btn btn-primary btn-sm">목록</button>
                     </div>
                 </div>
