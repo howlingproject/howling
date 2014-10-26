@@ -12,7 +12,7 @@ class WikiReply {
     char isDeleted // (Y:N)
     Date updateDate
 
-    static belongsTo = [wiki: Wiki]
+    static belongsTo = [parentsId: Wiki]
     static constraints = {
     }
 }

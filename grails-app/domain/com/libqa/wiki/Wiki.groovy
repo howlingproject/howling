@@ -25,7 +25,7 @@ class Wiki {
     char isDeleted //(Y,N)
 
 
-    static hasMany = [wikibacks: WikiBack, wikireplys: WikiReply, wikifiles: WikiFiles]
+    static hasMany = [wikibacks: Wikiback, wikireplys: WikiReply, wikifiles: WikiFiles]
     static constraints = {
     }
 }
