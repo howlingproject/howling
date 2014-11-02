@@ -1,19 +1,22 @@
 package com.libqa.feed
 
+import com.libqa.application.enums.SharedContentsTypeEnum
+
 class Feed {
     Long feedId
     Long userId
     String userNick
     String sharedResponseId
+    SharedContentsTypeEnum sharedContentsType;
     String feedContent
     String feedUrl
     int likeCount
     int claimCount
     char isShared = 'N'
     char isPrivate = 'N'
-    char isSharedFB = 'N'
-    char isSharedTW = 'N'
-    char isSharedGP = 'N'
+    char isSharedFb = 'N'
+    char isSharedTw = 'N'
+    char isSharedGp = 'N'
 
     Date insertDate
     Date updateDate
@@ -30,9 +33,9 @@ class Feed {
     static constraints = {
         isShared(nullable:false)
         isPrivate(nullable:false)
-        isSharedFB(nullable:false)
-        isSharedTW(nullable:false)
-        isSharedGP(nullable:false)
+        isSharedFb(nullable:false)
+        isSharedTw(nullable:false)
+        isSharedGp(nullable:false)
         feedContent (blank:false, nullable: false, maxSize: 4000)
         feedUrl(nullable: true, url: true)
         likeCount(nullable: true)
