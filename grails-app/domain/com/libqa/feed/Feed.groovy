@@ -23,7 +23,7 @@ class Feed {
     Long insertUserId
     Long updateUserId
 
-    static hasMany = [feedReplies: FeedReply, feedFiles: FeedFiles, feedLikeUser: FeedLikeUser]
+    static hasMany = [feedReplies: FeedReply, feedFiles: FeedFiles, feedLikeUsers: FeedLikeUser]
 
     static mapping = {
         version false
