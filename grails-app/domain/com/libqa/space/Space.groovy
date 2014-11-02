@@ -1,7 +1,6 @@
 package com.libqa.space
 
 import com.libqa.application.enums.LayoutTypeEnum
-import com.libqa.wiki.Wiki
 
 class Space {
 //    Long id
@@ -23,7 +22,7 @@ class Space {
         id name : 'spaceId'
     }
 
-    static hasMany = [spaceAccessUser : SpaceAccessUser, wiki : Wiki]
+    static hasMany = [spaceAccessUsers : SpaceAccessUser, wikis : Wiki]
 
 
     static constraints = {
