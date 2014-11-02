@@ -14,7 +14,6 @@ class QaReply {
     char IsDeleted //(Y:N)
     Boolean IsChoice   //(글쓴이가 선택함)
 
-//    static hasMany = [replyId : Vote]
     static belongsTo = [parentsId : QaContents]
     static constraints = {
     }

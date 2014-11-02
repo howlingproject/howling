@@ -18,7 +18,6 @@ class QaContents {
     String sharedResponseId
     String test
 
-    static hasMany = [contentIds : Keywords, contentIds : QaReply, contentIds : SharedContents_FB, contentIds :QaRecommand]
     static constraints = {
     }
 }
