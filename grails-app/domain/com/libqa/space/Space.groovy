@@ -1,5 +1,7 @@
 package com.libqa.space
 
+import com.libqa.application.enums.LayoutTypeEnum
+
 class Space {
 
     Long spaceId
@@ -7,16 +9,14 @@ class Space {
     String title
     String titleImage
     String titleImagePath
-    char isPrivate // (Y,N)
-    char isDeleted // (Y,N)
-    String layoutType
+    char isPrivate          // (Y,N)
+    char isDeleted          // (Y,N)
+    LayoutTypeEnum layoutType
     Date insertDate
     Date updateDate
     Long insertUserId
     Long updateUserId
 
-
-    static hasMany = [spaceAccessUsers : SpaceAccessUser]
 
     static constraints = {
         spaceId nullable: false

@@ -1,19 +1,18 @@
 package com.libqa.feed
 
-import com.libqa.application.enums.SharedContentsType
-import com.libqa.application.enums.ViewType
+
 
 class Feed {
     Long feedId
     Long userId
     String userNick
     Boolean isShared
-    SharedContentsType sharedContentsType
+//    SharedContentsType sharedContentsType
     String sharedResponseId
     int likeCount
     int claimCount
     String feedContent
-    ViewType viewType
+//    ViewType viewType
     Boolean isSharedFB
     Boolean isSharedTW
     Boolean isSharedGP
@@ -24,7 +23,7 @@ class Feed {
     Long insertUserId
     Long updateUserId
 
-    static hasMany = [feedReplies: FeedReply, feedAttachments: FeedAttachment]
+    static hasMany = [feedReplies: FeedReply, feedFiles: FeedFiles]
     static constraints = {
         isShared(nullable:false)
         feedContent (blank:false, nullable: false, maxSize: 4000)
