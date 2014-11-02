@@ -20,6 +20,13 @@ class Feed {
     Long insertUserId
     Long updateUserId
 
+    static hasMany = [feedReplies: FeedReply, feedFiles: FeedFiles, feedLikeUser: FeedLikeUser]
+
+    static mapping = {
+        version false
+        id name : 'feedId'
+    }
+
     static constraints = {
         isShared(nullable:false)
         feedContent (blank:false, nullable: false, maxSize: 4000)

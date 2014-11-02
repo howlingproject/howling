@@ -17,6 +17,12 @@ class FeedLikeUser {
     Long updateUserId
 
     static belongsTo = Feed
+
+    static mapping = {
+        version false
+        id name : 'feedLikeUserId'
+    }
+
     static constraints = {
         isCanceled (nullable: false)
     }
