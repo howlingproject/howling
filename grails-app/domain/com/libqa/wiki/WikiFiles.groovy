@@ -5,6 +5,7 @@ class WikiFiles {
     Long wikiId
     Long fileId
     String realName
+    String saveName
     String path
     int fileSize
     String fileType
