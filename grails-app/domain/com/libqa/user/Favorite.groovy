@@ -12,10 +12,11 @@ class Favorite {
     Long qaId
     char isDeleted = "N"    // (Y,N)
     Date insertDate
-    Long insertUserId
+    Date updateDate
 
     static belongsTo = [User]
 
     static constraints = {
+        isDeleted (nullable: false)
     }
 }

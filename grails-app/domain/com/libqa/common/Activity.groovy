@@ -12,7 +12,10 @@ class Activity {
     Date insertDate
     Date confirmDate
 
+    static belongsTo = [ActivityType]
+
     static constraints = {
+        activityTypeId (nullable: false)
         userId (blank:false, nullable: false)
         isDeleted (nullable: false)
         isConfirmed (nullable: false)
