@@ -9,10 +9,10 @@ class WikiFiles {
     String path
     int fileSize
     String fileType
-    char isDeleted //(Y,N)
+    char isDeleted = "N" //(Y,N)
     long userId
 
-    static belongsTo = [parentsId: Wiki]
+    static belongsTo = [wikiId: Wiki]
     static constraints = {
     }
 }
