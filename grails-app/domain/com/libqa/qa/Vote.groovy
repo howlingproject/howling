@@ -10,12 +10,7 @@ class Vote {
     Date insertDate
     Date updateDate
 
-    static mapping = {
-        version false
-        id name : 'replyId'
-    }
-
-    static belongsTo = [replyId : QaReply]
+    static belongsTo = [replyIds : QaReply]
     static constraints = {
     }
 }
