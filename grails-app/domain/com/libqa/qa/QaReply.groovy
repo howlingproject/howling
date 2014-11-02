@@ -20,6 +20,11 @@ class QaReply {
     Long insertUserId
     Long updateUserId
 
+    static mapping = {
+        version false
+        id name : 'replyId'
+    }
+
     static belongsTo = [parentsId : QaContents]
     static constraints = {
     }
