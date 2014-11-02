@@ -71,7 +71,6 @@
                         <span class="my-qna-writer">
                             <div class="user-profile-xs">
                                 <span class="nickname">Yion</span>
-                                <img alt="avatar" class="profile-image" src="../images/avatar.png" />
                             </div>
                         </span>
                         <div class="pull-right">
@@ -110,7 +109,6 @@
                         <span class="my-qna-writer">
                             <div class="user-profile-xs">
                                 <span class="nickname">Yion</span>
-                                <img alt="avatar" class="profile-image" src="../images/avatar.png" />
                             </div>
                         </span>
                         <div class="pull-right">
@@ -149,7 +147,6 @@
                         <span class="my-qna-writer">
                             <div class="user-profile-xs">
                                 <span class="nickname">Yion</span>
-                                <img alt="avatar" class="profile-image" src="../images/avatar.png" />
                             </div>
                         </span>
                         <div class="pull-right">
@@ -188,7 +185,6 @@
                         <span class="my-qna-writer">
                             <div class="user-profile-xs">
                                 <span class="nickname">Yion</span>
-                                <img alt="avatar" class="profile-image" src="../images/avatar.png" />
                             </div>
                         </span>
                         <div class="pull-right">
@@ -227,7 +223,6 @@
                         <span class="my-qna-writer">
                             <div class="user-profile-xs">
                                 <span class="nickname">Yion</span>
-                                <img alt="avatar" class="profile-image" src="../images/avatar.png" />
                             </div>
                         </span>
                         <div class="pull-right">
@@ -271,7 +266,6 @@
                                 <span class="my-qna-writer">
                                     <div class="user-profile-xs">
                                         <span class="nickname">Yion</span>
-                                        <img alt="avatar" class="profile-image" src="../images/avatar.png" />
                                     </div>
                                 </span>
                                 <div class="pull-right">
@@ -310,7 +304,6 @@
                                 <span class="my-qna-writer">
                                     <div class="user-profile-xs">
                                         <span class="nickname">Yion</span>
-                                        <img alt="avatar" class="profile-image" src="../images/avatar.png" />
                                     </div>
                                 </span>
                                 <div class="pull-right">
@@ -349,7 +342,6 @@
                                 <span class="my-qna-writer">
                                     <div class="user-profile-xs">
                                         <span class="nickname">Yion</span>
-                                        <img alt="avatar" class="profile-image" src="../images/avatar.png" />
                                     </div>
                                 </span>
                                 <div class="pull-right">
@@ -388,7 +380,6 @@
                                 <span class="my-qna-writer">
                                     <div class="user-profile-xs">
                                         <span class="nickname">Yion</span>
-                                        <img alt="avatar" class="profile-image" src="../images/avatar.png" />
                                     </div>
                                 </span>
                                 <div class="pull-right">
@@ -427,7 +418,6 @@
                                 <span class="my-qna-writer">
                                     <div class="user-profile-xs">
                                         <span class="nickname">Yion</span>
-                                        <img alt="avatar" class="profile-image" src="../images/avatar.png" />
                                     </div>
                                 </span>
                                 <div class="pull-right">

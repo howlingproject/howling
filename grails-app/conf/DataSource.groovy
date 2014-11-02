@@ -1,6 +1,6 @@
 dataSource {
     pooled = true
-    dbCreate = "update"
+//    dbCreate = "update"
     driverClassName = "com.mysql.jdbc.Driver"
     //url = "jdbc:mysql://14.63.225.165:3306/howling"
     username = "howlingproject"

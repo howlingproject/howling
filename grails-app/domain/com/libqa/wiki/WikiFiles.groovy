@@ -11,7 +11,7 @@ class WikiFiles {
     char isDeleted //(Y,N)
     long userId
 
-    static belongsTo = [wiki: Wiki]
+    static belongsTo = [parentsId: Wiki]
     static constraints = {
     }
 }

@@ -11,6 +11,7 @@
   <title></title>
 </head>
 <body>
+<g:render template="/include/indicator"/>
     <!-- contents -->
     <!-- qna top contents -->
     <div class="container qna-top-search">
@@ -635,5 +636,6 @@
             <!--// BEST Q&A -->
         </div>
     </div>
+
 </body>
 </html>

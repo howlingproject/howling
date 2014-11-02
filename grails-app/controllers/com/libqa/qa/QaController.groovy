@@ -3,7 +3,13 @@ package com.libqa.qa
 class QaController {
     static layout = 'main'
 
+    def main(){
+
+    }
     def my(){
+
+    }
+    def view(){
 
     }
 //    def main() {

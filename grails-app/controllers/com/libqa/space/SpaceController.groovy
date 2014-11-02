@@ -20,8 +20,8 @@ class SpaceController {
 
     def current = {
         log.debug("##### spaceController current in ")
+        log.debug(Space.count())
         def allSpaces = Space.list()
-        log.debug("##### allSpaces = {}", allSpaces)
         [allSpaces:allSpaces]
     }
 }

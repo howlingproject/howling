@@ -11,7 +11,7 @@ class Vote {
     boolean isCancel
     Date InsertDate
 
-    static belongsTo = [replyId : QAReply]
+//    static belongsTo = [replyId : QAReply]
     static constraints = {
     }
 }

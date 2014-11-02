@@ -2,7 +2,7 @@ package com.libqa.wiki
 
 class Wiki {
 
-    Long spaceid
+    Long spaceId
     Long wikiId
     Long parentsId
     String title
