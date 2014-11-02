@@ -16,7 +16,13 @@ class Favorite {
 
     static belongsTo = [User]
 
+    static mapping = {
+        version false
+        id name : 'favoriteId'
+    }
+
     static constraints = {
+        userId (nullable: false)
         isDeleted (nullable: false)
     }
 }

@@ -20,6 +20,14 @@ class User {
     char isCertification = "N"        // 인증여부
     String certificationValue   // 인증 키
 
+    static hasMany = [userPoint : UserPoint, favorite : Favorite, notification : Notification]
+
+    static mapping = {
+        version false
+        id name : 'userId'
+    }
+
+
     static constraints = {
         userId (nullable: false)
         userEmail (nullable: false)

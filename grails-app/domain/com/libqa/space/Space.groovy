@@ -22,6 +22,9 @@ class Space {
         id name : 'spaceId'
     }
 
+    static hasMany = [spaceAccessUser : SpaceAccessUser, wiki : Wiki]
+
+
     static constraints = {
         description nullable: false
         title nullable: false, maxSize: 200

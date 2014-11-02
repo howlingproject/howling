@@ -14,6 +14,11 @@ class Activity {
 
     static belongsTo = [ActivityType]
 
+    static mapping = {
+        version false
+        id name : 'activityId'
+    }
+
     static constraints = {
         activityTypeId (nullable: false)
         userId (blank:false, nullable: false)
