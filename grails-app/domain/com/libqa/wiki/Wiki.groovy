@@ -1,5 +1,7 @@
 package com.libqa.wiki
 
+import com.libqa.space.Space
+
 class Wiki {
 
     Long spaceId
@@ -23,6 +25,9 @@ class Wiki {
     String editReason
     String revision
     char isDeleted = "N" //(Y,N)
+
+    static belongsTo = [Space]
+
 
     static hasMany = [wikibacks: WikiBack, wikireplys: WikiReply, wikifiles: WikiFiles]
     static constraints = {
