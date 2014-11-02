@@ -2,11 +2,11 @@ package com.libqa.feed
 
 class FeedReply {
     Long replyId
+    Long feedId
     String userId
     String userNick
-    Long feedId
     String feedReplyContent
-    char isDeleted
+    char isDeleted = 'N'
 
     Date insertDate
     Date updateDate
@@ -16,5 +16,6 @@ class FeedReply {
     static belongsTo = Feed
     static constraints = {
         feedReplyContent (blank:false, nullable: false, maxSize: 4000)
+        isDeleted (nullable: false)
     }
 }

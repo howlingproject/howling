@@ -1,12 +1,13 @@
 package com.libqa.feed
 
-class FeedLikeUser {
+import com.libqa.application.enums.FeedLikeTypeEnum
 
+class FeedLikeUser {
     Long feedLikeUserId
     Long feedId
     Long replyId
-    // feedLikeType
-    char isCanceled
+    FeedLikeTypeEnum feedLikeType
+    char isCanceled = 'N'
     String userNick
     String userId
 
@@ -14,6 +15,9 @@ class FeedLikeUser {
     Date updateDate
     Long insertUserId
     Long updateUserId
+
+    static belongsTo = Feed
     static constraints = {
+        isCanceled (nullable: false)
     }
 }
