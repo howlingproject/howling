@@ -6,7 +6,7 @@ class FeedReply {
     String userNick
     Long feedId
     String feedReplyContent
-    Boolean isDeleted
+    char isDeleted
 
     Date insertDate
     Date updateDate

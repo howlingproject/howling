@@ -1,10 +1,8 @@
 package com.libqa.qa
 
-import javassist.compiler.ast.Keyword
+class QaContents {
 
-class QAContents {
-
-    Long contentId
+    String contentId
     String title    // Type은 먼지?
     String contents
     String userId   //  Long String?
@@ -18,8 +16,9 @@ class QAContents {
 //    sharedContentsType
     char isReplyed //   (Y: 답변, N:답변없음)
     String sharedResponseId
+    String test
 
-    static hasMany = [contentIds : Keyword, contentIds : QAReply, contentIds : SharedContents_FB, contentIds :QARecommand]
+    static hasMany = [contentIds : Keywords, contentIds : QaReply, contentIds : SharedContents_FB, contentIds :QaRecommand]
     static constraints = {
     }
 }

@@ -1,7 +1,5 @@
 package com.libqa.qa
 
-import com.libqa.qa.QAContents
-
 class Keywords {
     
     Long keywordId
@@ -14,7 +12,7 @@ class Keywords {
     Date insertDate
     Date updateDate
 
-    static belongsTo = [contents : QAContents]
+    static belongsTo = [contents : QaContents]
     static constraints = {
     }
 }

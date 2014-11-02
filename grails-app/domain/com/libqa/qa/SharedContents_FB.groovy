@@ -1,7 +1,5 @@
 package com.libqa.qa
 
-import com.libqa.qa.QAContents
-
 class SharedContents_FB {
 
     Long sharedContentsId
@@ -20,7 +18,7 @@ class SharedContents_FB {
     boolean user_likes
     Long contentId
 
-    static belongsTo = [contentId : QAContents]
+    static belongsTo = [contentId : QaContents]
     static constraints = {
     }
 }

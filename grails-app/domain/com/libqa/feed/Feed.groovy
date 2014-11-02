@@ -7,12 +7,12 @@ class Feed {
     Long userId
     String userNick
     Boolean isShared
-    SharedContentsType sharedContentsType
+//    SharedContentsType sharedContentsType
     String sharedResponseId
     int likeCount
     int claimCount
     String feedContent
-    ViewType viewType
+//    ViewType viewType
     Boolean isSharedFB
     Boolean isSharedTW
     Boolean isSharedGP

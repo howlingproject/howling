@@ -1,6 +1,6 @@
 package com.libqa.qa
 
-class QAReply {
+class QaReply {
 
     Long replyId
     Long parentsId
@@ -15,7 +15,7 @@ class QAReply {
     Boolean IsChoice   //(글쓴이가 선택함)
 
 //    static hasMany = [replyId : Vote]
-    static belongsTo = [parentsId : QAContents]
+    static belongsTo = [parentsId : QaContents]
     static constraints = {
     }
 }

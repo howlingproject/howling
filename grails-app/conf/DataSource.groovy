@@ -17,16 +17,16 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://14.63.225.165:3306/howling"
         }
     }
-    test {
-        dataSource {
-            dbCreate = "update"
-            url = "jdbc:mysql://14.63.225.165:3306/howling"
-        }
-    }
+//    test {
+//        dataSource {
+//            dbCreate = "update"
+//            url = "jdbc:mysql://14.63.225.165:3306/howling"
+//        }
+//    }
 //    production {
 //        dataSource {
 //            dbCreate = "update"
