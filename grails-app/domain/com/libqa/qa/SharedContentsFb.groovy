@@ -2,7 +2,7 @@ package com.libqa.qa
 
 import com.libqa.application.enums.SharedContentsTypeEnum
 
-class SharedContents_FB {
+class SharedContentsFb {
 
     Long sharedContentsId
     SharedContentsTypeEnum sharedContentsType
@@ -12,13 +12,18 @@ class SharedContents_FB {
     char canRemove = "N"
     int commentCount
     Date createdTime
-    Long from //user
+    Long fromUser //user
     int likeCount
     String message
     String messageTags
     Long   parent
     char userLikes
     Long qaId
+
+    static mapping = {
+        version false
+        id name : 'sharedContentsId'
+    }
 
     static constraints = {
     }

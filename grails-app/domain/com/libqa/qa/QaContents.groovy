@@ -24,7 +24,7 @@ class QaContents {
     Long updateUserId
 
 
-    static hasMany = [qaReply : QaReply, sharedContents_FB : SharedContents_FB, qaRecomand :QaRecommand]
+    static hasMany = [qaReply : QaReply, sharedContentsFb : SharedContentsFb, qaRecomand :QaRecommand]
     static mapping = {
         version false
         id name : 'qaId'
