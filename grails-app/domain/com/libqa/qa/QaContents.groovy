@@ -2,21 +2,24 @@ package com.libqa.qa
 
 class QaContents {
 
-    String contentId
-    String title    // Type은 먼지?
+    Long qaId
+    String wikiId    // Type은 먼지?
+    String title
     String contents
-    String userId   //  Long String?
+    Long userId   //  Long String?
     String userNick
-    Date insertDate
-    Date updateDate
     int viewCount
     int recommandCount
     int likeCount
-    char shared // (Y,N)
+    char isDeleted = "N"     // (Y,N)
+    char isShared = "N"   // (Y, N)
 //    sharedContentsType
-    char isReplyed //   (Y: 답변, N:답변없음)
     String sharedResponseId
-    String test
+    char isReplyed //   (Y: 답변, N:답변없음)
+    Date insertDate
+    Date updateDate
+    Long insertUserId
+    Long updateUserId
 
     static mapping = {
         version false

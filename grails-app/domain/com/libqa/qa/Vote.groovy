@@ -3,11 +3,12 @@ package com.libqa.qa
 class Vote {
 
     Long replyId
-    String userId //  Long String?
+    Long userId
     String userNick
-    char IsVote //(Y:추천, N:비추천)
-    boolean isCancel
-    Date InsertDate
+    char isVote = "N" //(Y:추천, N:비추천)
+    char isCancel = "N"
+    Date insertDate
+    Date updateDate
 
     static belongsTo = [replyId : QaReply]
     static constraints = {
