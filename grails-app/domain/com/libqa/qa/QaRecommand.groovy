@@ -8,12 +8,7 @@ class QaRecommand {
     char isCommand = "N"  //( Y:추천, N:비추천)
     Date insertDate
 
-    static mapping = {
-        version false
-        id name : 'qaId'
-    }
-
-    static belongsTo = [qaContents : QaContents]
+    static belongsTo = [qaContents : QaContent]
     static constraints = {
     }
 }

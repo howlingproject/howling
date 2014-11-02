@@ -2,7 +2,7 @@ package com.libqa.qa
 
 import com.libqa.application.enums.SharedContentsTypeEnum
 
-class QaContents {
+class QaContent {
 
     Long qaId
     String wikiId    // Type은 먼지?
@@ -24,7 +24,7 @@ class QaContents {
     Long updateUserId
 
 
-    static hasMany = [qaReply : QaReply, sharedContentsFb : SharedContentsFb, qaRecomand :QaRecommand]
+    static hasMany = [qaReplys : QaReply, qaRecomands :QaRecommand]
     static mapping = {
         version false
         id name : 'qaId'

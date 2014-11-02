@@ -9,7 +9,7 @@ class QaReply {
     int depthIdx
     String title
     String contents
-    Long userId   //  Long String?
+    Long userId
     String userNick
     int voteUpCount
     int voteDownCount
@@ -26,6 +26,9 @@ class QaReply {
     }
 
     static belongsTo = [parentsId : QaContents]
+
+    static hasMany = [qaReplys : QaReply, qaRecomands :QaRecommand]
+
     static constraints = {
     }
 }
