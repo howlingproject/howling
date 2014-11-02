@@ -1,7 +1,7 @@
 package com.libqa.feed
 
 class FeedReply {
-    Long replyId
+    Long feedReplyId
     Long feedId
     String userId
     String userNick
@@ -14,6 +14,12 @@ class FeedReply {
     Long updateUserId
 
     static belongsTo = Feed
+
+    static mapping = {
+        version false
+        id name : 'feedReplyId'
+    }
+
     static constraints = {
         feedReplyContent (blank:false, nullable: false, maxSize: 4000)
         isDeleted (nullable: false)

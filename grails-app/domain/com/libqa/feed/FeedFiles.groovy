@@ -15,6 +15,12 @@ class FeedFiles {
     Long updateUserId
 
     static belongsTo = Feed
+
+    static mapping = {
+        version false
+        id name : 'feedFileId'
+    }
+
     static constraints = {
         fileName (blank:false, nullable: false, size:5..500)
         fileSize (blank:false, nullable: false)
