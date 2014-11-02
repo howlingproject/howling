@@ -23,7 +23,7 @@ class Feed {
     Long insertUserId
     Long updateUserId
 
-    static hasMany = [feedReplies: FeedReply, feedAttachments: FeedAttachment]
+    static hasMany = [feedReplies: FeedReply, feedFiles: FeedFiles]
     static constraints = {
         isShared(nullable:false)
         feedContent (blank:false, nullable: false, maxSize: 4000)
