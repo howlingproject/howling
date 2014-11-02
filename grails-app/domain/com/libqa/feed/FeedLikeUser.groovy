@@ -16,8 +16,6 @@ class FeedLikeUser {
     Long insertUserId
     Long updateUserId
 
-    static belongsTo = Feed
-
     static mapping = {
         version false
         id name : 'feedLikeUserId'

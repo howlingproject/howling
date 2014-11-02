@@ -1,6 +1,6 @@
 package com.libqa.feed
 
-class FeedFiles {
+class FeedFile {
     Long feedFileId
     Long feedId
     String fileName
