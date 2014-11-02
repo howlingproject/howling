@@ -18,8 +18,6 @@ class Space {
     Long updateUserId
 
 
-    static hasMany = [spaceAccessUsers : SpaceAccessUser]
-
     static constraints = {
         spaceId nullable: false
         description nullable: false

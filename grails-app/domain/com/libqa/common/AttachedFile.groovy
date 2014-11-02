@@ -2,7 +2,7 @@ package com.libqa.common
 
 class AttachedFile {
 
-    Long spaceid
+    Long spaceId
     Long userId
     char isDeleted // (Y,N)
     Date InsertDate
