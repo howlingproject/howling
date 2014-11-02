@@ -20,5 +20,7 @@ class WikiFiles {
     }
 
     static constraints = {
+        wikiId (nullable: false)
+        fileId (nullable: false)
     }
 }

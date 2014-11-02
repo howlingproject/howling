@@ -20,5 +20,7 @@ class WikiReply {
     }
 
     static constraints = {
+        wikiId (nullable: false)
+        replyId (nullable: false)
     }
 }

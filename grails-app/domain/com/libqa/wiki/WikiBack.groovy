@@ -15,5 +15,7 @@ class WikiBack {
     }
 
     static constraints = {
+        wikiId (nullable: false)
+        wikiBackId (nullable: false)
     }
 }

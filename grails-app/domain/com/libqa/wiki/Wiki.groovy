@@ -32,5 +32,10 @@ class Wiki {
     }
 
     static constraints = {
+        wikiId (nullable: false)
+        userId (blank:false, nullable: false)
+        isDeleted (nullable: false)
+        isLock (nullable: false)
+        isFixed (nullable: false)
     }
 }
