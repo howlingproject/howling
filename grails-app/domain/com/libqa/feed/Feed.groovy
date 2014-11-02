@@ -1,21 +1,18 @@
 package com.libqa.feed
 
-
-
 class Feed {
     Long feedId
     Long userId
     String userNick
-    Boolean isShared
-    SharedContentsType sharedContentsType
+    char isShared
     String sharedResponseId
     int likeCount
     int claimCount
     String feedContent
-    ViewType viewType
-    Boolean isSharedFB
-    Boolean isSharedTW
-    Boolean isSharedGP
+    char isSharedFB
+    char isSharedTW
+    char isSharedGP
+    char isPrivate
     String feedUrl
 
     Date insertDate
@@ -30,6 +27,5 @@ class Feed {
         feedUrl(nullable: true, url: true)
         likeCount(nullable: true)
         claimCount(nullable: true)
-
     }
 }
