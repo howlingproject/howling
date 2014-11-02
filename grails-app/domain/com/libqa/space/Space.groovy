@@ -1,5 +1,7 @@
 package com.libqa.space
 
+import com.libqa.application.enums.LayoutTypeEnum
+
 class Space {
 
     Long spaceId
@@ -9,7 +11,7 @@ class Space {
     String titleImagePath
     char isPrivate          // (Y,N)
     char isDeleted          // (Y,N)
-    String layoutType
+    LayoutTypeEnum layoutType
     Date insertDate
     Date updateDate
     Long insertUserId

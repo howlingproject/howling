@@ -1,7 +1,6 @@
 package com.libqa.feed
 
-import com.libqa.application.enums.SharedContentsType
-import com.libqa.application.enums.ViewType
+
 
 class Feed {
     Long feedId
