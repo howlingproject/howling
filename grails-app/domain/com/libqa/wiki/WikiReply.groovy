@@ -9,10 +9,10 @@ class WikiReply {
     String userId
     String userNick
     Date insertDate
-    char isDeleted // (Y:N)
+    char isDeleted = "N"// (Y:N)
     Date updateDate
 
-    static belongsTo = [parentsId: Wiki]
+    static belongsTo = [wikiId: Wiki]
     static constraints = {
     }
 }
