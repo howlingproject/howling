@@ -18,6 +18,10 @@ class QaContents {
     String sharedResponseId
     String test
 
+    static mapping = {
+        version false
+    }
+
     static constraints = {
     }
 }
