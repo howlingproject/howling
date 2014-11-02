@@ -2,9 +2,14 @@ package com.libqa.space
 
 import com.libqa.application.enums.LayoutTypeEnum
 
+import javax.persistence.GeneratedValue
+import javax.persistence.Id
+
 class Space {
 
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long spaceId
+
     String description
     String title
     String titleImage
@@ -17,6 +22,9 @@ class Space {
     Long insertUserId
     Long updateUserId
 
+    static mapping = {
+        version false
+    }
 
     static constraints = {
         spaceId nullable: false
