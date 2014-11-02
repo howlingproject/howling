@@ -1,24 +1,25 @@
 package com.libqa.qa
 
+import com.libqa.application.enums.SharedContentsTypeEnum
+
 class SharedContents_FB {
 
     Long sharedContentsId
-//     sharedContentsType
+    SharedContentsTypeEnum sharedContentsType
     Long commentId
-//     attachment   //struct
+    String attachment   //struct
     char canComment = "N"
     char canRemove = "N"
     int commentCount
     Date createdTime
-//     from //user
+    Long from //user
     int likeCount
     String message
     String messageTags
-//     parent   //comment
+    Long   parent
     char userLikes
     Long qaId
 
-    static belongsTo = [contentId : QaContents]
     static constraints = {
     }
 }

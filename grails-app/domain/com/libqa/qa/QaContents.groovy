@@ -1,5 +1,7 @@
 package com.libqa.qa
 
+import com.libqa.application.enums.SharedContentsTypeEnum
+
 class QaContents {
 
     Long qaId
@@ -13,7 +15,7 @@ class QaContents {
     int likeCount
     char isDeleted = "N"     // (Y,N)
     char isShared = "N"   // (Y, N)
-//    sharedContentsType
+    SharedContentsTypeEnum sharedContentsType
     String sharedResponseId
     char isReplyed //   (Y: 답변, N:답변없음)
     Date insertDate
@@ -21,8 +23,11 @@ class QaContents {
     Long insertUserId
     Long updateUserId
 
+
+    static hasMany = [qaReply : QaReply, sharedContents_FB : SharedContents_FB, qaRecomand :QaRecommand]
     static mapping = {
         version false
+        id name : 'qaId'
     }
 
     static constraints = {
