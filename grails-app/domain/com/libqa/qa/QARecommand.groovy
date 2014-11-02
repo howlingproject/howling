@@ -1,6 +1,6 @@
 package com.libqa.qa
 
-class QARecommand {
+class QaRecommand {
 
     Long contentId
     String userId   //  Long String?
@@ -8,7 +8,7 @@ class QARecommand {
     char IsCommand  //( Y:추천, N:비추천)
     Date InsertDate
 
-    static belongsTo = [contentId : QAContents]
+    static belongsTo = [contentId : QaContents]
     static constraints = {
     }
 }

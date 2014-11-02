@@ -1,7 +1,5 @@
 package com.libqa.qa
 
-import com.libqa.qa.QAReply
-
 class Vote {
 
     Long replyId
@@ -11,7 +9,7 @@ class Vote {
     boolean isCancel
     Date InsertDate
 
-//    static belongsTo = [replyId : QAReply]
+//    static belongsTo = [replyId : QaReply]
     static constraints = {
     }
 }
