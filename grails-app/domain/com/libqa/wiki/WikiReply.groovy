@@ -13,6 +13,14 @@ class WikiReply {
     Date updateDate
 
     static belongsTo = [wikiId: Wiki]
+
+    static mapping = {
+        version false
+        id name : 'wikiId'
+    }
+
     static constraints = {
+        wikiId (nullable: false)
+        replyId (nullable: false)
     }
 }

@@ -8,6 +8,14 @@ class WikiBack {
     // revisionActionType // (내용수정, 제목수정, 첨부파일, 내용삭제등)
 
     static belongsTo = [wikiId: Wiki]
+
+    static mapping = {
+        version false
+        id name : 'wikiId'
+    }
+
     static constraints = {
+        wikiId (nullable: false)
+        wikiBackId (nullable: false)
     }
 }
