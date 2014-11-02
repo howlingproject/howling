@@ -12,11 +12,11 @@ class WikiReply {
     char isDeleted = "N"// (Y:N)
     Date updateDate
 
-    static belongsTo = [wikiId: Wiki]
+    static belongsTo = [Wiki]
 
     static mapping = {
         version false
-        id name : 'wikiId'
+        id name : 'replyId'
     }
 
     static constraints = {

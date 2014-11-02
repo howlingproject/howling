@@ -12,11 +12,11 @@ class WikiFiles {
     char isDeleted = "N" //(Y,N)
     long userId
 
-    static belongsTo = [wikiId: Wiki]
+    static belongsTo = [Wiki]
 
     static mapping = {
         version false
-        id name : 'wikiId'
+        id name : 'fileId'
     }
 
     static constraints = {

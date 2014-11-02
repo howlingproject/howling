@@ -1,5 +1,7 @@
 package com.libqa.wiki
 
+import com.libqa.space.Space
+
 class Wiki {
 
     Long spaceId
@@ -25,6 +27,8 @@ class Wiki {
     char isDeleted = "N" //(Y,N)
 
     static hasMany = [wikibacks: WikiBack, wikireplys: WikiReply, wikifiles: WikiFiles]
+
+    static belongsTo = [spaceId: Space]
 
     static mapping = {
         version false
