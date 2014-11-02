@@ -2,11 +2,11 @@ package com.libqa.space
 
 class SpaceAccessUser {
 
-    Long spaceid
+    Long spaceId
     Long userId
     char isDeleted // (Y,N)
-    Date InsertDate
-    Date UpdateDate
+    Date insertDate
+    Date updateDate
 
     static constraints = {
     }

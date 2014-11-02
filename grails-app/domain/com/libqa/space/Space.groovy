@@ -7,8 +7,8 @@ class Space {
     String title
     String titleImage
     String titleImagePath
-    char isPrivate // (Y,N)
-    char isDeleted // (Y,N)
+    char isPrivate          // (Y,N)
+    char isDeleted          // (Y,N)
     String layoutType
     Date insertDate
     Date updateDate
