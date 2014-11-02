@@ -29,10 +29,13 @@ class Feed {
 
     static constraints = {
         isShared(nullable:false)
+        isPrivate(nullable:false)
+        isSharedFB(nullable:false)
+        isSharedTW(nullable:false)
+        isSharedGP(nullable:false)
         feedContent (blank:false, nullable: false, maxSize: 4000)
         feedUrl(nullable: true, url: true)
         likeCount(nullable: true)
         claimCount(nullable: true)
-        isPrivate(nullable:false)
     }
 }

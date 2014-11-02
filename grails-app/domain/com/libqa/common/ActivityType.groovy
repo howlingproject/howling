@@ -9,6 +9,13 @@ class ActivityType {
     Date insertDate
     Long insertUserId
 
+    static hasMany = [activity : Activity]
+
+    static mapping = {
+        version false
+        id name : 'activityTypeId'
+    }
+
     static constraints = {
         userId (blank:false, nullable: false)
         isDeleted (nullable: false)
