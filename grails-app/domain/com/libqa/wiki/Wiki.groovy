@@ -24,8 +24,6 @@ class Wiki {
     String revision
     char isDeleted //(Y,N)
 
-
-    static hasMany = [wikibacks: Wikiback, wikireplys: WikiReply, wikifiles: WikiFiles]
     static constraints = {
     }
 }
