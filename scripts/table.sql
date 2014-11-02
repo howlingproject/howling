@@ -150,11 +150,6 @@ CREATE TABLE `feed` (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 546a99fb2651a390df8d6ff291909db0d5759d94
 CREATE  TABLE `howling`.`feed_file` (
   `feedFileId` INT NOT NULL AUTO_INCREMENT COMMENT '피드첨부번호' ,
   `feedId` INT NOT NULL ,
@@ -198,11 +193,8 @@ ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '피드 댓글';
 CREATE  TABLE `howling`.`feed_like_user` (
   `feedLikeId` INT NOT NULL AUTO_INCREMENT COMMENT '피드공감번호' ,
   `feedId` INT ,
-<<<<<<< HEAD
   `replyId` INT ,
-=======
-  `replyId` INT , 
->>>>>>> 546a99fb2651a390df8d6ff291909db0d5759d94
+  `replyId` INT ,
   `feedLikeType` VARCHAR(40) NOT NULL COMMENT '공감 타입 (FEED, REPLY)' ,
   `isCanceled` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '취소여부' ,
   `userId` INT NOT NULL COMMENT '사용자 번호',
@@ -261,11 +253,7 @@ CREATE  TABLE `howling`.`user_point_history` (
   `userId` INT NOT NULL COMMENT '사용자 번호',
   `pointType` VARCHAR(20) NOT NULL COMMENT '포인트타입(Wiki글 쓰기, QA답변, QA 추천,  공유갯수, 로그인횟수, Feed쓰기, Feed 답변, Feed 좋아요,즐겨찾기)' ,
   `userPoint` INT NOT NULL COMMENT '포인트' ,
-<<<<<<< HEAD
   `insertDate` DATETIME NOT NULL COMMENT '입력일'
-=======
-  `insertDate` DATETIME NOT NULL COMMENT '입력일' 
->>>>>>> 546a99fb2651a390df8d6ff291909db0d5759d94
 )
 ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '사용자포인트내역';
 
@@ -279,11 +267,7 @@ CREATE  TABLE `howling`.`notification_type` (
   `notificationDesc` VARCHAR(200) NOT NULL COMMENT '알람설명문구' ,
   `isDeleted` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '삭제여부' ,
   `insertDate` DATETIME NOT NULL COMMENT '입력일' ,
-<<<<<<< HEAD
   PRIMARY KEY (`notificationTypeId`)
-=======
-  PRIMARY KEY (`notificationTypeId`) 
->>>>>>> 546a99fb2651a390df8d6ff291909db0d5759d94
 )
 ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '알람타입정의정보';
 
@@ -318,11 +302,8 @@ CREATE  TABLE `howling`.`activity_type` (
   `activityDesc` VARCHAR(200) NOT NULL COMMENT '활동내역문구' ,
   `isDeleted` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '삭제여부' ,
   `insertDate` DATETIME NOT NULL COMMENT '입력일' ,
-<<<<<<< HEAD
   PRIMARY KEY (`activityTypeId`)
-=======
-  PRIMARY KEY (`activityTypeId`) 
->>>>>>> 546a99fb2651a390df8d6ff291909db0d5759d94
+
 )
 ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '활동내역타입정보';
 
@@ -346,9 +327,6 @@ CREATE  TABLE `howling`.`activity` (
 )
 ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '활동내역';
 
-
-<<<<<<< HEAD
-=======
 
 
 CREATE  TABLE `howling`.`qa_contents` (
@@ -467,6 +445,3 @@ CREATE  TABLE `howling`.`keywords_list` (
 )
 ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '키워드목록';
 
-
-
->>>>>>> 546a99fb2651a390df8d6ff291909db0d5759d94
