@@ -3,6 +3,7 @@ package com.libqa.space
 import com.libqa.application.enums.LayoutTypeEnum
 
 class Space {
+//    Long id
     Long spaceId
     String description
     String title
@@ -18,12 +19,10 @@ class Space {
 
     static mapping = {
         version false
-        id generator: 'increment',
-                name: 'spaceId'
+        id name : 'spaceId'
     }
 
     static constraints = {
-        spaceId nullable: false
         description nullable: false
         title nullable: false, maxSize: 200
         layoutType nullable: false
