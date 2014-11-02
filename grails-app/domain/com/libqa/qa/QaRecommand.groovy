@@ -2,13 +2,13 @@ package com.libqa.qa
 
 class QaRecommand {
 
-    Long contentId
-    String userId   //  Long String?
+    Long qaId
+    Long userId   //  Long String?
     String userNick
-    char IsCommand  //( Y:추천, N:비추천)
-    Date InsertDate
+    char isCommand = "N"  //( Y:추천, N:비추천)
+    Date insertDate
 
-    static belongsTo = [contentId : QaContents]
+    static belongsTo = [qaId : QaContents]
     static constraints = {
     }
 }

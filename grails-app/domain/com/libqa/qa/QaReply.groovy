@@ -3,16 +3,22 @@ package com.libqa.qa
 class QaReply {
 
     Long replyId
+    Long qaId
     Long parentsId
     int orderIdx
     int depthIdx
+    String title
     String contents
-    String userId   //  Long String?
+    Long userId   //  Long String?
     String userNick
-    Date InsertDate
+    int voteUpCount
+    int voteDownCount
+    char isChoice = "N"   //(글쓴이가 선택함)
+    char isDeleted = "N"
+    Date insertDate
     Date updateDate
-    char IsDeleted //(Y:N)
-    Boolean IsChoice   //(글쓴이가 선택함)
+    Long insertUserId
+    Long updateUserId
 
     static belongsTo = [parentsId : QaContents]
     static constraints = {

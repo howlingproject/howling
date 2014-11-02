@@ -6,17 +6,17 @@ class SharedContents_FB {
 //     sharedContentsType
     Long commentId
 //     attachment   //struct
-    boolean can_comment
-    boolean can_remove
-    int comment_count
-    Date created_time
+    char canComment = "N"
+    char canRemove = "N"
+    int commentCount
+    Date createdTime
 //     from //user
-    int like_count
+    int likeCount
     String message
-    String message_tags
+    String messageTags
 //     parent   //comment
-    boolean user_likes
-    Long contentId
+    char userLikes
+    Long qaId
 
     static belongsTo = [contentId : QaContents]
     static constraints = {
