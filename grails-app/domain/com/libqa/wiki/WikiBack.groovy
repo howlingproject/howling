@@ -1,6 +1,6 @@
 package com.libqa.wiki
 
-class Wikiback {
+class WikiBack {
 
     Long wikiBackId
     Long wikiId
