@@ -8,6 +8,11 @@ class QaRecommand {
     char isCommand = "N"  //( Y:추천, N:비추천)
     Date insertDate
 
+    static mapping = {
+        version false
+        id name : 'qaId'
+    }
+
     static constraints = {
         userId(nullable: false)
         userNick(nullable: false)
