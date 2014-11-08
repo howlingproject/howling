@@ -1,11 +1,14 @@
 package com.libqa.feed
-
 import grails.transaction.Transactional
 
-@Transactional
 class FeedService {
 
-    def serviceMethod() {
-
+    @Transactional
+    def save(def feed) {
+        feed.insertDate = new Date()
+        feed.save(flush:true)
     }
 }
+
+
+

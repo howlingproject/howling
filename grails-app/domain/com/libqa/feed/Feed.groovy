@@ -40,5 +40,7 @@ class Feed {
         feedUrl(nullable: true, url: true)
         likeCount(nullable: true)
         claimCount(nullable: true)
+        updateDate(nullable: true)
+        sharedContentsType(nullable: true)
     }
 }
