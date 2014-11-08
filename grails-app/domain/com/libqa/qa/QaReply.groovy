@@ -25,10 +25,24 @@ class QaReply {
         id name : 'replyId'
     }
 
-    static belongsTo = [parentsId : QaContents]
-
-    static hasMany = [qaReplys : QaReply, qaRecomands :QaRecommand]
+    static hasMany = [qaReplys : QaReply, votes :Vote]
 
     static constraints = {
+        qaId(nullable: false)
+        parentsId(nullable: true)
+        orderIdx(nullable: false)
+        depthIdx(nullable: false)
+        title(nullable: false)
+        contents(nullable: false)
+        userId(nullable: false)
+        userNick(nullable: false)
+        voteUpCount(nullable: false)
+        voteDownCount(nullable: false)
+        isChoice(nullable: false)
+        isDeleted(nullable: false)
+        insertDate(nullable: false)
+        updateDate(nullable: false)
+        insertUserId(nullable: false)
+        updateUserId(nullable: false)
     }
 }

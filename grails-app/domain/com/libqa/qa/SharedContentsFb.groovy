@@ -26,5 +26,19 @@ class SharedContentsFb {
     }
 
     static constraints = {
+        sharedContentsType(nullable: false)
+        commentId(nullable: false)
+        attachment(nullable: false)
+        canComment(nullable: false)
+        canRemove(nullable: false)
+        commentCount(nullable: false)
+        createdTime(nullable: false)
+        fromUser(nullable: false)
+        likeCount(nullable: false)
+        message(nullable: false)
+        messageTags(nullable: false)
+        parent(nullable: false)
+        userLikes(nullable: false)
+        qaId(nullable: false)
     }
 }

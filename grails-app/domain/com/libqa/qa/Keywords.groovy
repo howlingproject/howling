@@ -20,5 +20,10 @@ class Keywords {
     }
 
     static constraints = {
+        keywordName(nullable:false)
+        keywordType(nullable:false)
+        isDeleted(nullable:false)
+        insertDate(nullable:false)
+        updateDate(nullable:false)
     }
 }
