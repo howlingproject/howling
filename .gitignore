@@ -151,3 +151,6 @@ gradle/
 
 # DB
 *.db
+
+# DataSource
+DataSource.groovy
