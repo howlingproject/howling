@@ -153,4 +153,4 @@ gradle/
 *.db
 
 # DataSource
-grails-app/conf/DataSource.groovy
+DataSource.groovy
