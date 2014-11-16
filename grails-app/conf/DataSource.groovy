@@ -2,7 +2,6 @@ dataSource {
     pooled = true
 //    dbCreate = "update"
     driverClassName = "com.mysql.jdbc.Driver"
-    //url = "jdbc:mysql://14.63.225.165:3306/howling"
     username = "howlingproject"
     password = "test"
 }
@@ -26,7 +25,6 @@ environments {
 //    test {
 //        dataSource {
 //            dbCreate = "update"
-//            url = "jdbc:mysql://14.63.225.165:3306/howling"
 //        }
 //    }
 //    production {
