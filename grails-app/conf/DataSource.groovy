@@ -1,13 +1,10 @@
-/**
- * Created by yong on 2014. 11. 16..
- */
 dataSource {
     pooled = true
 //    dbCreate = "update"
     driverClassName = "com.mysql.jdbc.Driver"
-    //url = "jdbc:mysql://localhost/howling"
-    username = ""
-    password = ""
+    //url = "jdbc:mysql://14.63.225.165:3306/howling"
+    username = "howlingproject"
+    password = "libqa2014"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -17,19 +14,21 @@ hibernate {
 }
 
 // environment specific settings
+// Local은 development만 설정함
 environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://localhost/howling"
+            url = "jdbc:mysql://14.63.225.165:3306/howling"
+            logSql = true
         }
     }
-    test {
-        dataSource {
-            dbCreate = "update"
-            url = "jdbc:mysql://localhost/howling"
-        }
-    }
+//    test {
+//        dataSource {
+//            dbCreate = "update"
+//            url = "jdbc:mysql://14.63.225.165:3306/howling"
+//        }
+//    }
 //    production {
 //        dataSource {
 //            dbCreate = "update"
