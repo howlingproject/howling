@@ -1,6 +1,7 @@
 <!-- contents -->
 <div class="container">
     <section id="forms">
+
         <div class="page-header">
             <h2>공간 생성하기</h2>
         </div>
@@ -9,12 +10,12 @@
             <div style="padding-left:30px">
                 <!-- <h3>Form Horizontal</h3> -->
 
-                <form class="form-horizontal well">
+                <g:formRemote url="[controller: 'space', action: 'save']" name="spaceCreateForm" onSuccess="saveComplete(data)" class="form-horizontal well">
                     <fieldset>
                         <legend>공간 제목</legend>
                         <div class="control-group">
                             <div class="controls">
-                                <input type="text" class="form-control input-xlarge" id="input01">
+                                <input type="text" class="form-control input-xlarge" id="input01" name="title">
                                 <p class="help-block">공간 제목 입력 후 Tab 이동시 공간명 중복 검사를 합니다.</p>
                             </div>
                         </div>
@@ -26,7 +27,7 @@
                                 <div class="col-xs-8 col-md-8">
                                     <input id="file-attachment" type="file" style="display:none">
                                     <input id="fileAttachmentInput" class="form-control" type="text"
-                                           placeholder="공간을 표현할 수 있는 대표 이미지를 등록하세요.">
+                                           placeholder="공간을 표현할 수 있는 대표 이미지를 등록하세요." name="titleImage">
                                 </div>
                                 <div>
                                     <button class="btn btn-info btn-default" type="button"
@@ -46,9 +47,7 @@
                         <legend>공간 설명</legend>
                         <div class="control-group">
                             <div class="modal-body" id="askEdit">
-
-
-                                <p class="help-block">공간 메인 화면에 입력한 설명이 display 됩니다. (markdown 지원) </p>
+                                <p class="help-block" name="description">공간 메인 화면에 입력한 설명이 display 됩니다. (markdown 지원) </p>
                             </div>
                         </div>
 
@@ -57,10 +56,10 @@
                         <div class="control-group">
                             <div class="controls">
                                 <label class="checkbox-inline">
-                                    <input type="radio" name="privacy" id="inlineCheckbox1" value="option1"> 공개
+                                    <input type="radio" name="isPrivate" id="inlineCheckbox1" value="Y"> 공개
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="radio" name="privacy" id="inlineCheckbox2" value="option2"> 비공개
+                                    <input type="radio" name="isPrivate" id="inlineCheckbox2" value="N"> 비공개
                                 </label>
 
                             </div>
@@ -160,13 +159,14 @@
 
                         </div>
                     </fieldset>
-                </form>
+
+                    <div class="form-actions text-center">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="reset" class="btn">Cancel</button>
+                    </div>
+                </g:formRemote>
             </div>
 
-            <div class="form-actions text-center">
-                <button type="submit" class="btn btn-primary">Save changes</button>
-                <button type="reset" class="btn">Cancel</button>
-            </div>
 
 
         </div>
@@ -174,3 +174,17 @@
     </section>
 </div>
 <!--// contents -->
+
+
+<script type="text/javascript">
+    /**
+     * 공간 저장 완료 콜백
+     * @param data
+     */
+    function saveComplete(data) {
+        alert('Data : ' + data);
+        alert(data.isPrivate);
+    }
+
+</script>
+

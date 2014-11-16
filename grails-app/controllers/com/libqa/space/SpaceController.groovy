@@ -1,8 +1,12 @@
 package com.libqa.space
 
+import com.libqa.feed.Feed
+import grails.converters.JSON
+
 class SpaceController {
 
     static layout = 'main'
+    static allowedMethods = [save:"POST", delete:"POST"]
 
     def spaceService
 
@@ -42,14 +46,21 @@ class SpaceController {
         log.debug("SpaceController right!")
     }
 
-
-
-
-
     def current = {
         log.debug("##### spaceController current in ")
         log.debug(Space.count())
         def allSpaces = Space.list()
         [allSpaces:allSpaces]
     }
+
+    def save() {
+        log.debug("#### save :" + params)
+        render (contentType: "application/json") {
+            [
+                'success': true,
+                'data': params
+            ]
+        }
+    }
+
 }

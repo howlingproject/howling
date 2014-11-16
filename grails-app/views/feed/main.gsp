@@ -1,28 +1,30 @@
 <div class="container">
     <div class="col-md-12 col-xs-12" id="feed-area">
         <!-- feed 글 쓰기 start -->
-        <div class="feed feed-write well">
-            <div class="feed-write-top">
-                <div class="action-buttons text-right">
-                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#fileUploadModal">파일첨부</button>
+        <g:formRemote name="myForm" url="[controller: 'feed', action: 'save']" onSuccess="updatedFeed(data)">
+            <div class="feed feed-write well">
+                <div class="feed-write-top">
+                    <div class="action-buttons text-right">
+                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#fileUploadModal">파일첨부</button>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <div class="author">
+                            <div class="user-profile">
+                                <img alt="avatar" class="profile-image" src="../images/avatar.png" />
+                            </div>
+                        </div>
+                        <div class="write-box">
+                            <textarea class="form-control" name="feedContent" rows="6" placeholder="Feed를 등록해주세요!"></textarea>
+                        </div>
+                    </li>
+                </ul>
+                <div class="feed-write-bottom text-right">
+                    <button class="btn btn-info" type="submit" id="saveFeed">저장</button>
                 </div>
             </div>
-            <ul>
-                <li>
-                    <div class="author">
-                        <div class="user-profile">
-                            <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                        </div>
-                    </div>
-                    <div class="write-box">
-                        <textarea class="form-control" rows="6" placeholder=""></textarea>
-                    </div>
-                </li>
-            </ul>
-            <div class="feed-write-bottom text-right">
-                <button class="btn btn-info" type="button">저장</button>
-            </div>
-        </div>
+        </g:formRemote>
         <!-- feed 글 쓰기 end -->
 
         <!-- feed 글 목록 start -->
@@ -627,6 +629,10 @@
             content: function () {
                 return $('#popover-feed-image-content').html();
             }
-        })
+        });
     });
+
+    function updatedFeed(data, json) {
+        alert(data.success);
+    }
 </script>
