@@ -1,7 +1,5 @@
 package com.libqa.feed
 
-import grails.converters.JSON
-
 class FeedController {
     static layout = 'main'
     static allowedMethods = [save: "POST", delete: "POST"]
@@ -22,29 +20,53 @@ class FeedController {
 
         try {
             feedService.save(feedInstance)
-            render ([ 'success': true ]) as JSON
+            render(contentType: "application/json") {
+                [success: true]
+            }
         } catch(Exception e) {
             log.error(feedInstance.getErrors())
-            render ([ success: false, message: 'failed to save' ]) as JSON
+            render(contentType: "application/json") {
+                [
+                    success: false,
+                    message: 'failed to save'
+                ]
+            }
         }
+
     }
 
     def delete() {
         try {
             feedService.deleteBy(params.feedId);
-            render ([ 'success': true ]) as JSON
+            render(contentType: "application/json") {
+                [success: true]
+            }
         } catch(Exception e) {
             log.error(e.getMessage())
-            render ([ success: false, message: "failed to delete" ]) as JSON
+            render(contentType: "application/json") {
+                [
+                    success: false,
+                    message: 'failed to delete'
+                ]
+            }
         }
     }
 
     def show(Long feedId) {
-        render ([ success: true, data: Feed.findByFeedId(feedId) as JSON ]) as JSON
+        render(contentType: "application/json") {
+            [
+                success: true,
+                data: Feed.findByFeedId(feedId)
+            ]
+        }
     }
 
     def list() {
-        render ([ success: true, data: Feed.findAll() as JSON ]) as JSON
+        render(contentType: "application/json") {
+            [
+                success: true,
+                data: Feed.findAll()
+            ]
+        }
     }
-
 }
