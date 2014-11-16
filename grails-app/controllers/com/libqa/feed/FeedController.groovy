@@ -4,7 +4,7 @@ import grails.converters.JSON
 
 class FeedController {
     static layout = 'main'
-    static allowedMethods = [save: "POST", delete: "DELETE"]
+    static allowedMethods = [save: "POST", delete: "POST"]
     def feedService
 
     def main() {
@@ -12,20 +12,39 @@ class FeedController {
     }
 
     def save() {
-        Feed feed = new Feed(params)
-        feed.userNick = 'sjune'
-        feed.userId = 1234
-        feed.insertUserId = 1234
-        feed.updateUserId = 1234
-        feed.sharedResponseId = 1234
-        feed.feedUrl = 'http://www.daum.net'
-        feedService.save(feed)
+        Feed feedInstance = new Feed(params)
+        feedInstance.userNick = 'sjune'
+        feedInstance.userId = 1234
+        feedInstance.insertUserId = 1234
+        feedInstance.updateUserId = 1234
+        feedInstance.sharedResponseId = 1234
+        feedInstance.feedUrl = 'http://www.google.com'
 
-        if(feed.hasErrors()) {
-            log.error(feed.getErrors())
-            render ([ 'success': false, message: feed.getErrors() ]) as JSON
+        try {
+            feedService.save(feedInstance)
+            render ([ 'success': true ]) as JSON
+        } catch(Exception e) {
+            log.error(feedInstance.getErrors())
+            render ([ success: false, message: 'failed to save' ]) as JSON
         }
-
-        render ([ 'success': true ]) as JSON
     }
+
+    def delete() {
+        try {
+            feedService.deleteBy(params.feedId);
+            render ([ 'success': true ]) as JSON
+        } catch(Exception e) {
+            log.error(e.getMessage())
+            render ([ success: false, message: "failed to delete" ]) as JSON
+        }
+    }
+
+    def show(Long feedId) {
+        render ([ success: true, data: Feed.findByFeedId(feedId) as JSON ]) as JSON
+    }
+
+    def list() {
+        render ([ success: true, data: Feed.findAll() as JSON ]) as JSON
+    }
+
 }
