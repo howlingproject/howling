@@ -4,7 +4,7 @@ dataSource {
     driverClassName = "com.mysql.jdbc.Driver"
     //url = "jdbc:mysql://14.63.225.165:3306/howling"
     username = "howlingproject"
-    password = "libqa2014"
+    password = "test"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -19,7 +19,7 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://14.63.225.165:3306/howling"
+            url = "jdbc:mysql://localhost:3306/howling"
             logSql = true
         }
     }
