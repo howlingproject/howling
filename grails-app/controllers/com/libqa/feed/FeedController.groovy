@@ -1,5 +1,7 @@
 package com.libqa.feed
 
+import com.libqa.application.web.AjaxResult
+
 class FeedController {
     static layout = 'main'
     static allowedMethods = [save: "POST", delete: "POST"]
@@ -16,20 +18,16 @@ class FeedController {
         feedInstance.insertUserId = 1234
         feedInstance.updateUserId = 1234
         feedInstance.sharedResponseId = 1234
-        feedInstance.feedUrl = 'http://www.google.com'
 
         try {
             feedService.save(feedInstance)
             render(contentType: "application/json") {
-                [success: true]
+                AjaxResult.success()
             }
         } catch(Exception e) {
             log.error(feedInstance.getErrors())
             render(contentType: "application/json") {
-                [
-                    success: false,
-                    message: 'failed to save'
-                ]
+                AjaxResult.fail('failed to save')
             }
         }
 
@@ -39,34 +37,25 @@ class FeedController {
         try {
             feedService.deleteBy(params.feedId);
             render(contentType: "application/json") {
-                [success: true]
+                AjaxResult.success()
             }
         } catch(Exception e) {
             log.error(e.getMessage())
             render(contentType: "application/json") {
-                [
-                    success: false,
-                    message: 'failed to delete'
-                ]
+                AjaxResult.fail('failed to delete')
             }
         }
     }
 
     def show(Long feedId) {
         render(contentType: "application/json") {
-            [
-                success: true,
-                data: Feed.findByFeedId(feedId)
-            ]
+            AjaxResult.successWithData(Feed.findByFeedId(feedId))
         }
     }
 
     def list() {
         render(contentType: "application/json") {
-            [
-                success: true,
-                data: Feed.findAll()
-            ]
+            AjaxResult.successWithData(Feed.listOrderByFeedId(10,  order: "desc"))
         }
     }
 }

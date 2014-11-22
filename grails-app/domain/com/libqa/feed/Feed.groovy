@@ -12,11 +12,11 @@ class Feed {
     String feedUrl
     int likeCount
     int claimCount
-    char isShared = 'N'
-    char isPrivate = 'N'
-    char isSharedFb = 'N'
-    char isSharedTw = 'N'
-    char isSharedGp = 'N'
+    String isShared = 'N'
+    String isPrivate = 'N'
+    String isSharedFb = 'N'
+    String isSharedTw = 'N'
+    String isSharedGp = 'N'
 
     Date insertDate
     Date updateDate
