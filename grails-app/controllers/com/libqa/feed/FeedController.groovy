@@ -49,13 +49,11 @@ class FeedController {
 
     def show(Long feedId) {
         render(contentType: "application/json") {
-            ResponseData.successWithData(Feed.findByFeedId(feedId))
+            ResponseData.result(Feed.findByFeedId(feedId))
         }
     }
 
     def list() {
-        render(contentType: "application/json") {
-            ResponseData.successWithData(Feed.listOrderByFeedId(10,  order: "desc"))
-        }
+        render(template: 'list', model:[feedList : Feed.listOrderByFeedId(10,  order: "desc")])
     }
 }
