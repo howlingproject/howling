@@ -18,12 +18,14 @@
             </li>
         </ul>
 
-        <form class="navbar-form navbar-right" role="search">
+        <div class="navbar-form navbar-right" role="search">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
             </div>
-            <button type="submit" class="btn btn-default">위키생성</button>
-        </form>
+            <a data-toggle="modal" href="/howling/wiki/write" data-target="#myModal">
+                <button type="button" class="btn btn-default">위키생성</button>
+            </a>
+        </div>
     </div>
 </nav>
 <!-- 메뉴 -->
@@ -627,4 +629,13 @@
 
 </div>
 <!-- 하단 컨텐츠 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        </div>
+    </div>
 </div>
+
+</div>
+
+
