@@ -10,8 +10,8 @@ class Space {
     String title
     String titleImage
     String titleImagePath
-    char isPrivate = "N"          // (Y,N)
-    char isDeleted = "N"          // (Y,N)
+    String isPrivate = "N"          // (Y,N)
+    String isDeleted = "N"          // (Y,N)
     LayoutTypeEnum layoutType
     Date insertDate
     Date updateDate
@@ -27,10 +27,13 @@ class Space {
 
 
     static constraints = {
-        description nullable: false
+
         title nullable: false, maxSize: 200
-        layoutType nullable: false
         isPrivate nullable: false
         isDeleted nullable: false
+        titleImage nullable: true
+        titleImagePath nullable: true
+        updateDate nullable: true
+        updateUserId nullable: true
     }
 }

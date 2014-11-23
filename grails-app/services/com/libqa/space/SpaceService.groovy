@@ -5,12 +5,12 @@ import grails.transaction.Transactional
 @Transactional
 class SpaceService {
 
-    def save(def space) {
-        log.debug("#### SpaceService : {}", space)
+    def saveSpace(Space space) {
+        log.debug("------------ SpaceService : "+ space)
+        space.save(flush: true, failOnError: true)
     }
 
     def checkTitle() {
-
     }
 
 }
