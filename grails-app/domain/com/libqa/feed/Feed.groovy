@@ -7,7 +7,7 @@ class Feed {
     Long userId
     String userNick
     String sharedResponseId
-    SharedContentsTypeEnum sharedContentsType;
+    SharedContentsTypeEnum sharedContentsType
     String feedContent
     String feedUrl
     int likeCount

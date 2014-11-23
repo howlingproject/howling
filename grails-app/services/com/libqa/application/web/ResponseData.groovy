@@ -18,7 +18,6 @@ class ResponseData {
         this.data = data
     }
 
-
     ResponseData(success) {
         this.success = success
     }
