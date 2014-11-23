@@ -71,7 +71,7 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="panel panel-info">
-                                        <div class="panel-heading"><input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> 기본형</div>
+                                        <div class="panel-heading"><input type="radio" name="layoutType" id="layoutTypeDefault" value="DEFAULT"> 기본형</div>
                                         <div class="panel-body">
                                             <table class="table table-bordered">
                                                 <thead>
@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="panel panel-primary">
-                                        <div class="panel-heading"><input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> 좌측 메뉴</div>
+                                        <div class="panel-heading"><input type="radio" name="layoutType" id="layoutTypeLeft" value="LEFT"> 좌측 메뉴</div>
                                         <div class="panel-body">
                                             <table class="table table-bordered">
                                                 <thead>
@@ -119,7 +119,7 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="panel panel-success">
-                                        <div class="panel-heading"><input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> 우측 메뉴</div>
+                                        <div class="panel-heading"><input type="radio" name="layoutType" id="layoutTypeRight" value="RIGHT"> 우측 메뉴</div>
                                         <div class="panel-body">
                                             <table class="table table-bordered">
                                                 <thead>

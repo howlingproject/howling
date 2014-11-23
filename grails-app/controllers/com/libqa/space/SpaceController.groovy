@@ -53,27 +53,35 @@ class SpaceController {
     }
 
     def save() {
-        log.debug("#### save :" + params)
         Space space = new Space(params)
+        log.debug("@ params = " + params)
+        space.insertDate = new Date()
+        space.insertUserId = 1
+        space.description = " "
+        space.titleImagePath = " "
+        space.updateDate = new Date();
+        space.updateUserId = 1
+
         try {
-            feedService.save(feedInstance)
+            log.debug("11")
+            spaceService.saveSpace(space)
             render(contentType: "application/json") {
                 ResponseData.success()
             }
         } catch(Exception e) {
-            log.error(feedInstance.getErrors())
+            log.error("Error 발생 : " + space.getErrors())
             render(contentType: "application/json") {
                 ResponseData.fail('failed to save')
             }
         }
-
-
+        /*
         render (contentType: "application/json") {
             [
                 'success': true,
-                'data': params
+                'data': space
             ]
         }
+        */
     }
 
 }
