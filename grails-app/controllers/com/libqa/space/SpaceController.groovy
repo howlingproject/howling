@@ -1,7 +1,6 @@
 package com.libqa.space
 
-import com.libqa.feed.Feed
-import grails.converters.JSON
+import com.libqa.application.web.ResponseData
 
 class SpaceController {
 
@@ -55,6 +54,20 @@ class SpaceController {
 
     def save() {
         log.debug("#### save :" + params)
+        Space space = new Space(params)
+        try {
+            feedService.save(feedInstance)
+            render(contentType: "application/json") {
+                ResponseData.success()
+            }
+        } catch(Exception e) {
+            log.error(feedInstance.getErrors())
+            render(contentType: "application/json") {
+                ResponseData.fail('failed to save')
+            }
+        }
+
+
         render (contentType: "application/json") {
             [
                 'success': true,

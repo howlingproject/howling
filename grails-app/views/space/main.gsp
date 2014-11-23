@@ -6,10 +6,11 @@
         </div>
         <a href="#" class="form-control btn btn-primary">검색</a>
     </form>
-    <div class="btn-group pull-right" data-toggle="buttons">
+    <div class="btn-group pull-right">
         <a href="#" class="btn btn-primary">개설된 공간수(200)</a>
         <a href="#" class="btn btn-primary">생성된 위키수(3000)</a>
-        <a href="#" class="btn btn-primary">등록된 키워드수(11200)</a>
+        <a href="/howling/space/form" class="btn btn-primary">등록된 키워드수(11200)</a>
+        <g:link controller="space" action="form" class="btn btn-primary">공간 생성</g:link>
     </div>
 </div>
 

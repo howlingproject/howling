@@ -183,7 +183,7 @@
      */
     function saveComplete(data) {
         alert('Data : ' + data);
-        alert(data.isPrivate);
+        alert(data.success);
     }
 
 </script>
