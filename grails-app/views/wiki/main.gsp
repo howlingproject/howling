@@ -6,7 +6,7 @@
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Search">
         </div>
-        <a class="form-control btn btn-primary" data-toggle="modal" href="/howling/wiki/write" data-target="#myModal">
+        <a class="form-control btn btn-primary" data-toggle="modal" href="/howling/wiki/write" data-target="#writeModal">
             위키생성
         </a>
     </div>
@@ -621,7 +621,7 @@
 
 </div>
 <!-- 하단 컨텐츠 -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="writeModal" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
         </div>
