@@ -1,6 +1,6 @@
 package com.libqa.feed
 
-import com.libqa.application.web.AjaxResult
+import com.libqa.application.web.ResponseData
 
 class FeedController {
     static layout = 'main'
@@ -22,12 +22,12 @@ class FeedController {
         try {
             feedService.save(feedInstance)
             render(contentType: "application/json") {
-                AjaxResult.success()
+                ResponseData.success()
             }
         } catch(Exception e) {
             log.error(feedInstance.getErrors())
             render(contentType: "application/json") {
-                AjaxResult.fail('failed to save')
+                ResponseData.fail('failed to save')
             }
         }
 
@@ -37,25 +37,25 @@ class FeedController {
         try {
             feedService.deleteBy(params.feedId);
             render(contentType: "application/json") {
-                AjaxResult.success()
+                ResponseData.success()
             }
         } catch(Exception e) {
             log.error(e.getMessage())
             render(contentType: "application/json") {
-                AjaxResult.fail('failed to delete')
+                ResponseData.fail('failed to delete')
             }
         }
     }
 
     def show(Long feedId) {
         render(contentType: "application/json") {
-            AjaxResult.successWithData(Feed.findByFeedId(feedId))
+            ResponseData.successWithData(Feed.findByFeedId(feedId))
         }
     }
 
     def list() {
         render(contentType: "application/json") {
-            AjaxResult.successWithData(Feed.listOrderByFeedId(10,  order: "desc"))
+            ResponseData.successWithData(Feed.listOrderByFeedId(10,  order: "desc"))
         }
     }
 }

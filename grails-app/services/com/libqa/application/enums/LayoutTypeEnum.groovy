@@ -2,8 +2,17 @@ package com.libqa.application.enums
 
 public enum LayoutTypeEnum {
 
-    LEFT("좌측메뉴"),
-    RIGHT("우측메뉴"),
-    DEFAULT("기본")
+    LEFT("LEFT"),
+    RIGHT("RIGHT"),
+    DEFAULT("DEFAULT")
 
+    LayoutTypeEnum(String value) {
+        this.value = value
+    }
+
+    private String value
+
+    public String  Value() {
+        return value
+    }
 }
