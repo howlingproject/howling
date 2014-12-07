@@ -223,7 +223,7 @@
                         <li class="thread">
                             <div class="author">
                                 <div class="user-profile">
-                                    <img alt="avatar" class="profile-image" src="../images/avatar.png" />
+                                    <g:img dir="images" file="avatar.png" alt="avatar" class="profile-image" />
                                 </div>
                             </div>
                             <div class="name">sjune</div>
