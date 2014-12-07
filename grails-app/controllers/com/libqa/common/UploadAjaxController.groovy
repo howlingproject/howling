@@ -77,7 +77,8 @@ class UploadAjaxController {
     def boolean checkAllowedImageFormat(def fileFormat, def viewType) {
         def allowedFileFormat = ['image/png', 'image/jpeg', 'image/jpg', 'image/gif']
 
-        if (viewType.equals('Space')){
+        // 공간 생성 혹은 에디터일 경우 이미지만 허용된다.
+        if (viewType.equals('Space') || viewType.equals('Editor')){
             if(allowedFileFormat.contains(fileFormat)) {
                 return true;
             } else {
