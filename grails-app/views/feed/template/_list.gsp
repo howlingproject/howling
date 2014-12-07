@@ -4,7 +4,7 @@
         <li class="thread">
             <div class="author">
                 <div class="user-profile">
-                    <img alt="avatar" class="profile-image" src="../images/avatar.png" />
+                    <img alt="avatar" class="profile-image" src="../../../../web-app/images/avatar.png" />
                 </div>
             </div>
             <div class="name">${feed.userNick}</div>

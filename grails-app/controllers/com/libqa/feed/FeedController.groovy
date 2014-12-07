@@ -54,6 +54,6 @@ class FeedController {
     }
 
     def list() {
-        render(template: 'list', model:[feedList : Feed.listOrderByFeedId(10,  order: "desc")])
+        render(template: 'template/list', model:[feedList : Feed.listOrderByFeedId(10,  order: "desc")])
     }
 }
