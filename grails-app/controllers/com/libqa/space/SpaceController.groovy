@@ -48,6 +48,9 @@ class SpaceController {
     def files() {
         log.debug("SpaceController file!")
     }
+    def ajaxUpload() {
+        log.debug("SpaceController ajaxUpload!")
+    }
 
     def upload() {
         def file = request.getFile('file')
