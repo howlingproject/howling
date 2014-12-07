@@ -1,39 +1,31 @@
 
-<div class="container wiki-main">
+<!-- contents -->
 <!--  메뉴  -->
-<nav class="navbar navbar-default" role="navigation">
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav">
-            <li>
-                <a href="#">총 질문(2000)</a>
-            </li>
-            <li class="active">
-                <a href="#">총 답변(2000)</a>
-            </li>
-            <li>
-                <a href="#">총 키워드(223)</a>
-            </li>
-            <li>
-                <a href="#">답변을 기다리는 Q & A (157)</a>
-            </li>
-        </ul>
-
-        <div class="navbar-form navbar-right" role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <a data-toggle="modal" href="/howling/wiki/write" data-target="#myModal">
-                <button type="button" class="btn btn-default">위키생성</button>
-            </a>
+<div class="container qna-top-search">
+    <div class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
         </div>
+        <a class="form-control btn btn-primary" data-toggle="modal" href="/howling/wiki/write" data-target="#writeModal">
+            위키생성
+        </a>
     </div>
-</nav>
-<!-- 메뉴 -->
+    <div class="btn-group pull-right">
+        <a href="#" class="btn btn-primary">총 질문(200)</a>
+        <a href="#" class="btn btn-primary">총 답변(3000)</a>
+        <a href="#" class="btn btn-primary">총 키워드(11200)</a>
+        <a href="#" class="btn btn-primary">답변을 기다리는 Q & A(3000)</a>
+    </div>
+</div>
+
+
+<div class="container contents-container top-buffer wiki-main">
+
 <!-- 상단 컨텐츠 -->
 <div class="col-md-12 col-lg-12">
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title">Panel title</h3>
+            <h3 class="panel-title">베스트 위키</h3>
         </div>
         <div class="panel-body">
 
@@ -123,7 +115,7 @@
 <!-- 하단 컨텐츠 -->
 <div class="col-md-12 col-lg-12">
 <!-- 전체 키워드 선택 -->
-<div class="col-md-2">
+<div class="col-md-2" style="padding-left: 0px;">
     <div class="well">전체 키워드 선택</div>
     <ul class="nav nav-pills nav-stacked">
         <li class="active"><a href="#">Java(120/789)</a></li>
@@ -294,7 +286,7 @@
 
 </div>
 
-<div class="col-md-3">
+<div class="col-md-3" style="padding-right: 0px;">
     <!-- 최근 활동 -->
     <div class="nav-tabs-header">최근 활동</div>
     <div class="best-qna-item">
@@ -364,272 +356,8 @@
 </div>
 </div>
 
-<div class="col-md-12 col-lg-12">
-<!-- 전체 키워드 선택 -->
-<div class="col-md-2">
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title">전체 키워드 선택</h3>
-        </div>
-        <div class="panel-body">
-            <div class="well well-sm">JAVA <span class="label label-default">6</span></div>
-            <div class="well well-sm">SPRING <span class="label label-default">6</span></div>
-            <div class="well well-sm">Ubuntu <span class="label label-default">6</span></div>
-            <div class="well well-sm">Groovy <span class="label label-default">6</span></div>
-        </div>
-    </div>
-</div>
-<!-- 전체 키워드 선택 -->
-<!-- 전체 위키 -->
-<div class="col-md-7">
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title">전체 위키</h3>
-        </div>
-        <div class="panel-body">
-
-            <!-- 전체 위키  컨텐츠-->
-            <div class="row" style="padding-bottom: 10px;">
-                <div class="col-md-2">
-                    <div class="user-profile">
-                        <div class="user-profile">
-                            <img src="../images/avatar.png" class="profile-image" alt="avatar">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <small>2014-01-12 13:43</small>
-                        </div>
-                        <div class="col-md text-right">
-                            <B>분류 태그명</B>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            여기서 질문을 해야 합니다. 질문은 제목만 보여주고요.
-                            내용은 일부만 보여줍니다. 첫 줄만? 나머지는 디테일...
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="row">
-                        <div class="col-md text-center">
-                            답변
-                        </div>
-                        <div class="col-md text-center">
-                            <button type="button" class="btn btn-primary">6</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="row">
-                        <div class="col-md text-center">
-                            추천
-                        </div>
-                        <div class="col-md text-center">
-                            <button type="button" class="btn btn-primary">6</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 전체 위키 컨텐츠 -->
-
-            <!-- 전체 위키  컨텐츠-->
-            <div class="row" style="padding-bottom: 10px;">
-                <div class="col-md-2">
-                    <div class="user-profile">
-                        <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <small>2014-01-12 13:43</small>
-                        </div>
-                        <div class="col-md text-right">
-                            <B>분류 태그명</B>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            여기서 질문을 해야 합니다. 질문은 제목만 보여주고요.
-                            내용은 일부만 보여줍니다. 첫 줄만? 나머지는 디테일...
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="row">
-                        <div class="col-md text-center">
-                            답변
-                        </div>
-                        <div class="col-md text-center">
-                            <button type="button" class="btn btn-primary">6</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="row">
-                        <div class="col-md text-center">
-                            추천
-                        </div>
-                        <div class="col-md text-center">
-                            <button type="button" class="btn btn-primary">6</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 전체 위키 컨텐츠 -->
-
-            <!-- 전체 위키  컨텐츠-->
-            <div class="row" style="padding-bottom: 10px;">
-                <div class="col-md-2">
-                    <div class="user-profile">
-                        <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <small>2014-01-12 13:43</small>
-                        </div>
-                        <div class="col-md text-right">
-                            <B>분류 태그명</B>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            여기서 질문을 해야 합니다. 질문은 제목만 보여주고요.
-                            내용은 일부만 보여줍니다. 첫 줄만? 나머지는 디테일...
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="row">
-                        <div class="col-md text-center">
-                            답변
-                        </div>
-                        <div class="col-md text-center">
-                            <button type="button" class="btn btn-primary">6</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="row">
-                        <div class="col-md text-center">
-                            추천
-                        </div>
-                        <div class="col-md text-center">
-                            <button type="button" class="btn btn-primary">6</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 전체 위키 컨텐츠 -->
-
-        </div>
-    </div>
-</div>
-<!-- 전체 위키 -->
-
-<!-- 최근 활동 -->
-<div class="col-md-3">
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title">최근 활동</h3>
-        </div>
-        <div class="panel-body">
-
-            <!-- 최근 활동 컨텐츠-->
-            <div class="row" style="padding-bottom: 10px;">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <button type="button" class="btn btn-primary btn-xs">태그</button>
-                        </div>
-                        <div class="col-md-10">
-                            <B>제목이 출력됩니다. 음.</B>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            이미
-                        </div>
-                        <div class="col-md-9">
-                            이온님이 이 항목을 수정 하였습니다.
-                        </div>
-                    </div>
-                    <!--<div class="row">-->
-                    <!--<div class="col-md-12">-->
-                    <!--<small>2013-01-02  ver 21  조회 210 추천 20</small>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                </div>
-            </div>
-
-            <div class="row" style="padding-bottom: 10px;">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <button type="button" class="btn btn-primary btn-xs">태그</button>
-                        </div>
-                        <div class="col-md-10">
-                            <B>제목이 출력됩니다. 음.</B>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            이미
-                        </div>
-                        <div class="col-md-9">
-                            이온님이 이 항목을 수정 하였습니다.
-                        </div>
-                    </div>
-                    <!--<div class="row">-->
-                    <!--<div class="col-md-12">-->
-                    <!--<small>2013-01-02  ver 21  조회 210 추천 20</small>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                </div>
-            </div>
-
-            <div class="row" style="padding-bottom: 10px;">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <button type="button" class="btn btn-primary btn-xs">태그</button>
-                        </div>
-                        <div class="col-md-10">
-                            <B>제목이 출력됩니다. 음.</B>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            이미
-                        </div>
-                        <div class="col-md-9">
-                            이온님이 이 항목을 수정 하였습니다.
-                        </div>
-                    </div>
-                    <!--<div class="row">-->
-                    <!--<div class="col-md-12">-->
-                    <!--<small>2013-01-02  ver 21  조회 210 추천 20</small>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                </div>
-
-            </div>
-            <!-- 최근 활동 컨텐츠-->
-
-        </div>
-    </div>
-</div>
-<!-- 최근 활동 -->
-
-</div>
 <!-- 하단 컨텐츠 -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="writeModal" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
         </div>
