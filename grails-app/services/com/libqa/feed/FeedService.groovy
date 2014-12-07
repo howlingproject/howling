@@ -9,7 +9,7 @@ class FeedService {
         feed.save(flush:true, failOnError:true)
     }
 
-    def deleteBy(Long feedId) {
+    def deleteBy(def feedId) {
         def feedInstance = Feed.get(feedId);
         feedInstance.delete(flush: true);
     }

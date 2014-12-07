@@ -9,7 +9,16 @@
             </div>
             <div class="name">${feed.userNick}</div>
             <div class="date"><g:formatDate format="yyyy-MM-dd HH:mm" date="${feed.insertDate}"/></div>
-            <div class="config"><i class="fa fa-check popover-config" data-container="body" data-toggle="popover" data-placement="right"></i></div>
+            <div class="config">
+                <i class="fa fa-check feed-popover"
+                   data-container="body"
+                   data-toggle="popover"
+                   data-html="true"
+                   data-content="<div id='popover-config-content'>
+                        <div class='button modify'><a href='javascript:void(0)'>수정</a></div>
+                        <div class='button delete'><a href='javascript:Feed.deleteById(${feed.feedId})'>삭제</a></div></div>"
+                   data-placement="right"></i>
+            </div>
 
             <div class="threaad-message-box">
                 <div class="message">
@@ -38,20 +47,6 @@
 </div>
 <script type="text/javascript">
 $(function(){
-    $('.popover-config').popover({
-        trigger: 'click',
-        html: true,
-        content: function () {
-            return $('#popover-config-content').html();
-        }
-    });
-
-    $('.popover-feed-image').popover({
-        trigger: 'click',
-        html: true,
-        content: function () {
-            return $('#popover-feed-image-content').html();
-        }
-    });
+    $('.feed-popover').popover();
 });
 </script>

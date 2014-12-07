@@ -4,7 +4,7 @@ import com.libqa.application.web.ResponseData
 
 class FeedController {
     static layout = 'main'
-    static allowedMethods = [save: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST"]
     def feedService
 
     def main() {
@@ -24,7 +24,7 @@ class FeedController {
             render(contentType: "application/json") {
                 ResponseData.success()
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             log.error(feedInstance.getErrors())
             render(contentType: "application/json") {
                 ResponseData.fail('failed to save')
@@ -35,11 +35,12 @@ class FeedController {
 
     def delete() {
         try {
+            log.error(params.feedId)
             feedService.deleteBy(params.feedId);
             render(contentType: "application/json") {
                 ResponseData.success()
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             log.error(e.getMessage())
             render(contentType: "application/json") {
                 ResponseData.fail('failed to delete')
@@ -47,13 +48,10 @@ class FeedController {
         }
     }
 
-    def show(Long feedId) {
-        render(contentType: "application/json") {
-            ResponseData.result(Feed.findByFeedId(feedId))
-        }
-    }
-
     def list() {
-        render(template: 'template/list', model:[feedList : Feed.listOrderByFeedId(10,  order: "desc")])
+        render(
+            template: 'template/list',
+            model: [feedList: Feed.listOrderByFeedId(10, order: "desc")]
+        )
     }
 }
