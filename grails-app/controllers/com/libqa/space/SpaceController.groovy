@@ -87,7 +87,6 @@ class SpaceController {
         space.updateUserId = 1
 
         try {
-            log.debug("11")
             spaceService.saveSpace(space)
             render(contentType: "application/json") {
                 ResponseData.success()

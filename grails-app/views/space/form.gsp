@@ -10,7 +10,7 @@
             <div style="padding-left:30px">
                 <!-- <h3>Form Horizontal</h3> -->
 
-                <g:formRemote url="[controller: 'space', action: 'save']" name="spaceCreateForm" onSuccess="saveComplete(data)" class="form-horizontal well">
+                <g:formRemote url="[controller: 'space', action: 'save']" name="spaceCreateForm" onSuccess="saveComplete(data)" class="form-horizontal well" enctype="multipart/form-data">
                     <fieldset>
                         <legend>공간 제목</legend>
                         <div class="control-group">
@@ -23,9 +23,11 @@
                         <legend>공간 이미지</legend>
                         <div class="control-group">
 
-                            <div class="col-lg-6">
+                            <div class="col-lg-8">
                                 <div class="col-xs-8 col-md-8">
-                                    <input id="file-attachment" type="file" style="display:none">
+                                    <input name="userId" value="1" type="hidden">
+                                    <input name="uploadType" value="Space" type="hidden">
+                                    <input id="file-attachment" name="uploadField" type="file" style="display:none">
                                     <input id="fileAttachmentInput" class="form-control" type="text"
                                            placeholder="공간을 표현할 수 있는 대표 이미지를 등록하세요." name="titleImage">
                                 </div>
@@ -33,14 +35,13 @@
                                     <button class="btn btn-info btn-default" type="button"
                                             onclick="$('input[id=file-attachment]').click();">파일선택
                                     </button>
+                                    <button class="btn btn-info btn-default" id="preUpload" type="button">업로드 및 미리보기</button>
                                     <p class="help-block"></p>
                                 </div>
                             </div>
-                            <div class="col-lg-2">
-                                <label class="pull-right">이미지 미리보기</label>
-                            </div>
-                            <div class="col-lg-4">
-                                <img src="https://octodex.github.com/images/droctocat.png" alt="이미지 미리보기" class="img-thumbnail image-preview">
+
+                            <div class="col-lg-4 text-right" id="imagePreviewArea">
+                                <img src="../images/icons/pictures.png" width="200" alt="이미지 미리보기" class="img-thumbnail image-preview" id="image-preview">
                             </div>
                         </div>
                         <p style="padding-top:20px"></p>
@@ -177,6 +178,36 @@
 
 
 <script type="text/javascript">
+    $('input[id="file-attachment"]').change(function () {
+        $('#fileAttachmentInput').val($(this).val().replace('C:\\fakepath\\', ''));
+    });
+
+    /**
+     * 이미지 업로드 및 미리보기
+     */
+    $('#preUpload').click(function(){
+        var oData = new FormData(document.forms.namedItem("spaceCreateForm"));
+        var url="${createLink(controller:'uploadAjax',action:'upload')}";
+        $.ajax({
+            url:url,
+            type:'POST',
+            data:oData,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false ,
+            success:function (req) {
+                if (req.success) {
+                    alert(req.contextPath+req.imagePath+req.docName);
+                    var imagePath = req.contextPath+req.imagePath+req.docName;
+                    $("#image-preview").remove();
+                    $("#imagePreviewArea").html("<img src='"+imagePath+"' width=\"200\" alt=\"이미지 미리보기\" class=\"img-thumbnail image-preview\" id=\"image-preview\">");
+                } else {
+                    alert(req.message);
+                    return;
+                }
+            }
+        });
+    });
+
     /**
      * 공간 저장 완료 콜백
      * @param data

@@ -9,6 +9,7 @@
     <label>File Name </label><input name="fileTextField" type="text">
     <input name="uploadField" type="file">
     <input name="userId" value="1" type="hidden">
+    <input name="uploadType" value="Space" type="hidden">
     <input class="clickClass" value="submit" type="button">
 
     <div class="col-lg-4" id="imgArea">
