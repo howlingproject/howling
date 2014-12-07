@@ -45,6 +45,26 @@ class SpaceController {
         log.debug("SpaceController right!")
     }
 
+    def files() {
+        log.debug("SpaceController file!")
+    }
+
+    def upload() {
+        def file = request.getFile('file')
+        if(file.empty) {
+            flash.message = "File cannot be empty"
+        } else {
+            def fileName = file.originalFilename
+            log.debug("### file name : " + file.originalFilename)
+            def webrootDir = servletContext.getRealPath("/") //app directory
+            log.debug("### webrootDir : " + webrootDir)
+            File fileDest = new File(webrootDir,"user_images/user_id/"+fileName)
+            log.debug("### fileDest : " + fileDest)
+            file.transferTo(fileDest)
+        }
+        redirect (action:'files')
+    }
+
     def current = {
         log.debug("##### spaceController current in ")
         log.debug(Space.count())
@@ -53,6 +73,7 @@ class SpaceController {
     }
 
     def save() {
+
         Space space = new Space(params)
         log.debug("@ params = " + params)
         space.insertDate = new Date()
@@ -68,7 +89,7 @@ class SpaceController {
             render(contentType: "application/json") {
                 ResponseData.success()
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             log.error("Error 발생 : " + space.getErrors())
             render(contentType: "application/json") {
                 ResponseData.fail('failed to save')
