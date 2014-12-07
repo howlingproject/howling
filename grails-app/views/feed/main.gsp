@@ -407,6 +407,7 @@
     <div class="button"><a href="#">수정</a></div>
     <div class="button"><a href="#">삭제</a></div>
 </div>
+
 <div id="popover-feed-image-content" style="display: none;">
     <div class="file_upload"><a href="#">파일 업로드</a></div>
     <div class="web_link"><a href="#">웹 링크</a></div>
@@ -419,7 +420,6 @@
     $(function(){
         Feed.renderList();
     });
-
 
     var Feed = {
         saveComplete : function(data) {
