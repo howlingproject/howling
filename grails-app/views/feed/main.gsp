@@ -13,7 +13,7 @@
                     <li>
                         <div class="author">
                             <div class="user-profile">
-                                <img alt="avatar" class="profile-image" src="../images/avatar.png" />
+                                <g:img dir="images" file="avatar.png" alt="avatar" class="profile-image" />
                             </div>
                         </div>
                         <div class="write-box">
@@ -30,10 +30,6 @@
 
         <!-- feed 글 목록 start -->
         <div id="feedListArea"></div>
-        <!-- feed 글 목록 end -->
-
-        <!-- feed 글 목록 start -->
-
         <!-- feed 글 목록 end -->
         <div id="right-panel-container">
             <a id="right-panel-link" href="#right-panel"><i class="fa fa-bars fa-3x"></i></a>
@@ -223,7 +219,7 @@
                         <li class="thread">
                             <div class="author">
                                 <div class="user-profile">
-                                    <img alt="avatar" class="profile-image" src="../images/avatar.png" />
+                                    <g:img dir="images" file="avatar.png" alt="avatar" class="profile-image" />
                                 </div>
                             </div>
                             <div class="name">sjune</div>
@@ -402,18 +398,6 @@
 </div>
 <!-- file upload modal end -->
 
-<!-- popover-config start -->
-<div id="popover-config-content" style="display: none;">
-    <div class="button"><a href="#">수정</a></div>
-    <div class="button"><a href="#">삭제</a></div>
-</div>
-
-<div id="popover-feed-image-content" style="display: none;">
-    <div class="file_upload"><a href="#">파일 업로드</a></div>
-    <div class="web_link"><a href="#">웹 링크</a></div>
-</div>
-<!-- popover-config end -->
-
 <script src="http://eduardomb.github.io/jquery-panelslider/jquery.panelslider.min.js"></script>
 <script type="text/javascript">
     $('#right-panel-link').panelslider({side: 'right', clickClose: true, duration: 200 });
@@ -433,13 +417,26 @@
         renderList: function() {
             $.ajax({
                url: '/howling/feed/list',
-               type: 'POST',
                failure: function(){ alert("Failed loading feed list.")},
                success: function(response) {
                    $('#feedListArea').html(response);
                }
            });
+        },
+        hidePopOver: function() {
+            $('.feed-popover').popover('hide');
+        },
+        deleteById: function(id) {
+            if(!confirm("삭제하시겠습니까?")) return;
+            var me = this;
+            $.ajax({
+               url: '/howling/feed/delete?feedId=' + id,
+               failure: function(){ alert("Failed delete item.")},
+               success: function() {
+                   me.hidePopOver();
+                   me.renderList();
+               }
+           });
         }
-    }
+    };
 </script>
-
