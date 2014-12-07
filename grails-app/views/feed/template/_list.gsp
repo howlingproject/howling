@@ -4,16 +4,25 @@
         <li class="thread">
             <div class="author">
                 <div class="user-profile">
-                    <img alt="avatar" class="profile-image" src="../../../../web-app/images/avatar.png" />
+                    <g:img dir="images" file="avatar.png" alt="avatar" class="profile-image" />
                 </div>
             </div>
             <div class="name">${feed.userNick}</div>
-            <div class="date">2014.07.23 23:00</div>
-            <div class="config"><i class="fa fa-check popover-config" data-container="body" data-toggle="popover" data-placement="right"></i></div>
+            <div class="date"><g:formatDate format="yyyy-MM-dd HH:mm" date="${feed.insertDate}"/></div>
+            <div class="config">
+                <i class="fa fa-check feed-popover"
+                   data-container="body"
+                   data-toggle="popover"
+                   data-html="true"
+                   data-content="<div id='popover-config-content'>
+                        <div class='button modify'><a href='javascript:void(0)'>수정</a></div>
+                        <div class='button delete'><a href='javascript:Feed.deleteById(${feed.feedId})'>삭제</a></div></div>"
+                   data-placement="right"></i>
+            </div>
 
             <div class="threaad-message-box">
                 <div class="message">
-                    ${feed.feedContent}
+                    <g:encodeAs codec="NL2BR">${feed.feedContent}</g:encodeAs>
                 </div>
                 <div class="action-buttons">
                     <i class="fa fa-thumbs-o-up"><span class="like-count">(72)</span></i>
@@ -38,20 +47,6 @@
 </div>
 <script type="text/javascript">
 $(function(){
-    $('.popover-config').popover({
-        trigger: 'click',
-        html: true,
-        content: function () {
-            return $('#popover-config-content').html();
-        }
-    });
-
-    $('.popover-feed-image').popover({
-        trigger: 'click',
-        html: true,
-        content: function () {
-            return $('#popover-feed-image-content').html();
-        }
-    });
+    $('.feed-popover').popover();
 });
 </script>
