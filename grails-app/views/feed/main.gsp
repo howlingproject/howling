@@ -1,8 +1,7 @@
 <div class="container">
     <div class="col-md-12 col-xs-12" id="feed-area">
         <!-- feed 글 쓰기 start -->
-        <g:formRemote name="myForm" id="myForm" class="form-horizontal attachmentForm"
-                      url="[controller: 'feed', action: 'save']" onSuccess="Feed.saveComplete(data)">
+        <g:formRemote name="myForm" id="myForm" class="form-horizontal attachmentForm" url="[controller: 'feed', action: 'save']" onSuccess="Feed.saveComplete(data)">
             <div class="feed feed-write well">
                 <div class="feed-write-top">
                     <div class="action-buttons text-right">
@@ -31,6 +30,7 @@
         <!-- feed 글 목록 start -->
         <div id="feedListArea"></div>
         <!-- feed 글 목록 end -->
+
         <div id="right-panel-container">
             <a id="right-panel-link" href="#right-panel"><i class="fa fa-bars fa-3x"></i></a>
         </div>
@@ -360,8 +360,7 @@
                                         <input id="fileAttachmentInput" class="form-control" type="text" placeholder="파일을 선택해주세요.">
                                     </div>
                                     <div class="col-sm-3 col-xs-3 col-md-3">
-                                        <button class="btn btn-info btn-default" type="button" onclick="$('input[id=file-attachment]').click();">파일선택
-                                        </button>
+                                        <button class="btn btn-info btn-default" type="button" onclick="$('input[id=file-attachment]').click();">파일선택</button>
                                     </div>
                                 </div>
                             </div>
@@ -406,7 +405,7 @@
     });
 
     var Feed = {
-        saveComplete : function(data) {
+        saveComplete : function() {
             this.clearForm();
             this.renderList();
         },
@@ -417,13 +416,13 @@
         renderList: function() {
             $.ajax({
                url: '/howling/feed/list',
-               failure: function(){ alert("Failed loading feed list.")},
+               failure: function(){ },
                success: function(response) {
                    $('#feedListArea').html(response);
                }
            });
         },
-        hidePopOver: function() {
+        hidePopover: function() {
             $('.feed-popover').popover('hide');
         },
         deleteById: function(id) {
@@ -431,12 +430,42 @@
             var me = this;
             $.ajax({
                url: '/howling/feed/delete?feedId=' + id,
-               failure: function(){ alert("Failed delete item.")},
-               success: function() {
-                   me.hidePopOver();
+               failure: function(){},
+               success: function(response) {
+                    if(!response.success) {
+                        alert("Failed delete item.");
+                        return;
+                    }
+                   me.hidePopover();
                    me.renderList();
                }
            });
+        },
+        saveReply: function(id) {
+            var self = this;
+            var $feedReply = $('#feedReply_' + id);
+            if(!$feedReply.val().trim().length) {
+                alert('댓글을 입력해주세요.');
+                return;
+            }
+
+            $.ajax({
+                url: '/howling/feedReply/save',
+                method: 'POST',
+                data: {
+                    feedId: id,
+                    feedReplyContent: $feedReply.val()
+                },
+                failure: function(){},
+                success: function(response) {
+                    if(!response.success) {
+                        alert("Failed saveReply");
+                        return;
+                    }
+                    self.renderList();
+                }
+           });
+
         }
     };
 </script>

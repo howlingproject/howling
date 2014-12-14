@@ -30,7 +30,6 @@ class FeedController {
                 ResponseData.fail('failed to save')
             }
         }
-
     }
 
     def delete() {
@@ -51,7 +50,9 @@ class FeedController {
     def list() {
         render(
             template: 'template/list',
-            model: [feedList: Feed.listOrderByFeedId(10, order: "desc")]
+            model: [
+                feedList: Feed.listOrderByFeedId([max: 10, sort: "feedId", order: "desc", offset: 0])
+            ]
         )
     }
 }

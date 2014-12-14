@@ -25,6 +25,10 @@ class Feed {
 
     static hasMany = [feedReplies: FeedReply, feedFiles: FeedFile]
 
+    def getFeedReplies() {
+        FeedReply.findAllByFeedId(this.feedId)
+    }
+
     static mapping = {
         version false
         id name : 'feedId'
