@@ -6,8 +6,7 @@
 		</div>
 
 		<!-- 에디터 -->
-		<div id="editor" class="form-group">
-		</div>
+		<div id="editor" class="form-group"></div>
 		<!--// 에디터 -->
 
 		<div class="form-inline">

@@ -76,9 +76,7 @@
             </div>
 
             <!-- 댓글작성 Bootstrap Live Editor -->
-            <div class="modal-body" id="askEdit">
-
-            </div>
+            <div id="editor" class="form-group"></div>
             <!--// 댓글작성 Bootstrap Live Editor -->
 
             <div class="text-center">
@@ -89,9 +87,15 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            var askEdit = document.getElementById("askEdit");
-            $.sonEdit(askEdit);
+            SONJS.setting('${request.contextPath}',$("#editor"),'mini','100%');
         });
     </script>
+
+<script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+
+<link href="<g:resource dir="css" file="sonjs/sonjs.css" />" type="text/css" rel="stylesheet" media="screen, projection" />
+<g:javascript src="sonjs/fn-son-markup.js"/>
 </body>
 </html>
