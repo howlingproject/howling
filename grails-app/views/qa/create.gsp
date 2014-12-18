@@ -7,6 +7,7 @@
 
 		<!-- 에디터 -->
 		<div id="editor" class="form-group"></div>
+		<input type="text" name="contents">
 		<!--// 에디터 -->
 
 		<div class="form-inline">
@@ -16,12 +17,15 @@
 
 			<button type="button" class="btn btn-default btn-sm">
 				JAVA <a href="#"><i class="fa fa-times"></i></a>
+				<input type="hidden" name="keywordName" value="JAVA">
 			</button>
 			<button type="button" class="btn btn-default btn-sm">
 				Spring <a href="#"><i class="fa fa-times"></i></a>
+				<input type="hidden" name="keywordName" value="Spring">
 			</button>
 			<button type="button" class="btn btn-default btn-sm">
 				Ubuntu <a href="#"><i class="fa fa-times"></i></a>
+				<input type="hidden" name="keywordName" value="Ubuntu">
 			</button>
 
 		</div>
