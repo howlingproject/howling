@@ -154,3 +154,6 @@ gradle/
 
 # DataSource
 DataSource.groovy
+
+# uploadFilePaths
+web-app/user_images/
