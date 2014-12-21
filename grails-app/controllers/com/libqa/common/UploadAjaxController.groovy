@@ -1,6 +1,7 @@
 package com.libqa.common
 
 class UploadAjaxController {
+    private static String SEPARATOR = "/"
 
     def upload = {
         println params
@@ -38,15 +39,20 @@ class UploadAjaxController {
         int randomInt = randomGenerator.nextInt(100000000)
         log.debug("randomInt : " + randomInt)
         def docName = randomInt+file?.getOriginalFilename()
-        def contextPath = servletContext.getContextPath()+"/"
+        def contextPath = servletContext.getContextPath() + SEPARATOR
 
-        def webrootDir = servletContext.getRealPath("/") //app directory
+        def webRootDir = servletContext.getRealPath(SEPARATOR) //app directory
         def imagePath = "user_images/user_id/"
-        log.debug("### webrootDir : " + webrootDir)
+        def uploadPath = new File(webRootDir + SEPARATOR + imagePath)
+        log.debug("### webRootDir : " + webRootDir)
+        log.debug("### uploadPath : " + uploadPath.getAbsolutePath())
+
+        if(!uploadPath.exists()) {
+            uploadPath.mkdirs()
+        }
 
         InputStream is = file?.getInputStream()
-
-        OutputStream os = new FileOutputStream(webrootDir + "user_images/user_id/"+docName)   //file path
+        OutputStream os = new FileOutputStream(uploadPath.getAbsolutePath() + SEPARATOR + docName)   //file path
 
         byte[] buffer = new byte[file?.getSize()]
         int bytesRead
@@ -78,7 +84,7 @@ class UploadAjaxController {
         def allowedFileFormat = ['image/png', 'image/jpeg', 'image/jpg', 'image/gif']
 
         // 공간 생성 혹은 에디터일 경우 이미지만 허용된다.
-        if (viewType.equals('Space') || viewType.equals('Editor')){
+        if (viewType.equals('Space') || viewType.equals('Editor') || viewType.equals('Feed')){
             if(allowedFileFormat.contains(fileFormat)) {
                 return true;
             } else {

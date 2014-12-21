@@ -4,12 +4,12 @@ import grails.transaction.Transactional
 class FeedService {
 
     @Transactional
-    def save(Feed feed) {
+    def save(feed) {
         feed.insertDate = new Date()
         feed.save(flush:true, failOnError:true)
     }
 
-    def deleteBy(def feedId) {
+    def deleteBy(feedId) {
         def feedInstance = Feed.get(feedId);
         feedInstance.delete(flush: true);
     }
