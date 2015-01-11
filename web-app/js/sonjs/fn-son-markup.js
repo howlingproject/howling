@@ -12,7 +12,7 @@ document.write("<scr"+"ipt src='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/j
 document.write("<scr"+"ipt src='http://code.jquery.com/jquery-migrate-1.2.1.js'></scr"+"ipt>");
 document.write("<li"+"nk rel='stylesheet' href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css' type='text/css' />");
 document.write("<li"+"nk rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' type='text/css' />");
-document.write("<link href='" + sEditorPath.replace("js/sonjs/","") + "css/sonjs.css' rel='stylesheet' type='text/css' />");
+document.write("<link href='" + sEditorPath.replace("js/sonjs/","") + "css/sonjs/sonjs.css' rel='stylesheet' type='text/css' />");
 
 document.write("<scr" + "ipt src='" + sEditorPath + "util/fn-editor-util.js' type='text/javascript'></scr" + "ipt>");
 document.write("<scr" + "ipt src='" + sEditorPath + "util/fn-editor-layer.js' type='text/javascript'></scr" + "ipt>");
