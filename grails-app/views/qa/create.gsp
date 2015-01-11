@@ -17,15 +17,15 @@
 
 			<button type="button" class="btn btn-default btn-sm">
 				JAVA <a href="#"><i class="fa fa-times"></i></a>
-				<input type="hidden" name="keywordName" value="JAVA">
+				<input type="hidden" name="keywords[0].keywordName" value="JAVA">
 			</button>
 			<button type="button" class="btn btn-default btn-sm">
 				Spring <a href="#"><i class="fa fa-times"></i></a>
-				<input type="hidden" name="keywordName" value="Spring">
+				<input type="hidden" name="keywords[1].keywordName" value="Spring">
 			</button>
 			<button type="button" class="btn btn-default btn-sm">
 				Ubuntu <a href="#"><i class="fa fa-times"></i></a>
-				<input type="hidden" name="keywordName" value="Ubuntu">
+				<input type="hidden" name="keywords[2].keywordName" value="Ubuntu">
 			</button>
 
 		</div>
