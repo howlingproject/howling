@@ -8,6 +8,7 @@ class QaContent {
     String wikiId    // Type은 먼지?
     String title
     String contents
+    String contentsMarkup
     Long userId   //  Long String?
     String userNick
     int viewCount
@@ -29,11 +30,14 @@ class QaContent {
     static mapping = {
         version false
         id name : 'qaId'
+        contents type:'text'
+        contentsMarkup type:'text'
     }
 
     static constraints = {
         wikiId(nullable:true)
         contents(nullable:false)
+        contentsMarkup(nullable:false)
         userId(nullable:false)
         userNick(nullable:false)
         viewCount(nullable:true)
