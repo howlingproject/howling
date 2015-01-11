@@ -1,7 +1,7 @@
 <div class="container">
 	<form role="form" name="form">
 		<div class="form-group">
-			<label for="title">title</label>
+			<label for="title">질문하기</label>
 			<input type="text" class="form-control" id="title" name="title" placeholder="">
 		</div>
 
@@ -50,7 +50,7 @@
 <script>
 	$(document).ready(function(){
 		$('[name=create]').bind('click', save);
-		SONJS.setting($("#editor"));
+		SONJS.setting('${request.contextPath}',$("#editor"));
 	});
 	function save(){
 		$.ajax({

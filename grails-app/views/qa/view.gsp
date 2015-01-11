@@ -82,10 +82,12 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            SONJS.setting($("#editor"),'mini','100%');
+            SONJS.setting('${request.contextPath}',$("#editor"),'mini','100%');
         });
     </script>
 
+
+<link href="<g:resource dir="css" file="sonjs/sonjs.css" />" type="text/css" rel="stylesheet" media="screen, projection" />
 <g:javascript src="sonjs/fn-son-markup.js"/>
 </body>
 </html>
