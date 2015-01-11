@@ -47,10 +47,14 @@
 <link type="stylesheet" href="${resource(dir: 'css/bootstrap-tag-cloud', file: 'bootstrap-tag-cloud.css')}" />
 
 
+<script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+<link href="<g:resource dir="css" file="sonjs/sonjs.css" />" type="text/css" rel="stylesheet" media="screen, projection" />
 <g:javascript src="sonjs/fn-son-markup.js"/>
 
 <script type="text/javascript">
     $(document).ready(function() {
-        SONJS.setting($("#editor"),'','100%');
+        SONJS.setting('${request.contextPath}',$("#editor"),'','100%');
     });
 </script>

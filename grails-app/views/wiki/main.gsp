@@ -365,3 +365,4 @@
 </div>
 
 </div>
+<link type="stylesheet" href="${resource(dir: 'css/bootstrap-tag-cloud', file: 'bootstrap-tag-cloud.css')}" />

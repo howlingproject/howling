@@ -17,15 +17,15 @@
 
 			<button type="button" class="btn btn-default btn-sm">
 				JAVA <a href="#"><i class="fa fa-times"></i></a>
-				<input type="hidden" name="keywords[0].keywordName" value="JAVA">
+				<input type="hidden" name="keywordName" value="JAVA">
 			</button>
 			<button type="button" class="btn btn-default btn-sm">
 				Spring <a href="#"><i class="fa fa-times"></i></a>
-				<input type="hidden" name="keywords[1].keywordName" value="Spring">
+				<input type="hidden" name="keywordName" value="Spring">
 			</button>
 			<button type="button" class="btn btn-default btn-sm">
 				Ubuntu <a href="#"><i class="fa fa-times"></i></a>
-				<input type="hidden" name="keywords[2].keywordName" value="Ubuntu">
+				<input type="hidden" name="keywordName" value="Ubuntu">
 			</button>
 
 		</div>
@@ -44,14 +44,20 @@
 	</div>
 </div>
 
+
+
+<script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+
+<link href="<g:resource dir="css" file="sonjs/sonjs.css" />" type="text/css" rel="stylesheet" media="screen, projection" />
 <g:javascript src="sonjs/fn-son-markup.js"/>
 
 <script>
 	$(document).ready(function(){
 		$('[name=create]').bind('click', save);
-        SONJS.setting($("#editor"));
+		SONJS.setting('${request.contextPath}',$("#editor"));
 	});
-
 	function save(){
 		$.ajax({
 			url : '/howling/qa/save',
