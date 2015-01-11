@@ -9,4 +9,15 @@ public enum KeywordTypeEnum {
     SPACE("공간"),
     QA("QA")
 
+    String type
+
+    private KeywordTypeEnum(String type) {
+        this.type = type
+    }
+
+    def String toString() { return this.type }
+
+    static list() {
+        [WIKI, SPACE, QA]
+    }
 }
