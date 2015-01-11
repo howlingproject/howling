@@ -22,6 +22,7 @@ class QaContent {
     Date updateDate
     Long insertUserId
     Long updateUserId
+    List<Keyword> keywords;
 
 
     static hasMany = [qaReplys : QaReply, qaRecomands :QaRecommand]
