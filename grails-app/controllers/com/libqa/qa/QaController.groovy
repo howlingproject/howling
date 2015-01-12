@@ -4,6 +4,7 @@ import com.libqa.application.enums.KeywordTypeEnum
 
 class QaController {
     static layout = 'main'
+    static allowedMethods = [save: "POST"]
     def qaContentService
 
     def main(){
@@ -31,7 +32,7 @@ class QaController {
             qaContentService.saveWithKeyword(qaContentInstance)
 
             render(contentType: 'application/json'){
-                [ success: true ]
+                [ success: true, qaId: qaContentInstance.qaId  ]
             }
         } catch (Exception e){
             e.printStackTrace()

@@ -59,6 +59,7 @@ class QaContentService {
                 keyword.save(flush: true, failOnError: true)
             }
         }catch(Exception e){
+            log.debug(e.printStackTrace())
             throw new RuntimeException("제발제발!!!!!")
         }
     }
