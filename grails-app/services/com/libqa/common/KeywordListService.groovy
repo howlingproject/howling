@@ -7,6 +7,11 @@ class KeywordListService {
 
     static transactional = true
 
+    def categorizeKeywordList(keywordType){
+        def categorizeKeywordObj = KeywordList.findAllByKeywordTypeAndIsDeleted(keywordType, "N")
+        return categorizeKeywordObj
+    }
+
     def keywordCheck(keywordNames, keywordType, test) {
         KeywordList keywordListInstance = new KeywordList()
         for(keywordName in keywordNames){

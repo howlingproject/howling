@@ -17,10 +17,10 @@
         <a href="#" class="form-control btn btn-primary">검색</a>
     </form>
     <div class="btn-group pull-right">
-        <a href="#" class="btn btn-primary">수정1</a>
-        <a href="#" class="btn btn-primary">수정2</a>
-        <a href="#" class="btn btn-primary">수정3</a>
-        <a href="#" class="btn btn-primary">수정4</a>
+        <a href="#" class="btn btn-primary">총 질문(123)</a>
+        <a href="#" class="btn btn-primary">총 답변(123)</a>
+        <a href="#" class="btn btn-primary">총 키워드(123)</a>
+        <a href="#" class="btn btn-primary">답변을 기다리는 Q&A(123)</a>
         <g:link controller="qa" action="create" class="btn btn-primary">질문하기</g:link>
     </div>
 </div>
@@ -31,21 +31,9 @@
     <!-- keyword -->
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
         <div class="nav-tabs-header">분류키워드</div>
-        <div class="media qna-item">
-            <ul class="nav nav-pills nav-stacked cat-keyword">
-                <li class="active"><a href="#">Java(120/789)</a></li>
-                <li><a href="#">Spring(120/539)</a></li>
-                <li><a href="#">Groovy(100/299)</a></li>
-                <li><a href="#">Grails(3/300)</a></li>
-                <li><a href="#">Gradle(282/402)</a></li>
-                <li><a href="#">Tomcat(282/402)</a></li>
-                <li><a href="#">Apache(282/402)</a></li>
-                <li><a href="#">Javascript(282/402)</a></li>
-                <li><a href="#">NodeJS(282/402)</a></li>
-                <li><a href="#">MySQL(282/402)</a></li>
-                <li><a href="#">MariaDB(282/402)</a></li>
-            </ul>
-        </div>
+        <!-- 분류키워드 list start -->
+        <div id="categorizeKeywordListArea"></div>
+        <!-- 분류키워드 list end -->
     </div>
     <!--// lnb -->
 
@@ -631,3 +619,22 @@
         <!--// BEST Q&A -->
     </div>
 </div>
+
+<script type="text/javascript">
+    $(function(){
+        Qa.renderKeywordList();
+    });
+
+    var Qa = {
+        renderKeywordList : function(){
+            $.ajax({
+                url: '${createLink(controller:'keywordList',action:'categorizeKeywordList')}',
+                data : {keywordType : 'QA'},
+                failure: function(){ },
+                success: function(response) {
+                    $('#categorizeKeywordListArea').html(response);
+                }
+            });
+        }
+    };
+</script>

@@ -12,6 +12,18 @@ class KeywordListController {
     //      return keywordId
     def keywordListService
 
+    def categorizeKeywordList(){
+        try {
+            def categorizeKeywordObj = keywordListService.categorizeKeywordList(params.keywordType)
+//        render categorizeKeywordObj as JSON
+            render(
+                    template: '/common/template/keywordList',
+                    model: [categorizeKeywordList: categorizeKeywordObj]
+            )
+        }catch(e){
+            log.debug(e)
+        }
+    }
     def keywordCheck(params) {
         keywordListService.keywordCheck(params)
     }
