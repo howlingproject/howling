@@ -2,7 +2,7 @@ package com.libqa.common
 
 import com.libqa.application.enums.KeywordTypeEnum
 
-class KeywordsList {
+class KeywordList {
     Long keywordId
     String keywordName
     int keywordCount
@@ -15,7 +15,6 @@ class KeywordsList {
     }
 
     static constraints = {
-        keywordId(nullable: false)
         keywordName(nullable: false)
         keywordCount(nullable: false)
         keywordType(nullable: false)

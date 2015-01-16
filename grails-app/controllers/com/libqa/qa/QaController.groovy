@@ -1,21 +1,27 @@
 package com.libqa.qa
 
+import com.libqa.application.enums.KeywordTypeEnum
+
 class QaController {
     static layout = 'main'
+    static allowedMethods = [save: "POST"]
     def qaContentService
 
     def main(){
 
     }
     def my(){
-
+        ['myQaContentList' : QaContent.findByUserId(9876)]
+        ['myQaReplyList' : QaReply.findByUserId(9876)]
+//        ['keyWordList' : Keywods.findByUserId(9876)]
     }
-    def view(){
-
+    def view(Long qaId){
+        ['qaContent' : QaContent.findByQaId(qaId)]
     }
     def create(){
         respond new QaContent(params)
     }
+
     def save(){
         try {
             QaContent qaContentInstance = new QaContent(params)
@@ -23,25 +29,25 @@ class QaController {
             qaContentInstance.userNick = '용퓌'
             qaContentInstance.insertUserId = 765
             qaContentInstance.updateUserId = 543
-            qaContentService.save(qaContentInstance)
+            qaContentService.saveWithKeyword(qaContentInstance)
+
             render(contentType: 'application/json'){
-                [ success: true ]
+                [ success: true, qaId: qaContentInstance.qaId  ]
             }
         } catch (Exception e){
+            e.printStackTrace()
             render(contentType: 'application/json'){
-                [ success: false, message: qaContent.getErrors() ]
+                [ success: false, message: e.getMessage() ]
             }
         }
     }
-//    def main() {
-//        log.debug("Qa Main page is called!")
-//    }
-//
-//    def my() {
-//        log.debug("Qa my page is called!")
-//    }
-//
-//    def view() {
-//        log.debug("Qa view page is called!")
-//    }
+
+    def renderQaList(){
+        def renderQaObj = qaContentService.renderQaList(params)
+
+        render(
+            template: 'template/list',
+            model: [renderQaList : renderQaObj]
+        )
+    }
 }

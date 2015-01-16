@@ -42,23 +42,18 @@
                 <div class="alert alert-info">
                     <div class="row">
                         <div class="col-md-8">
-                            <span class="qna-alert-title">Spring 공간 >> Spring AOP 에 대해서...</span>
+                            <span class="qna-alert-title">${qaContent.title}</span>
                             <span class="badge">1927</span>
                         </div>
                         <div class="col-md-4 text-right">
-                            <span class="qna-alert-title">2014.06.22 12:11:11</span>
-                            <span class="readCnt qna-alert-title">조회수 : 123</span>
+                            <span class="qna-alert-title">${qaContent.insertDate}</span>
+                            <span class="readCnt qna-alert-title">조회수 : ${qaContent.viewCount}</span>
                         </div>
                     </div>
                 </div>
                 <div>
                     <p>
-                        헤드라인은 총 3가지 타입으로 제일 큰 헤드라인, 중간 헤드라인, 작은 헤드라인으로 나뉩니다.<br>
-                        위에 제일 큰 폰트로 백 그라운드 배경 색상이 존재하게 됩니다. (박스)<br>
-                        헤드라인은 목차로 뽑혀 우측에 차례 형태로 리스팅 됩니다.<br><br>
-                        차례 섹션은 닫기 버튼을 통해 접힘/펼침 기능이 구현됩니다.<br><br>
-                        목차는 아래와 같이 생성 됩니다.<br>
-                        순서 없는 목차 어쩌구 저쩌구 질문
+                        ${qaContent.contents}
                     </p>
                 </div>
                 <!--// 본문 제목, 내용 -->
@@ -87,10 +82,12 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            SONJS.setting($("#editor"),'mini','100%');
+            SONJS.setting('${request.contextPath}',$("#editor"),'mini','100%');
         });
     </script>
 
+
+<link href="<g:resource dir="css" file="sonjs/sonjs.css" />" type="text/css" rel="stylesheet" media="screen, projection" />
 <g:javascript src="sonjs/fn-son-markup.js"/>
 </body>
 </html>
