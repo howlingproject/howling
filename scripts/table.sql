@@ -1,7 +1,7 @@
 /* 공간 SPACE */
 CREATE TABLE `space` (
   `spaceId` int(11) NOT NULL AUTO_INCREMENT COMMENT '공간번호',
-  `description` varchar(2000) COMMENT '공간설명',
+  `description` text COMMENT '공간설명',
   `title` varchar(100) NOT NULL COMMENT '공간제목',
   `titleImage` varchar(45) COMMENT '공간이미지명',
   `titleImagePath` varchar(200) COMMENT '공간이미지경로',

@@ -10,12 +10,12 @@
             <div style="padding-left:30px">
                 <!-- <h3>Form Horizontal</h3> -->
 
-                <g:formRemote url="[controller: 'space', action: 'save']" name="spaceCreateForm" onSuccess="saveComplete(data)" class="form-horizontal well" enctype="multipart/form-data">
+                <g:formRemote url="[controller: 'space', action: 'save']" before="if(!checkValidation()) return false;" name="spaceCreateForm" onSuccess="saveComplete(data)" class="form-horizontal well" enctype="multipart/form-data">
                     <fieldset>
                         <legend>공간 제목</legend>
                         <div class="control-group">
                             <div class="controls">
-                                <input type="text" class="form-control input-xlarge" id="input01" name="title">
+                                <input type="text" class="form-control input-xlarge" id="title" name="title">
                                 <p class="help-block">공간 제목 입력 후 Tab 이동시 공간명 중복 검사를 합니다.</p>
                             </div>
                         </div>
@@ -25,8 +25,9 @@
 
                             <div class="col-lg-8">
                                 <div class="col-xs-8 col-md-8">
-                                    <input name="userId" value="1" type="hidden">
+                                    <input name="userId" id="userId" value="1" type="hidden">
                                     <input name="uploadType" value="Space" type="hidden">
+                                    <input name="titleImagePath" id="titleImagePath" type="hidden">
                                     <input id="file-attachment" name="uploadField" type="file" style="display:none">
                                     <input id="fileAttachmentInput" class="form-control" type="text"
                                            placeholder="공간을 표현할 수 있는 대표 이미지를 등록하세요." name="titleImage">
@@ -49,6 +50,7 @@
                         <div class="control-group">
                             <div class="modal-body" id="askEdit">
                                 <p class="help-block" name="description">공간 메인 화면에 입력한 설명이 display 됩니다. (markdown 지원) </p>
+                                <g:textArea name="description" id="description" value="" rows="10" cols="140"/>
                             </div>
                         </div>
 
@@ -57,7 +59,7 @@
                         <div class="control-group">
                             <div class="controls">
                                 <label class="checkbox-inline">
-                                    <input type="radio" name="isPrivate" id="inlineCheckbox1" value="Y"> 공개
+                                    <input type="radio" name="isPrivate" id="inlineCheckbox1" value="Y" checked> 공개
                                 </label>
                                 <label class="checkbox-inline">
                                     <input type="radio" name="isPrivate" id="inlineCheckbox2" value="N"> 비공개
@@ -72,7 +74,7 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="panel panel-info">
-                                        <div class="panel-heading"><input type="radio" name="layoutType" id="layoutTypeDefault" value="DEFAULT"> 기본형</div>
+                                        <div class="panel-heading"><input type="radio" name="layoutType" id="layoutTypeDefault" value="DEFAULT" checked> 기본형</div>
                                         <div class="panel-body">
                                             <table class="table table-bordered">
                                                 <thead>
@@ -149,21 +151,22 @@
                         <legend>키워드 </legend>
 
                         <div class="control-group">
-                            <div class="col-sm-5 col-md-5">
+                            <div class="col-sm-4 col-md-4">
                                 <div id="tag-info" class="form-inline" style="padding-bottom: 10px">
-                                    <input type="text" class="form-control" id="interesting" placeholder="Keyword">
-                                    <button class="btn" type="button">Add <i class="glyphicon glyphicon-plus"></i></button>
+                                    <input type="text" class="form-control" size="29" id="interesting" placeholder="Keyword">
+                                    <button class="btn" id="keywordAdd" type="button">Add <i class="glyphicon glyphicon-plus"></i></button>
                                 </div>
-
-                                <ul id="tag-cloud" style="padding-left: 0px; width:100%;"></ul>
                             </div>
 
+                            <div class="col-sm-4 col-md-4">
+                                <ul id="tag-cloud" style="padding-left: 0px; width:100%; " ></ul>
+                            </div>
                         </div>
                     </fieldset>
 
                     <div class="form-actions text-center">
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                        <button type="reset" class="btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">저장</button>
+                        <button type="reset" class="btn">취소</button>
                     </div>
                 </g:formRemote>
             </div>
@@ -175,7 +178,8 @@
     </section>
 </div>
 <!--// contents -->
-
+<link href="../css/bootstrap-tag-cloud/bootstrap-tag-cloud.css" rel="stylesheet">
+<script type='text/javascript' src="../js/bootstrap-tag-cloud/bootstrap-tag-cloud.js"></script>
 
 <script type="text/javascript">
     $('input[id="file-attachment"]').change(function () {
@@ -197,9 +201,11 @@
             success:function (req) {
                 if (req.success) {
                     alert(req.contextPath+req.imagePath+req.docName);
-                    var imagePath = req.contextPath+req.imagePath+req.docName;
+                    var titleImagePath = req.contextPath+req.imagePath;
+                    var imagePath = titleImagePath+req.docName;
                     $("#image-preview").remove();
                     $("#imagePreviewArea").html("<img src='"+imagePath+"' width=\"200\" alt=\"이미지 미리보기\" class=\"img-thumbnail image-preview\" id=\"image-preview\">");
+                    $("#titleImagePath").val(titleImagePath);
                 } else {
                     alert(req.message);
                     return;
@@ -209,12 +215,52 @@
     });
 
     /**
+     * Form value 검증
+     */
+    function checkValidation() {
+        // 에러가 발생할 경우 false 를 리턴한다.
+        var userId = $("#userId").val();
+        var title = $("#title").val();
+        var titleImage= $("#fileAttachmentInput").val();
+        var imagePath = $("#titleImagePath").val();
+        var description = $("#description").val();
+        if (userId == null || userId.length == 0) {
+            alert('로그인 정보가 존재 하지 않습니다.')
+            return false;
+        }
+        if (title == null || title.length == 0) {
+            alert('제목을 입력하세요.')
+            return false;
+        }
+        if (titleImage == null || titleImage.length == 0) {
+            alert('공간 이미지를 업로드 하세요.')
+            return false;
+        }
+        if (imagePath == null || imagePath.length == 0) {
+            alert('이미지 업로드 정보는 필수값입니다.')
+            return false;
+        }
+        if (description == null || description.length == 0) {
+            alert('공간 설명은 필수값입니다.')
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
      * 공간 저장 완료 콜백
      * @param data
      */
     function saveComplete(data) {
         alert('Data : ' + data);
-        alert(data.success);
+        alert('Data.success : ' + data.success);
+        if (data.success) {
+            alert('공간이 생성되었습니다.');
+            $(location).attr('href', "main");
+        } else {
+            alert(data.message);
+        }
     }
 
 </script>

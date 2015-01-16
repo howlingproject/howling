@@ -1,5 +1,6 @@
 package com.libqa.space
 
+import com.libqa.application.enums.KeywordTypeEnum
 import com.libqa.application.web.ResponseData
 
 class SpaceController {
@@ -7,6 +8,7 @@ class SpaceController {
     static layout = 'main'
     static allowedMethods = [save:"POST", delete:"POST"]
 
+    def KeywordTypeEnum
     def spaceService
 
 //    def space() {
@@ -25,7 +27,17 @@ class SpaceController {
     }
 
     def form() {
+        /*
         log.debug("SpaceController form!")
+        log.debug("## keywordType : " + KeywordTypeEnum.SPACE)
+        log.debug("## keywordType : " + KeywordTypeEnum.SPACE.name())
+        log.debug("## keywordType : " + KeywordTypeEnum.SPACE.value())
+        def keywordType = KeywordTypeEnum.SPACE.name()
+        */
+
+
+
+        [keywordType:"SPACE"]
         // render(view:"/space/form")
         // redirect(action:detailView, params:[myparam:"param1"])
     }
@@ -76,15 +88,14 @@ class SpaceController {
     }
 
     def save() {
-
         Space space = new Space(params)
         log.debug("@ params = " + params)
-        space.insertDate = new Date()
+        log.debug("@ space = " + space)
+        Date now = new Date();
+        space.insertDate = now
         space.insertUserId = 1
-        space.description = " "
-        space.titleImagePath = " "
-        space.updateDate = new Date();
         space.updateUserId = 1
+        space.updateDate = now
 
         try {
             spaceService.saveSpace(space)
@@ -92,9 +103,10 @@ class SpaceController {
                 ResponseData.success()
             }
         } catch (Exception e) {
-            log.error("Error 발생 : " + space.getErrors())
+            log.error("## Trace : " + space.getErrors())
+            log.error("## Error message 발생 : " + e.message)
             render(contentType: "application/json") {
-                ResponseData.fail('failed to save')
+                ResponseData.fail('failed to save : 에러가 발생했습니다.')
             }
         }
         /*

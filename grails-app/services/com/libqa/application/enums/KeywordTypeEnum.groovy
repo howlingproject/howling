@@ -9,4 +9,13 @@ public enum KeywordTypeEnum {
     SPACE("공간"),
     QA("QA")
 
+    private final String value
+
+    private KeywordTypeEnum(String value) {
+        this.value = value
+    }
+
+    String value() { value }
+
+
 }
