@@ -41,4 +41,13 @@ class QaController {
             }
         }
     }
+
+    def renderQaList(){
+        def renderQaObj = qaContentService.renderQaList(params)
+
+        render(
+            template: 'template/list',
+            model: [renderQaList : renderQaObj]
+        )
+    }
 }

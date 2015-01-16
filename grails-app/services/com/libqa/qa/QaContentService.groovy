@@ -70,5 +70,38 @@ class QaContentService {
         qaContent.save(flush:true, failOnError:true)
     }
 
+    def renderQaList(params){
+        try {
+            // 최근, 답변 (today, week, all)
+            def today = new Date()
+            def fromDate = searchDayType(params.dayType)
+            def qaIds = getQaIdByKeyword(params)
+            def returnQaContentObj
+            if (params.waitReply == 'Y') {
+            } else {
+                returnQaContentObj = QaContent.findAllByQaIdInListAndInsertDateBetweenAndIsDeleted(qaIds, fromDate-1, today, 'N')
+            }
+            return returnQaContentObj
+        }catch (e){
+            log.debug(e.printStackTrace())
+        }
+    }
+
+    def searchDayType(dayType){
+        def now = new Date()
+        def returnDate
+        if(dayType == 'week'){
+            returnDate = now - 7
+        } else if(dayType == 'all'){
+            returnDate = null
+        } else{
+            returnDate = now
+        }
+        return returnDate
+    }
+
+    def getQaIdByKeyword(params){
+        return Keyword.findAllByKeywordTypeAndKeywordNameAndIsDeleted(params.keywordType, params.keywordName, 'N').qaId
+    }
 
 }

@@ -15,7 +15,6 @@ class KeywordListController {
     def categorizeKeywordList(){
         try {
             def categorizeKeywordObj = keywordListService.categorizeKeywordList(params.keywordType)
-//        render categorizeKeywordObj as JSON
             render(
                     template: '/common/template/keywordList',
                     model: [categorizeKeywordList: categorizeKeywordObj]
@@ -24,6 +23,7 @@ class KeywordListController {
             log.debug(e)
         }
     }
+
     def keywordCheck(params) {
         keywordListService.keywordCheck(params)
     }

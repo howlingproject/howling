@@ -10,7 +10,7 @@ class Keyword {
     Long spaceId
     String keywordName
     KeywordTypeEnum keywordType
-    char isDeleted  //(Y:삭제 N:사용)
+    char isDeleted = "N" //(Y:삭제 N:사용)
     Date insertDate
     Date updateDate
 
