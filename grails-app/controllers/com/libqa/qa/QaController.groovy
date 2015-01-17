@@ -50,4 +50,13 @@ class QaController {
             model: [renderQaList : renderQaObj]
         )
     }
+
+    def renderMyQaList(){
+        def renderMyQaObj = qaContentService.renderMyQaList(params)
+
+        render(
+            template: 'template/myList',
+            model: [renderMyQaList : renderMyQaObj]
+        )
+    }
 }

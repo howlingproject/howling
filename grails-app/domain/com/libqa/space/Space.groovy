@@ -6,6 +6,7 @@ import com.libqa.wiki.Wiki
 class Space {
     Long spaceId
     String description
+    String descriptionMarkup
     String title
     String titleImage
     String titleImagePath
@@ -21,6 +22,7 @@ class Space {
         version false
         id name : 'spaceId'
         description type: "text"
+        descriptionMarkup type: "text"
     }
 
     static hasMany = [spaceAccessUsers : SpaceAccessUser, wikis : Wiki]

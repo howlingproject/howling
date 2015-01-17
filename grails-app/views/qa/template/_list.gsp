@@ -9,7 +9,7 @@
         <div class="qna-main-top col-xs-8 col-sm-8 col-md-7 col-lg-8">
             <div class="media-body">
                 <div class="media-heading">
-                    <span>2014-04-05 12:12</span>
+                    <span>${qaContent.insertDate}</span>
                     <div class="pull-right">
                         <span class="label label-primary">Spring</span>
                         <span class="label label-primary">Spring</span>
