@@ -48,7 +48,7 @@
             </span>
         </div>
         <!-- 최근 Q&A list start -->
-        <div id="recentQaListArea"></div>
+        <div id="recentQaListArea" style="margin-top: 15px"></div>
         <!-- 최근 Q&A list end -->
         <!--// 최근 Q&A -->
 
@@ -64,167 +64,10 @@
             </span>
         </div>
 
-        <div class="media qna-item">
-            <a class="pull-left" href="#">
-                <div class="user-profile">
-                    <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                </div>
-            </a>
-            <div class="row">
-                <div class="qna-main-top col-xs-8 col-sm-8 col-md-7 col-lg-8">
-                    <div class="media-body">
-                        <div class="media-body">
-                            <div class="media-heading">
-                                <span>2014-04-05 12:12</span>
-                                <div class="pull-right">
-                                    <span class="label label-primary">Spring</span>
-                                    <span class="label label-primary">Spring</span>
-                                    <span class="label label-primary">Spring</span>
-                                    <span class="label label-primary">Spring</span>
-                                </div>
-                            </div>
-                            <div class="qna-title">
-                                <span>Spring 정복하기!</span>
-                            </div>
-                            Spring 서버사이드 공간 > Spring AOP 위키에 질문을 올렸습니다.- 내용이 잘 이해가...
-                            <span class="badge">1927</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 my-qna-rating">
-                    <button class="btn btn-sm btn-default btn-sm-fixed">조회 0</button>
-                    <button class="btn btn-sm btn-default btn-sm-fixed">추천 999</button>
-                </div>
-            </div>
-        </div>
+        <!-- 답변을 기다리는 Q&A list start -->
+        <div id="waitReplyQaListArea" style="margin-top: 15px"></div>
+        <!-- 답변을 기다리는 Q&A list end -->
 
-        <div class="media qna-item">
-            <a class="pull-left" href="#">
-                <div class="user-profile">
-                    <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                </div>
-            </a>
-            <div class="row">
-                <div class="qna-main-top col-xs-8 col-sm-8 col-md-7 col-lg-8">
-                    <div class="media-body">
-                        <div class="media-heading">
-                            <span>2014-04-05 12:12</span>
-                            <div class="pull-right">
-                                <span class="label label-primary">Spring</span>
-                                <span class="label label-primary">Spring</span>
-                                <span class="label label-primary">Spring</span>
-                                <span class="label label-primary">Spring</span>
-                            </div>
-                        </div>
-                        <div class="qna-title">
-                            <span>Spring 정복하기!</span>
-                        </div>
-                        Spring 서버사이드 공간 > Spring AOP 위키에 질문을 올렸습니다.- 내용이 잘 이해가...
-                        <span class="badge">1927</span>
-                    </div>
-                </div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 my-qna-rating">
-                    <button class="btn btn-sm btn-default btn-sm-fixed">조회 0</button>
-                    <button class="btn btn-sm btn-default btn-sm-fixed">추천 999</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="media qna-item">
-            <a class="pull-left" href="#">
-                <div class="user-profile">
-                    <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                </div>
-            </a>
-            <div class="row">
-                <div class="qna-main-top col-xs-8 col-sm-8 col-md-7 col-lg-8">
-                    <div class="media-body">
-                        <div class="media-heading">
-                            <span>2014-04-05 12:12</span>
-                            <div class="pull-right">
-                                <span class="label label-primary">Spring</span>
-                                <span class="label label-primary">Spring</span>
-                                <span class="label label-primary">Spring</span>
-                                <span class="label label-primary">Spring</span>
-                            </div>
-                        </div>
-                        <div class="qna-title">
-                            <span>Spring 정복하기!</span>
-                        </div>
-                        Spring 서버사이드 공간 > Spring AOP 위키에 질문을 올렸습니다.- 내용이 잘 이해가...
-                        <span class="badge">1927</span>
-                    </div>
-                </div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 my-qna-rating">
-                    <button class="btn btn-sm btn-default btn-sm-fixed">조회 0</button>
-                    <button class="btn btn-sm btn-default btn-sm-fixed">추천 999</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="media qna-item">
-            <a class="pull-left" href="#">
-                <div class="user-profile">
-                    <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                </div>
-            </a>
-            <div class="row">
-                <div class="qna-main-top col-xs-8 col-sm-8 col-md-7 col-lg-8">
-                    <div class="media-body">
-                        <div class="media-heading">
-                            <span>2014-04-05 12:12</span>
-                            <div class="pull-right">
-                                <span class="label label-primary">Spring</span>
-                                <span class="label label-primary">Spring</span>
-                                <span class="label label-primary">Spring</span>
-                                <span class="label label-primary">Spring</span>
-                            </div>
-                        </div>
-                        <div class="qna-title">
-                            <span>Spring 정복하기!</span>
-                        </div>
-                        Spring 서버사이드 공간 > Spring AOP 위키에 질문을 올렸습니다.- 내용이 잘 이해가...
-                        <span class="badge">1927</span>
-                    </div>
-                </div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 my-qna-rating">
-                    <button class="btn btn-sm btn-default btn-sm-fixed">조회 0</button>
-                    <button class="btn btn-sm btn-default btn-sm-fixed">추천 999</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="media qna-item">
-            <a class="pull-left" href="#">
-                <div class="user-profile">
-                    <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                </div>
-            </a>
-            <div class="row">
-                <div class="qna-main-top col-xs-8 col-sm-8 col-md-7 col-lg-8">
-                    <div class="media-body">
-                        <div class="media-heading">
-                            <span>2014-04-05 12:12</span>
-                            <div class="pull-right">
-                                <span class="label label-primary">Spring</span>
-                                <span class="label label-primary">Spring</span>
-                                <span class="label label-primary">Spring</span>
-                                <span class="label label-primary">Spring</span>
-                            </div>
-                        </div>
-                        <div class="qna-title">
-                            <span>Spring 정복하기!</span>
-                        </div>
-                        Spring 서버사이드 공간 > Spring AOP 위키에 질문을 올렸습니다.- 내용이 잘 이해가...
-                        <span class="badge">1927</span>
-                    </div>
-                </div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 my-qna-rating">
-                    <button class="btn btn-sm btn-default btn-sm-fixed">조회 0</button>
-                    <button class="btn btn-sm btn-default btn-sm-fixed">추천 999</button>
-                </div>
-            </div>
-        </div>
         <!--// 답변을 기다리는 Q&A -->
     </div>
 
@@ -465,6 +308,7 @@
     $(function(){
         Qa.renderKeywordList();
         Qa.renderRecentQaList();
+        Qa.renderWaitReplyQaList();
     });
 
     var Qa = {
@@ -486,6 +330,16 @@
                 failure: function(){ },
                 success: function(response) {
                     $('#recentQaListArea').html(response);
+                }
+            });
+        },
+        renderWaitReplyQaList : function(){
+            $.ajax({
+                url: '${createLink(controller:'qa',action:'renderQaList')}',
+                data : {keywordType : 'QA', keywordName : 'JAVA', waitReply : 'Y'},
+                failure: function(){ },
+                success: function(response) {
+                    $('#waitReplyQaListArea').html(response);
                 }
             });
         }
