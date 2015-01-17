@@ -1,6 +1,7 @@
 package com.libqa.qa
 
 import com.libqa.application.enums.SharedContentsTypeEnum
+import com.libqa.common.Keyword
 
 class QaContent {
 

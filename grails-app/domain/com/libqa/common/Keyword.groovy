@@ -1,4 +1,4 @@
-package com.libqa.qa
+package com.libqa.common
 
 import com.libqa.application.enums.KeywordTypeEnum
 
@@ -14,10 +14,15 @@ class Keyword {
     Date insertDate
     Date updateDate
 
+    static hasMany = [keywordLists : KeywordList]
+
     static mapping = {
         version false
         id name : 'keywordId'
+        keywordLists column: 'keywordId'
     }
+
+
 
     static constraints = {
         qaId(nullable:true)
