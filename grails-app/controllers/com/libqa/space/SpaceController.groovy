@@ -88,6 +88,9 @@ class SpaceController {
     }
 
     def save() {
+        log.debug("@ keywordArray = " + params.get("keywordArray"))
+        String keyword = params.get("keywordArray")
+
         Space space = new Space(params)
         log.debug("@ params = " + params)
         log.debug("@ space = " + space)
@@ -98,7 +101,7 @@ class SpaceController {
         space.updateDate = now
 
         try {
-            spaceService.saveSpace(space)
+            spaceService.saveSpace(space, keyword)
             render(contentType: "application/json") {
                 ResponseData.success()
             }

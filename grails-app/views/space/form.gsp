@@ -152,9 +152,12 @@
 
                         <div class="control-group">
                             <div class="col-sm-4 col-md-4">
+
                                 <div id="tag-info" class="form-inline" style="padding-bottom: 10px">
                                     <input type="text" class="form-control" size="29" id="interesting" placeholder="Keyword">
-                                    <button class="btn" id="keywordAdd" type="button">Add <i class="glyphicon glyphicon-plus"></i></button>
+                                    <input type="hidden" id="keywordArray" name="keywordArray">
+                                    <button class="btn btn-primary" type="button" id="keywordAdd">Add <i class="glyphicon glyphicon-plus"></i></button>
+
                                 </div>
                             </div>
 
@@ -170,21 +173,59 @@
                     </div>
                 </g:formRemote>
             </div>
-
-
-
         </div>
 
     </section>
 </div>
+
+
 <!--// contents -->
 <link href="../css/bootstrap-tag-cloud/bootstrap-tag-cloud.css" rel="stylesheet">
 <script type='text/javascript' src="../js/bootstrap-tag-cloud/bootstrap-tag-cloud.js"></script>
 
 <script type="text/javascript">
+    var keywordData = [];
+
     $('input[id="file-attachment"]').change(function () {
         $('#fileAttachmentInput').val($(this).val().replace('C:\\fakepath\\', ''));
     });
+
+    /**
+     * 키워드 추가
+     */
+     $('#keywordAdd').click(function(){
+        var keyword = $('#interesting').val();
+
+        if (keyword == '' || keyword.length < 2) {
+            alert('키워드를 입력하세요.');
+            return;
+        }
+        if (keywordData.length > 3) {
+            alert('키워드는 최대 3건만 등록할 수 있습니다.');
+            return;
+        }
+
+        keywordData.push(keyword);
+        $('#keywordArray').val(keywordData.join(","));
+
+        alert($('#keywordArray').val());
+    });
+
+
+    /**
+     * 키워드 삭제
+     */
+    $('#tag-cloud').on('click', 'li', function (event) {
+        alert('1 :' + $(event.target).text());
+        var keyword = $(event.target).text();
+        var index = keywordData.indexOf(keyword);
+        alert('index : ' + index);
+        if (index > -1) {
+            keywordData.splice(index, 1);
+        }
+        $('#keywordArray').val(keywordData);
+    });
+
 
     /**
      * 이미지 업로드 및 미리보기
@@ -244,6 +285,10 @@
             alert('공간 설명은 필수값입니다.')
             return false;
         }
+        if (keywordData.length < 1) {
+            alert('키워드는 최소 1건 등록해야 합니다.');
+            return;
+        }
 
         return true;
     }
@@ -262,6 +307,4 @@
             alert(data.message);
         }
     }
-
 </script>
-

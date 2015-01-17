@@ -24,7 +24,9 @@
  * ========================================================= */
 
 // Add listener for tag removals
-$(document).on('click','.tag-cloud', function removeTag(){ $(this).remove(); });
+$(document).on('click','.tag-cloud', function removeTag(){
+	$(this).remove();
+});
 
 
 // Find out which containers we have on this document and setup proper bindings
