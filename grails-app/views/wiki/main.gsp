@@ -136,153 +136,50 @@
 <div class="col-md-7">
 
     <!-- 전체 위키 -->
+    <div id="allWikiList">
+
+
+
     <div class="nav-tabs-header">전체 위키</div>
-
-    <div class="media qna-item">
-        <a class="pull-left" href="#">
-            <div class="user-profile">
-                <img src="../images/avatar.png" class="profile-image" alt="avatar">
-            </div>
-        </a>
-        <div class="row">
-            <div class="col-xs-6 col-sm-8 col-md-8">
-                <div class="media-body">
-                    <div class="media-heading">
-                        <span>2014-04-05 12:12</span>
-                        <div class="pull-right">
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-primary">Spring</span>
+    <g:each in="${wikiList}" var="wiki">
+        <div class="media qna-item">
+            <a class="pull-left" href="#">
+                <div class="user-profile">
+                    <img src="../images/avatar.png" class="profile-image" alt="avatar">
+                </div>
+            </a>
+            <div class="row">
+                <div class="col-xs-6 col-sm-8 col-md-8">
+                    <div class="media-body">
+                        <div class="media-heading">
+                            <span><g:formatDate format="yyyy-MM-dd HH:mm" date="${wiki.insertDate}"/></span>
+                            <div class="pull-right">
+                                <span class="label label-primary">Spring</span>
+                                <span class="label label-primary">Spring</span>
+                                <span class="label label-primary">Spring</span>
+                                <span class="label label-primary">Spring</span>
+                            </div>
                         </div>
+
+                        ${wiki.contents}
+
                     </div>
-                    Spring 서버사이드 공간 > Spring AOP 위키에 질문을 올렸습니다.- 내용이 잘 이해가...
+                </div>
+                <div class="col-md-2 my-qna-rating">
+                    <button class="btn btn-sm btn-default btn-sm-fixed">답변 999</button>
+                    <button class="btn btn-sm btn-default btn-sm-fixed">추천 0</button>
                 </div>
             </div>
-            <div class="col-md-2 my-qna-rating">
-                <button class="btn btn-sm btn-default btn-sm-fixed">답변 999</button>
-                <button class="btn btn-sm btn-default btn-sm-fixed">추천 0</button>
-            </div>
         </div>
-    </div>
+    </g:each>
+    <div class="top-buffer">&nbsp;</div>
 
-    <div class="media qna-item">
-        <a class="pull-left" href="#">
-            <div class="user-profile">
-                <img src="../images/avatar.png" class="profile-image" alt="avatar">
-            </div>
-        </a>
-        <div class="row">
-            <div class="col-xs-6 col-sm-8 col-md-8">
-                <div class="media-body">
-                    <div class="media-heading">
-                        <span>2014-04-05 12:12</span>
-                        <div class="pull-right">
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-primary">Spring</span>
-                        </div>
-                    </div>
-                    Spring 서버사이드 공간 > Spring AOP 위키에 질문을 올렸습니다.- 내용이 잘 이해가...
-                </div>
-            </div>
 
-            <div class="col-md-2 my-qna-rating">
-                <button class="btn btn-sm btn-default btn-sm-fixed">답변 1</button>
-                <button class="btn btn-sm btn-default btn-sm-fixed">추천 33</button>
-            </div>
-        </div>
-    </div>
 
-    <div class="media qna-item">
-        <a class="pull-left" href="#">
-            <div class="user-profile">
-                <img src="../images/avatar.png" class="profile-image" alt="avatar">
-            </div>
-        </a>
-        <div class="row">
-            <div class="col-xs-6 col-sm-8 col-md-8">
-                <div class="media-body">
-                    <div class="media-heading">
-                        <span>2014-04-05 12:12</span>
-                        <div class="pull-right">
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-primary">Spring</span>
-                        </div>
-                    </div>
-                    Spring 서버사이드 공간 > Spring AOP 위키에 질문을 올렸습니다.- 내용이 잘 이해가...
-                </div>
-            </div>
 
-            <div class="col-md-2 my-qna-rating">
-                <button class="btn btn-sm btn-default btn-sm-fixed">답변 1</button>
-                <button class="btn btn-sm btn-default btn-sm-fixed">추천 33</button>
-            </div>
-        </div>
-    </div>
 
-    <div class="media qna-item">
-        <a class="pull-left" href="#">
-            <div class="user-profile">
-                <img src="../images/avatar.png" class="profile-image" alt="avatar">
-            </div>
-        </a>
-        <div class="row">
-            <div class="col-xs-6 col-sm-8 col-md-8">
-                <div class="media-body">
-                    <div class="media-heading">
-                        <span>2014-04-05 12:12</span>
-                        <div class="pull-right">
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-primary">Spring</span>
-                        </div>
-                    </div>
-                    Spring 서버사이드 공간 > Spring AOP 위키에 질문을 올렸습니다.- 내용이 잘 이해가...
-                </div>
-            </div>
-
-            <div class="col-md-2 my-qna-rating">
-                <button class="btn btn-sm btn-default btn-sm-fixed">답변 1</button>
-                <button class="btn btn-sm btn-default btn-sm-fixed">추천 33</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="media qna-item">
-        <a class="pull-left" href="#">
-            <div class="user-profile">
-                <img src="../images/avatar.png" class="profile-image" alt="avatar">
-            </div>
-        </a>
-        <div class="row">
-            <div class="col-xs-6 col-sm-8 col-md-8">
-                <div class="media-body">
-                    <div class="media-heading">
-                        <span>2014-04-05 12:12</span>
-                        <div class="pull-right">
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-primary">Spring</span>
-                        </div>
-                    </div>
-                    Spring 서버사이드 공간 > Spring AOP 위키에 질문을 올렸습니다.- 내용이 잘 이해가...
-                </div>
-            </div>
-
-            <div class="col-md-2 my-qna-rating">
-                <button class="btn btn-sm btn-default btn-sm-fixed">답변 1</button>
-                <button class="btn btn-sm btn-default btn-sm-fixed">추천 33</button>
-            </div>
-        </div>
     </div>
     <!--// 위키 -->
-    <div class="top-buffer">&nbsp;</div>
 
 </div>
 
@@ -357,7 +254,7 @@
 </div>
 
 <!-- 하단 컨텐츠 -->
-<div class="modal fade" id="writeModal" tabindex="-1" role="dialog"  aria-hidden="true">
+<div class="modal fade" id="writeModal" role="dialog" aria-hidden="true" data-keyboard="false">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
         </div>
@@ -365,3 +262,41 @@
 </div>
 
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        Wiki.renderList();
+    });
+    var Wiki = {
+        save:function(){
+            var data = $("#wikiForm").serialize()
+            data = data.replace("we_wiki_text","contentsMarkup");
+            data += "&contents="+encodeURIComponent($("#wikimaincol").html());
+            jQuery.ajax({
+                type:'POST',
+                data:data,
+                url:'/howling/wiki/save',
+                success:function(data,textStatus){
+                    Wiki.saveComplete(data);
+                },
+                error:function(XMLHttpRequest,textStatus,errorThrown){}});
+            return false;
+        },
+
+        saveComplete: function () {
+            $('#writeModal').modal('hide');
+            alert("저장을 완료했습니다.");
+        },
+
+        renderList: function() {
+            $.ajax({
+                url: '/howling/wiki/allList',
+                failure: function(){ },
+                success: function(response) {
+                    $('#allWikiList').html(response);
+                }
+            });
+        }
+    }
+
+</script>

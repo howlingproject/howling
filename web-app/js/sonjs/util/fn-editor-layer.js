@@ -63,7 +63,11 @@ var jisung;
 
             this.hideTable();
 
-            var table = $("<div class='modal fade' id='tableModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>   <div class='modal-dialog'>     <div class='modal-content'>       <div class='modal-body'>         		<form class='form-inline' id='tableHYform' role='form'> 			<div class='form-group'> 				<input type='number' class='form-control'> 행 x 			</div> 			<div class='form-group'> 				<input type='number' class='form-control'> 열 			</div> 			<button type='button' class='btn btn-primary'>적용</button> 		</form>        <hr>                <div id='tableHYdiv'>        </div>               </div>       <div class='modal-footer'>         <button type='button' class='sonwiki-btn btn btn-default btn-sm' data-dismiss='modal'>Close</button>         <button type='button' class='btn btn-primary' id='ok'>Save changes</button>       </div>     </div>   </div> </div>  ");
+            var table = $("<div class='modal fade' id='tableModal' data-keyboard='false' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>   <div class='modal-dialog'>     <div class='modal-content'>       <div class='modal-body'>         		<form class='form-inline' id='tableHYform' role='form'> 			<div class='form-group'> 				<input type='number' class='form-control'> 행 x 			</div> 			<div class='form-group'> 				<input type='number' class='form-control'> 열 			</div> 			<button type='button' class='btn btn-primary'>적용</button> 		</form>        <hr>                <div id='tableHYdiv'>        </div>               </div>       <div class='modal-footer'>         <button type='button' class='sonwiki-btn btn btn-default btn-sm' >Close</button>         <button type='button' class='btn btn-primary' id='ok'>Save changes</button>       </div>     </div>   </div> </div>  ");
+
+            table.find(".sonwiki-btn").on("click", function () {
+                $('#tableModal').modal('hide');
+            })
 
             //테이블적용
             table.find('#ok').on("click",function(){
@@ -72,7 +76,7 @@ var jisung;
                 html += "||셀제목";
                 html += "|| \n";
 
-                $(this).parent().parent().find('#tableHYdiv').each(function(){
+                $(this).parent().parent().find('#tableHYdiv').find('.form-inline').each(function(){
                     $(this).find('input').each(function(){
                         html += "|" + $(this).val();
                         $(this).val("");
@@ -81,6 +85,7 @@ var jisung;
                 });
                 jisung = [textEditor, html];
                 $.textInsert(textEditor, html, "", "" );
+                $('#tableModal').modal('hide');
             });
 
             //행적용
@@ -106,7 +111,7 @@ var jisung;
 
         tableSetHtml : function(hh, yy){
             var html = "";
-            for( var h=0; h < hh; h++ ){e('#','');
+            for( var h=0; h < hh; h++ ){
          		 html += "<form class=\"form-inline\" role=\"form\">\n";
          		 for( var y=0; y < yy; y++ ){
          			 html += "<div class=\"form-group\">\n";
@@ -129,8 +134,12 @@ var jisung;
 
         	this.hideLink();
         	
-        	var link = $("<div class=\"modal fade\" id=\"urlModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">   <div class=\"modal-dialog\">     <div class=\"modal-content\">     	<div class=\"modal-header\"> 			<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button> 			<h4 class=\"modal-title\">Insert Link</h4>     	</div>      	<div class=\"modal-body\"> 			<form class=\"form\" role=\"form\"> 				<div class=\"form-group\"> 					<label for=\"exampleInputLinkText\">Link Text</label> 					<input type=\"text\" class=\"form-control\" id=\"linkText\" placeholder=\"Link Text\"> 				</div> 				<div class=\"form-group\"> 					<label for=\"exampleInputURL\">URL</label> 					<input type=\"text\" class=\"form-control\" id=\"linkUrl\" placeholder=\"URL\"> 				</div> 			</form>       </div>       <div class=\"modal-footer\">         <button type=\"button\" class=\"sonwiki-btn btn btn-default btn-sm\" data-dismiss=\"modal\">Close</button>         <button type=\"button\" class=\"btn btn-primary\" id=\"ok\">Save changes</button>       </div>     </div>   </div> </div> ");
-        
+        	var link = $("<div class=\"modal fade\" id=\"urlModal\" data-keyboard='false' role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">   <div class=\"modal-dialog\">     <div class=\"modal-content\">     	<div class=\"modal-body\"> 			<form class=\"form\" role=\"form\"> 				<div class=\"form-group\"> 					<label for=\"exampleInputLinkText\">Link Text</label> 					<input type=\"text\" class=\"form-control\" id=\"linkText\" placeholder=\"Link Text\"> 				</div> 				<div class=\"form-group\"> 					<label for=\"exampleInputURL\">URL</label> 					<input type=\"text\" class=\"form-control\" id=\"linkUrl\" placeholder=\"URL\"> 				</div> 			</form>       </div>       <div class=\"modal-footer\">         <button type=\"button\" class=\"sonwiki-btn btn btn-default btn-sm\" >Close</button>         <button type=\"button\" class=\"btn btn-primary\" id=\"ok\">Save changes</button>       </div>     </div>   </div> </div> ");
+
+            link.find(".sonwiki-btn").on("click", function () {
+                $('#urlModal').modal('hide');
+            })
+
         	//여기서부터 링크
         	link.find('#ok').on("click",function(){
         		var text = $(this).parent().parent().find('input')[0].value ;
@@ -155,8 +164,12 @@ var jisung;
 
         	this.hideImg();
         	
-        	var img = $("<div class=\"modal fade\" id=\"imgModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">   <div class=\"modal-dialog\">     <div class=\"modal-content\">     	<div class=\"modal-header\"> 			<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button> 			<h4 class=\"modal-title\">Insert Img</h4>     	</div>      	<div class=\"modal-body\"> 			<form class=\"form\" role=\"form\"> 				<div class=\"form-group\"> 					<label for=\"exampleInputImgText\">Img Text</label> 					<input type=\"text\" class=\"form-control\" id=\"ImgText\" placeholder=\"Img Text\"> 				</div> 				<div class=\"form-group\"> 					<label for=\"exampleInputURL\">URL</label> 					<input type=\"text\" class=\"form-control\" id=\"ImgUrl\" placeholder=\"URL\"> 				</div> 			</form>       </div>       <div class=\"modal-footer\">         <button type=\"button\" class=\"sonwiki-btn btn btn-default btn-sm\" data-dismiss=\"modal\">Close</button>         <button type=\"button\" class=\"btn btn-primary\" id=\"ok\">Save changes</button>       </div>     </div>   </div> </div> ");
-        
+        	var img = $("<div class=\"modal fade\" id=\"imgModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">   <div class=\"modal-dialog\">     <div class=\"modal-content\">     	<div class=\"modal-body\"> 			<form class=\"form\" role=\"form\"> 				<div class=\"form-group\"> 					<label for=\"exampleInputImgText\">Img Text</label> 					<input type=\"text\" class=\"form-control\" id=\"ImgText\" placeholder=\"Img Text\"> 				</div> 				<div class=\"form-group\"> 					<label for=\"exampleInputURL\">URL</label> 					<input type=\"text\" class=\"form-control\" id=\"ImgUrl\" placeholder=\"URL\"> 				</div> 			</form>       </div>       <div class=\"modal-footer\">         <button type=\"button\" class=\"sonwiki-btn btn btn-default btn-sm\" >Close</button>         <button type=\"button\" class=\"btn btn-primary\" id=\"ok\">Save changes</button>       </div>     </div>   </div> </div> ");
+
+            img.find(".sonwiki-btn").on("click", function () {
+                $('#imgModal').modal('hide');
+            })
+
         	//여기서부터 링크
         	img.find('#ok').on("click",function(){
         		var text = $(this).parent().parent().find('input')[0].value ;
