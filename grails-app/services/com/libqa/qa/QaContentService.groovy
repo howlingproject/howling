@@ -58,7 +58,7 @@ class QaContentService {
                 keyword.updateDate = new Date()
                 keyword.save(flush: true, failOnError: true)
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             log.debug(e.printStackTrace())
             throw new RuntimeException("제발제발!!!!!")
         }
@@ -78,10 +78,27 @@ class QaContentService {
             def qaIds = getQaIdByKeyword(params)
             def returnQaContentObj
             if (params.waitReply == 'Y') {
+                returnQaContentObj = QaContent.findAllByQaIdInListAndIsReplyedAndInsertDateBetweenAndIsDeleted(qaIds, 'N' , fromDate-1, today, 'N')
             } else {
                 returnQaContentObj = QaContent.findAllByQaIdInListAndInsertDateBetweenAndIsDeleted(qaIds, fromDate-1, today, 'N')
             }
             return returnQaContentObj
+        }catch (e){
+            log.debug(e.printStackTrace())
+        }
+    }
+
+    def renderMyQaList(params){
+        try {
+            def qaIds = getQaIdByKeyword(params)
+            def returnMyQaContentObj
+            if (params.viewType == 'myWrite') {
+                returnMyQaContentObj = QaContent.findAllByQaIdInListAndInsertUserIdAndIsDeleted(qaIds, '765' ,'N')
+            } else if(params.viewType == 'myReply') {
+                def qaReplyObj = QaReply.findAllByQaIdAndUserIdAndIsDeleted(qaIds, '765' ,'N').qaId
+                returnMyQaContentObj = QaContent.findAllByQaIdAndIsDeleted(qaReplyObj, 'N')
+            }
+            return returnMyQaContentObj
         }catch (e){
             log.debug(e.printStackTrace())
         }

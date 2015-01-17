@@ -26,6 +26,9 @@ class Wiki {
     String revision
     char isDeleted = "N" //(Y,N)
 
+    Date insertDate
+    Date updateDate
+
     static hasMany = [wikibacks: WikiBack, wikireplys: WikiReply, wikifiles: WikiFiles]
 
     static belongsTo = [spaceId: Space]
@@ -33,13 +36,21 @@ class Wiki {
     static mapping = {
         version false
         id name : 'wikiId'
+        contentsMarkup type : 'text'
+        contents type : 'text'
     }
 
     static constraints = {
-        wikiId (nullable: false)
         userId (blank:false, nullable: false)
         isDeleted (nullable: false)
         isLock (nullable: false)
         isFixed (nullable: false)
+
+        wikiUrl(nullable: true, url: true)
+        editReason(nullable: true)
+        revision(nullable: true)
+        parentsId(nullable: true)
+        updateDate(nullable: true)
+
     }
 }

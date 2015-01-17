@@ -19,7 +19,7 @@ class QaContent {
     char isShared = "N"   // (Y, N)
     SharedContentsTypeEnum sharedContentsType
     String sharedResponseId
-    char isReplyed //   (Y: 답변, N:답변없음)
+    char isReplyed = "N" //   (Y: 답변, N:답변없음)
     Date insertDate
     Date updateDate
     Long insertUserId

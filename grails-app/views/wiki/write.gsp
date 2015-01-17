@@ -1,17 +1,21 @@
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title">위키 생성하기</h4>
-</div>
 <div class="modal-body">
-    <form role="form">
-        <div class="form-group">
-            <label for="space_title">space title</label>
-            <input type="text" style="width: 100%;" class="form-control" id="space_title" placeholder="이미 생성된 공간 선택 가능하도록 셀렉트 박스로 (입력은 못함)">
+    <form role="form" id="wikiForm">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label for="space_title" class="col-sm-2 control-label">공간제목</label>
+                <div class="col-sm-10">
+                    <input type="text"  class="form-control" id="space_title" placeholder="이미 생성된 공간 선택 가능하도록 셀렉트 박스로 (입력은 못함)">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">위키제목</label>
+                <div class="col-sm-10">
+                    <input type="text"  class="form-control" id="title" name="title" placeholder="">
+                </div>
+            </div>
+
         </div>
-        <div class="form-group">
-            <label for="title">title</label>
-            <input type="text" style="width: 100%;" class="form-control" id="title" placeholder="">
-        </div>
+
 
         <!-- 에디터 -->
         <div class="form-group">
@@ -25,7 +29,6 @@
             <button type="button" class="btn btn-primary btn-sm">키워드추가 <i class="glyphicon glyphicon-plus"></i></button>
             <ul id="tag-cloud" style="padding-left: 0px; width:100%;"></ul>
         </div>
-        <br>
         <div class="form-group">
             <div class="form-inline col-md-pull-10">
                 <input id="file-attachment" type="file" style="display:none">
@@ -35,22 +38,60 @@
                 <p class="help-block"></p>
             </div>
         </div>
-
     </form>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-    <button type="button" class="btn btn-primary">저장</button>
+    <button type="button" class="btn btn-primary" id="saveWiki">저장</button>
 </div>
 
 <g:javascript src="bootstrap-tag-cloud/bootstrap-tag-cloud.js" />
 <link type="stylesheet" href="${resource(dir: 'css/bootstrap-tag-cloud', file: 'bootstrap-tag-cloud.css')}" />
-
+<script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
 
 <g:javascript src="sonjs/fn-son-markup.js"/>
 
 <script type="text/javascript">
     $(document).ready(function() {
-        SONJS.setting($("#editor"),'','100%');
+        SONJS.setting('${request.contextPath}',$("#editor"),'','100%');
     });
+
+    $("#saveWiki").on("click", function(e){
+        Wiki.save();
+    });
+
+    var Wiki = {
+
+        save:function(){
+            var data = $("#wikiForm").serialize()
+            data = data.replace("we_wiki_text","contentsMarkup");
+            data += "&contents="+encodeURIComponent($("#wikimaincol").html());
+            jQuery.ajax({
+                type:'POST',
+                data:data,
+                url:'/howling/wiki/save',
+                success:function(data,textStatus){
+                    Wiki.saveComplete(data);
+                },
+                error:function(XMLHttpRequest,textStatus,errorThrown){}});
+            return false;
+        },
+
+        saveComplete: function () {
+            $('#writeModal').modal('hide');
+            alert("저장을 완료했습니다.");
+        },
+
+        renderList: function() {
+            $.ajax({
+                url: '/howling/wiki/allList',
+                failure: function(){ },
+                success: function(response) {
+                    $('#feedListArea').html(response);
+                }
+            });
+        }
+    }
+
 </script>
