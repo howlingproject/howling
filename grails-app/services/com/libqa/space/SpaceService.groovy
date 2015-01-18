@@ -15,7 +15,7 @@ class SpaceService {
     def keywordService
 
 
-    def saveSpace(Space space, String keyword) {
+    def saveSpaceAndKeywords(Space space, String keyword) {
         log.info("@@@@@@ SpaceService : " + space)
         log.info("@@@@@@ keyword : " + keyword)
 

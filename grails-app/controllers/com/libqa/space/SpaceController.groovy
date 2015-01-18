@@ -101,13 +101,12 @@ class SpaceController {
         space.updateDate = now
 
         try {
-            spaceService.saveParam(params, keyword)
-            spaceService.saveSpace(space, keyword)
+            // spaceService.saveParam(params, keyword)
+            spaceService.saveSpaceAndKeywords(space, keyword)
             render(contentType: "application/json") {
                 ResponseData.success()
             }
         } catch (e) {
-
             log.error("## Trace : " + space.getErrors())
             log.error("## Error message 발생 : " + e.message)
             render(contentType: "application/json") {
