@@ -23,6 +23,14 @@
             <div class="threaad-message-box">
                 <div class="message">
                     <g:encodeAs codec="NL2BR">${feed.feedContent}</g:encodeAs>
+
+                    <g:if test="!feed.feedFiles.isEmpty()">
+                    <div class="images text-center">
+                        <g:each in="${feed.feedFiles}" var="feedFile">
+                            <img width="190" class="img-thumbnail" src="/howling/${feedFile.filePath}${feedFile.savedName}">
+                        </g:each>
+                    </div>
+                    </g:if>
                 </div>
                 <div class="action-buttons">
                     <i class="fa fa-thumbs-o-up"><span class="like-count">(72)</span></i>

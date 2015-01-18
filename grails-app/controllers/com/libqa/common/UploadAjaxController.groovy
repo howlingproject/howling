@@ -12,7 +12,7 @@ class UploadAjaxController {
         return
     }
 
-    def fileUploader(def file, def viewType){
+    def fileUploader(def file, def viewType) {
         log.debug("####### File Info #######")
         log.debug("viewType : " + viewType)
         log.debug("file.getName() : " + file?.getName())
@@ -28,7 +28,7 @@ class UploadAjaxController {
                 [
                     'success': false,
                     'message': '업로드 할 수 없는 파일입니다.',
-                    'docName': docName,
+                    'savedName': savedName,
                     'contextPath': contextPath,
                     'imagePath': imagePath
                 ]
@@ -38,12 +38,12 @@ class UploadAjaxController {
         Random randomGenerator = new Random()
         int randomInt = randomGenerator.nextInt(100000000)
         log.debug("randomInt : " + randomInt)
-        def docName = randomInt+file?.getOriginalFilename()
+        def savedName = randomInt+file?.getOriginalFilename()
         def contextPath = servletContext.getContextPath() + SEPARATOR
 
         def webRootDir = servletContext.getRealPath(SEPARATOR) //app directory
-        def imagePath = "user_images/user_id/"
-        def uploadPath = new File(webRootDir + SEPARATOR + imagePath)
+        def filePath = "user_images/user_id/"
+        def uploadPath = new File(webRootDir + SEPARATOR + filePath)
         log.debug("### webRootDir : " + webRootDir)
         log.debug("### uploadPath : " + uploadPath.getAbsolutePath())
 
@@ -52,7 +52,7 @@ class UploadAjaxController {
         }
 
         InputStream is = file?.getInputStream()
-        OutputStream os = new FileOutputStream(uploadPath.getAbsolutePath() + SEPARATOR + docName)   //file path
+        OutputStream os = new FileOutputStream(uploadPath.getAbsolutePath() + SEPARATOR + savedName)   //file path
 
         byte[] buffer = new byte[file?.getSize()]
         int bytesRead
@@ -61,15 +61,17 @@ class UploadAjaxController {
         }
         is.close()
         os.close()
-        log.debug("docName : " + docName)
+        log.debug("savedName : " + savedName)
 
         render (contentType: "application/json") {
             [
                 'success': true,
                 'message': '파일이 업로드 되었습니다.',
-                'docName': docName,
+                'realName': file?.getOriginalFilename(),
+                'savedName': savedName,
                 'contextPath': contextPath,
-                'imagePath': imagePath
+                'fileSize': file?.getSize(),
+                'filePath': filePath
             ]
         }
     }
@@ -82,6 +84,8 @@ class UploadAjaxController {
      */
     def boolean checkAllowedImageFormat(def fileFormat, def viewType) {
         def allowedFileFormat = ['image/png', 'image/jpeg', 'image/jpg', 'image/gif']
+        log.debug('# fileFormat :' + fileFormat)
+        log.debug('# viewType :' + viewType)
 
         // 공간 생성 혹은 에디터일 경우 이미지만 허용된다.
         if (viewType.equals('Space') || viewType.equals('Editor') || viewType.equals('Feed')){

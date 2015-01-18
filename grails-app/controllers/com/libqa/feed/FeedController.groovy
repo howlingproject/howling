@@ -25,7 +25,7 @@ class FeedController {
                 ResponseData.success()
             }
         } catch (Exception e) {
-            log.error(feedInstance.getErrors())
+            e.printStackTrace()
             render(contentType: "application/json") {
                 ResponseData.fail('failed to save')
             }
