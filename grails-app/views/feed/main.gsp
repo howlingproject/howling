@@ -406,7 +406,12 @@
     var Feed = {
         tempAttachment : null,
         attachments : [],
-        completeSave : function() {
+        completeSave : function(res) {
+            console.log(res);
+            if(!res.success) {
+                alert(res.message);
+                return;
+            }
             this.clearForm();
             this.renderList();
             this.clearAttachmentArea();
