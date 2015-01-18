@@ -5,15 +5,16 @@ class UploadAjaxController {
 
     def upload = {
         println params
-        log.debug("params.uploadType =" + params.uploadType)
-
-        fileUploader(params.uploadField, params.uploadType)
+        fileUploader(params.uploadField, params.uploadType, params.viewType)
         render params.name
         return
     }
 
-    def fileUploader(def file, def viewType) {
+    def fileUploader(def file, def uploadType, def viewType) {
+        uploadType = uploadType ?: "image"
+
         log.debug("####### File Info #######")
+        log.debug("uploadType : " + uploadType)
         log.debug("viewType : " + viewType)
         log.debug("file.getName() : " + file?.getName())
         log.debug("file.getContentType() : " + file?.getContentType())

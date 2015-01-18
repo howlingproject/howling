@@ -25,11 +25,11 @@
                     <g:encodeAs codec="NL2BR">${feed.feedContent}</g:encodeAs>
 
                     <g:if test="!feed.feedFiles.isEmpty()">
-                    <div class="images text-center">
-                        <g:each in="${feed.feedFiles}" var="feedFile">
-                            <img width="190" class="img-thumbnail" src="/howling/${feedFile.filePath}${feedFile.savedName}">
-                        </g:each>
-                    </div>
+                        <div class="images text-center">
+                            <g:each in="${feed.feedFiles}" var="feedFile">
+                                <img src="${resource(dir: feedFile.filePath, file: feedFile.savedName)}" width="190" class="img-thumbnail" />
+                            </g:each>
+                        </div>
                     </g:if>
                 </div>
                 <div class="action-buttons">

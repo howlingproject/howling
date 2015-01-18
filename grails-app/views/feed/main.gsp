@@ -341,7 +341,7 @@
             <div class="modal-body">
                 <div class="feed well">
                     <g:form enctype="multipart/form-data" class="form-horizontal attachmentForm" name="uploadForm" id="uploadForm">
-                        <input type="hidden" name="uploadType" value="Feed">
+                        <input type="hidden" name="viewType" value="Feed">
 
                         <div class="form-group">
                             <label class="col-sm-2 col-md-2 control-label">타입</label>
@@ -378,16 +378,6 @@
                             <div class="col-sm-10 col-md-10" id="imagePreviewArea">&nbsp;</div>
                         </div>
                     </g:form>
-
-                    <script type="text/javascript">
-                        $('input[name="fileType"]').change(function () {
-                            if($(this).val() == 'file') {
-                                $('.image-options').hide();
-                            } else {
-                                $('.image-options').show();
-                            }
-                        });
-                    </script>
                 </div>
             </div>
             <div class="modal-footer">
@@ -477,9 +467,9 @@
                 var oData = new FormData(document.forms.namedItem("uploadForm"));
                 var url = "${createLink(controller:'uploadAjax',action:'upload')}";
                 $.ajax({
-                    url:url,
+                    url: url,
                     type:'POST',
-                    data:oData,
+                    data: oData,
                     processData: false,  // tell jQuery not to process the data
                     contentType: false ,
                     success:function (req) {
@@ -487,7 +477,6 @@
                             alert(req.message);
                             return;
                         }
-                        console.log(req);
 
                         var _attachment = {
                             'realName': req.realName,
@@ -520,7 +509,7 @@
             Feed.clearAttachmentArea();
             $.each(Feed.attachments, function (i, obj) {
                 if (obj.fileType == 'image') {
-                    var image = '<img src="' + obj.imagePath + '" alt="이미지 미리보기" class="img-thumbnail image-preview">';
+                    var image = '<img src="' + obj.imagePath + '" alt="이미지 미리보기" class="img-thumbnail image-preview" width="190">';
                     $('.attachmentArea .images').append(image);
                 }
             });
@@ -544,9 +533,29 @@
 
             return true;
         },
+        bindFeedAttachment: function(){
+            $('#feedAttachment').click(function(){
+                Feed.clearUploadForm();
+            });
+
+            $('input[name="fileType"]').change(function () {
+                Feed.clearUploadForm();
+                if($(this).val() == 'file') {
+                    $('.image-options').hide();
+                } else {
+                    $('.image-options').show();
+                }
+            });
+        },
+        clearUploadForm: function(){
+            $('#fileAttachment').val('');
+            $('#fileAttachmentInput').val('');
+            $('#imagePreviewArea').empty();
+        },
         init : function() {
             this.bindImageUpload();
             this.bindConfirmFileAttachment();
+            this.bindFeedAttachment();
             this.renderList();
         }
     };
