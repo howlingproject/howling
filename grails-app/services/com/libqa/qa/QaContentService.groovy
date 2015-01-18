@@ -74,7 +74,7 @@ class QaContentService {
             // 최근, 답변 (today, week, all)
             def today = new Date()
             def fromDate = searchDayType(params.dayType)
-            def qaIds = getQaIdByKeyword(params)
+            def qaIds = findQaIdByKeyword(params)
             def returnQaContentObj
             if (params.waitReply == 'Y') {
                 returnQaContentObj = QaContent.findAllByQaIdInListAndIsReplyedAndInsertDateBetweenAndIsDeleted(qaIds, 'N' , fromDate-1, today, 'N')
