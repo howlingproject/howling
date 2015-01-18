@@ -29,7 +29,7 @@ class QaController {
             qaContentInstance.userNick = '용퓌'
             qaContentInstance.insertUserId = 765
             qaContentInstance.updateUserId = 543
-            qaContentService.saveWithKeyword(qaContentInstance)
+            qaContentService.saveQaContentAndKeywordListAndKeyword(qaContentInstance)
 
             render(contentType: 'application/json'){
                 [ success: true, qaId: qaContentInstance.qaId  ]

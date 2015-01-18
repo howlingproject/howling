@@ -14,12 +14,10 @@ class Keyword {
     Date insertDate
     Date updateDate
 
-    static hasMany = [keywordLists : KeywordList]
 
     static mapping = {
         version false
         id name : 'keywordId'
-        keywordLists column: 'keywordId'
     }
 
 
