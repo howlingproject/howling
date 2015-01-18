@@ -12,62 +12,31 @@ class KeywordListService {
         return categorizeKeywordObj
     }
 
-    def keywordCheck(keywordNames, keywordType, test) {
-        KeywordList keywordListInstance = new KeywordList()
-        for(keywordName in keywordNames){
-            // TODO List KeywordList table에 아래의 조건으로 index를 걸어야함
-            def keywordListObj = KeywordList.findByKeywordNameAndKeywordType(keywordName, keywordType)
-            if(keywordListObj != null){
-                keywordListInstance.setKeywordCount(keywordListObj.getKeywordCount() + 1)
+    def saveKeywordList(Object obj, keywordType){
+        def successType = 1
+        try {
+            for (keyword in obj.keywords) {
+                def keywordName = keyword.keywordName
+                // TODO List KeywordList table에 아래의 조건으로 index를 걸어야함
+                def keywordListObj = findKeywordListByKeywordNameAndKeywordType(keywordName, keywordType)
+                if (keywordListObj == null) {
+                    keywordListObj = new KeywordList()
+                    keywordListObj.setKeywordName(keywordName)
+                    keywordListObj.setKeywordType(keywordType)
+                } else {
+                    keywordListObj.keywordCount = keywordListObj.getKeywordCount() + 1
+                }
+                save(keywordListObj)
             }
-            keywordListInstance.setKeywordName(keywordName)
-            keywordListInstance.setKeywordType(keywordType)
-            save(keywordListInstance)
-
+        }catch(e){
+            log.debug(e.printStackTrace())
+            successType = 0
         }
+        return successType
     }
 
-//    def keywordCheck(keyword, params) {
-//        for(keywordName in params.keywordName){
-//            // TODO List KeywordList table에 아래의 조건으로 index를 걸어야함
-//            def keywordListObj = KeywordList.findByKeywordNameAndKeywordType(keywordName, keyword.getKeywordType())
-//            def keywordListInstance
-//            if(keywordListObj != null){
-//                keywordListInstance = keywordListObj
-//                keywordListInstance.setKeywordId(keywordListObj.getKeywordId())
-//                keywordListInstance.setKeywordCount(keywordListObj.getKeywordCount() + 1)
-//            } else {
-//                keywordListInstance = new KeywordList()
-//            }
-//            keywordListInstance.setKeywordName(keywordName)
-//            keywordListInstance.setKeywordType(keyword.getKeywordType())
-//            save(keywordListInstance)
-//
-//            Keyword saveKeywordInstance = new Keyword()
-//            saveKeywordInstance.setKeywordId(keywordListInstance.getKeywordId())
-//            saveKeywordInstance.setQaId(keyword.getQaId())
-//            saveKeywordInstance.setKeywordType(keyword.getKeywordType())
-//            saveKeywordInstance.setKeywordName(keywordName)
-//            saveKeywordInstance.insertDate = new Date()
-//            saveKeywordInstance.updateDate = new Date()
-//            saveKeywordInstance.save(flush: true, failOnError: true)
-//        }
-//    }
-
-    def keywordCheck(qaContentInstance, keywordType){
-        for(keyword in qaContentInstance.keywords){
-            def keywordName = keyword.keywordName
-            // TODO List KeywordList table에 아래의 조건으로 index를 걸어야함
-            def keywordListObj = KeywordList.findByKeywordNameAndKeywordType(keywordName, keywordType)
-            if(keywordListObj == null){
-                keywordListObj = new KeywordList()
-                keywordListObj.setKeywordName(keywordName)
-                keywordListObj.setKeywordType(keywordType)
-            } else {
-                keywordListObj.keywordCount = keywordListObj.getKeywordCount() + 1
-            }
-            save(keywordListObj)
-        }
+    def findKeywordListByKeywordNameAndKeywordType(keywordName, keywordType){
+        return KeywordList.findByKeywordNameAndKeywordTypeAndIsDeleted(keywordName, keywordType, 'N')
     }
 
     def save(def keywordList) {
