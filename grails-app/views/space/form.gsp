@@ -156,12 +156,11 @@
 
                                 <div id="tag-info" class="form-inline" style="padding-bottom: 10px">
                                     <input type="text" class="form-control" size="29" id="interesting" placeholder="Keyword">
-                                    <input type="hidden" id="keywordArray" name="keywordList" />
                                     <button class="btn btn-primary" type="button" id="keywordAdd">Add <i class="glyphicon glyphicon-plus"></i></button>
 
                                 </div>
                             </div>
-
+                            <input type="hidden" id="keywordArray" name="keywordList" />
                             <div class="col-sm-4 col-md-4">
                                 <ul id="tag-cloud" style="padding-left: 0px; width:100%; " ></ul>
                             </div>
@@ -193,10 +192,10 @@
 
     /**
      * 키워드 추가
+     * 키워드가 3건 이상 등록 될 경우 폼을 disabled 한다.
      */
      $('#keywordAdd').click(function(){
          var keyword = $('#interesting').val();
-         alert('keywordData.length : ' + keywordData.length);
          if (keyword == '' || keyword.length < 2) {
              alert('키워드를 입력하세요.');
              return;
@@ -209,25 +208,26 @@
          keywordData.push(keyword);
          $('input[id=keywordArray]').val(keywordData.join(","));
 
-         var arrays = $('#keywordArray').val();
-
-         alert('arrays :' + arrays);
+         if (keywordData.length > 2) {
+             $("#interesting").attr("readonly",true);
+             $("#keywordAdd").attr("disabled",true);
+         }
     });
-
 
     /**
      * 키워드 삭제
+     * 키워드가 삭제되면 폼을 enabled 한다.
      */
     $('#tag-cloud').on('click', 'li', function (event) {
-        alert('1 :' + $(event.target).text());
         var keyword = $(event.target).text();
         var index = keywordData.indexOf(keyword);
-        alert('index : ' + index);
+
         if (index > -1) {
             keywordData.splice(index, 1);
             $('input[id=keywordArray]').val(keywordData);
+            $("#interesting").attr("readonly",false);
+            $("#keywordAdd").attr("disabled",false);
         }
-
     });
 
 
@@ -269,10 +269,8 @@
         var titleImage= $("#fileAttachmentInput").val();
         var imagePath = $("#titleImagePath").val();
         var description = $("#description").val();
+        var keywords = $("#keywordArray").val();
 
-        $('input[id=keywordArray]').val(keywordData);
-        var keys = $("#keywordArray").val();
-        alert('저장 keys: ' + keys);
         if (userId == null || userId.length == 0) {
             alert('로그인 정보가 존재 하지 않습니다.')
             return false;
@@ -293,7 +291,7 @@
             alert('공간 설명은 필수값입니다.')
             return false;
         }
-        if (keywordArray == null ) {
+        if (keywords == null || keywords == '') {
             alert('키워드는 최소 1건 등록해야 합니다.');
             return;
         }
@@ -306,8 +304,6 @@
      * @param data
      */
     function saveComplete(data) {
-        alert('Data : ' + data);
-        alert('Data.success : ' + data.success);
         if (data.success) {
             alert('공간이 생성되었습니다.');
             $(location).attr('href', "main");
