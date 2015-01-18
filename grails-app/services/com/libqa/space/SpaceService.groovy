@@ -19,20 +19,9 @@ class SpaceService {
         log.info("@@@@@@ SpaceService : " + space)
         log.info("@@@@@@ keyword : " + keyword)
 
-        def keywordNull = null
-
         Space newInstance = space.save(flush: true, failOnError: true)
         log.info("###newInstance : " + newInstance)
         List<Keyword> keywordList = new ArrayList<>()
-//        if ( !space.validate()) {
-//
-//        }
-        // TODO List test 해보아야함
-        if (keywordNull == null) {
-            log.error("!!! 에러가 발생")
-            throw new ValidationException("space is not valid", space.errors)
-        }
-
 
         if (keyword != null) {
             String [] keywords = keyword.split(",")
@@ -53,9 +42,4 @@ class SpaceService {
         keywordService.saveKeyword(newInstance, keywordList)
     }
 
-    def saveParam(GrailsParameterMap param, String keyword) {
-        def space = new Space(param)
-
-        Space newInstace = space.save(flush: true, failOnError: true)
-    }
 }
