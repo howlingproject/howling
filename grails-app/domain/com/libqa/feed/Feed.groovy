@@ -17,11 +17,11 @@ class Feed {
     String isSharedFb = 'N'
     String isSharedTw = 'N'
     String isSharedGp = 'N'
-
     Date insertDate
     Date updateDate
     Long insertUserId
     Long updateUserId
+    List feedFiles;
 
     static hasMany = [feedReplies: FeedReply, feedFiles: FeedFile]
 

@@ -29,7 +29,7 @@
             contentType: false ,
             success:function (req) {
                 alert(req.contextPath+req.imagePath+req.docName);
-                $("#imgArea").html("<img src='"+req.contextPath+req.imagePath+req.docName+"' id=\"uploadPreviewImg\" width=\"200\">");
+                $("#imgArea").html("<img src='"+req.contextPath+req.filePath+req.savedName+"' id=\"uploadPreviewImg\" width=\"200\">");
             }
         });
     });

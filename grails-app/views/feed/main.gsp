@@ -1,11 +1,13 @@
 <div class="container">
     <div class="col-md-12 col-xs-12" id="feed-area">
         <!-- feed 글 쓰기 start -->
-        <g:formRemote name="myForm" id="myForm" class="form-horizontal attachmentForm" url="[controller: 'feed', action: 'save']" onSuccess="Feed.saveComplete(data)">
+        <g:formRemote name="feedForm" id="feedForm" class="form-horizontal attachmentForm" url="[controller: 'feed', action: 'save']"
+                        before="if(!Feed.checkValidate()) return false;"
+                        onSuccess="Feed.completeSave(data)">
             <div class="feed feed-write well">
                 <div class="feed-write-top">
                     <div class="action-buttons text-right">
-                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#fileUploadModal">파일첨부</button>
+                        <button class="btn btn-primary" type="button" data-toggle="modal" id="feedAttachment" data-target="#fileUploadModal">파일첨부</button>
                     </div>
                 </div>
                 <ul>
@@ -16,7 +18,11 @@
                             </div>
                         </div>
                         <div class="write-box">
-                            <textarea class="form-control" name="feedContent" rows="6" placeholder="Feed를 등록해주세요!"></textarea>
+                            <textarea class="form-control" name="feedContent" id="feedContent" rows="6" placeholder="Feed를 등록해주세요!"></textarea>
+                        </div>
+                        <div class="attachmentArea">
+                            <div class="images text-left"></div>
+                            <div class="files">%{--<a href="#"><i class="fa fa-file-o"></i> 첨부파일.zip</a>--}%</div>
                         </div>
                     </li>
                 </ul>
@@ -334,7 +340,8 @@
             </div>
             <div class="modal-body">
                 <div class="feed well">
-                    <form class="form-horizontal attachmentForm" role="form">
+                    <g:form enctype="multipart/form-data" class="form-horizontal attachmentForm" name="uploadForm" id="uploadForm">
+                        <input type="hidden" name="uploadType" value="Feed">
 
                         <div class="form-group">
                             <label class="col-sm-2 col-md-2 control-label">타입</label>
@@ -351,7 +358,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input id="file-attachment" type="file" style="display:none">
+                            <input id="fileAttachment" name="uploadField" type="file" style="display:none">
                             <label for="fileAttachmentInput" class="col-sm-2 control-label">파일첨부</label>
 
                             <div class="col-sm-10 col-md-10">
@@ -360,7 +367,7 @@
                                         <input id="fileAttachmentInput" class="form-control" type="text" placeholder="파일을 선택해주세요.">
                                     </div>
                                     <div class="col-sm-3 col-xs-3 col-md-3">
-                                        <button class="btn btn-info btn-default" type="button" onclick="$('input[id=file-attachment]').click();">파일선택</button>
+                                        <button class="btn btn-info btn-default" type="button" onclick="$('#fileAttachment').click();">파일선택</button>
                                     </div>
                                 </div>
                             </div>
@@ -368,19 +375,14 @@
 
                         <div class="form-group image-options">
                             <label class="col-sm-2 col-md-2 control-label">미리보기</label>
-
-                            <div class="col-sm-10 col-md-10">
-                                <img src="https://octodex.github.com/images/droctocat.png" alt="이미지 미리보기" class="img-thumbnail image-preview">
-                            </div>
+                            <div class="col-sm-10 col-md-10" id="imagePreviewArea">&nbsp;</div>
                         </div>
-                    </form>
+                    </g:form>
+
                     <script type="text/javascript">
-                        $('input[id="file-attachment"]').change(function () {
-                            $('#attachmentInput').val($(this).val());
-                        });
                         $('input[name="fileType"]').change(function () {
                             if($(this).val() == 'file') {
-                               $('.image-options').hide();
+                                $('.image-options').hide();
                             } else {
                                 $('.image-options').show();
                             }
@@ -389,7 +391,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-info" type="button">확인</button>
+                <button class="btn btn-info" type="button" id="confirmFileAttachment">확인</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
             </div>
         </div>
@@ -400,18 +402,17 @@
 <script src="http://eduardomb.github.io/jquery-panelslider/jquery.panelslider.min.js"></script>
 <script type="text/javascript">
     $('#right-panel-link').panelslider({side: 'right', clickClose: true, duration: 200 });
-    $(function(){
-        Feed.renderList();
-    });
 
     var Feed = {
-        saveComplete : function() {
+        tempAttachment : null,
+        attachments : [],
+        completeSave : function() {
             this.clearForm();
             this.renderList();
+            this.clearAttachmentArea();
         },
         clearForm : function() {
-            $('#myForm').find('textarea').val('');
-
+            $('#feedForm').find('textarea').val('');
         },
         renderList: function() {
             $.ajax({
@@ -442,7 +443,7 @@
            });
         },
         saveReply: function(id) {
-            var self = this;
+            var me = this;
             var $feedReply = $('#feedReply_' + id);
             if(!$feedReply.val().trim().length) {
                 alert('댓글을 입력해주세요.');
@@ -462,10 +463,92 @@
                         alert("Failed saveReply");
                         return;
                     }
-                    self.renderList();
+                    me.renderList();
                 }
            });
+        },
+        bindImageUpload: function() {
+            $('#fileAttachment').change(function(){
+                var oData = new FormData(document.forms.namedItem("uploadForm"));
+                var url = "${createLink(controller:'uploadAjax',action:'upload')}";
+                $.ajax({
+                    url:url,
+                    type:'POST',
+                    data:oData,
+                    processData: false,  // tell jQuery not to process the data
+                    contentType: false ,
+                    success:function (req) {
+                        if(!req.success) {
+                            alert(req.message);
+                            return;
+                        }
+                        console.log(req);
 
+                        var _attachment = {
+                            'realName': req.realName,
+                            'savedName': req.savedName,
+                            'filePath': req.filePath,
+                            'fileSize': req.fileSize,
+                            'fileType': 'image',
+                            'imagePath': req.contextPath + req.filePath + req.savedName
+                        };
+
+                        Feed.tempAttachment = _attachment;
+                        var image = '<img src="' + _attachment.imagePath + '" alt="이미지 미리보기" class="img-thumbnail image-preview">';
+                        $('#uploadForm #imagePreviewArea').html(image);
+                        $('#uploadForm #fileAttachmentInput').val($('#fileAttachment').val());
+                    }
+                });
+            });
+        },
+        bindConfirmFileAttachment: function() {
+            $('#confirmFileAttachment').click(function(){
+                $('#fileUploadModal').modal('hide');
+                Feed.clearAttachmentArea();
+
+                Feed.attachments.push(Feed.tempAttachment);
+                Feed.tempAttachment = null;
+                Feed.renderAttachments();
+            });
+        },
+        renderAttachments: function() {
+            Feed.clearAttachmentArea();
+            $.each(Feed.attachments, function (i, obj) {
+                if (obj.fileType == 'image') {
+                    var image = '<img src="' + obj.imagePath + '" alt="이미지 미리보기" class="img-thumbnail image-preview">';
+                    $('.attachmentArea .images').append(image);
+                }
+            });
+        },
+        clearAttachmentArea: function() {
+            $('.attachmentArea .images').empty();
+        },
+        checkValidate: function() {
+            if(!$('#feedContent').val().trim().length) {
+                alert('feed를 입력해주세요!');
+                return false;
+            }
+
+            $.each(Feed.attachments, function (idx, obj) {
+                $('#feedForm').append('<input type="hidden" name="feedFiles['+ idx + '].realName" value="'+ obj.realName+'" />')
+                    .append('<input type="hidden" name="feedFiles['+ idx + '].savedName" value="'+ obj.savedName+'" />')
+                    .append('<input type="hidden" name="feedFiles['+ idx + '].filePath" value="'+ obj.filePath+'" />')
+                    .append('<input type="hidden" name="feedFiles['+ idx + '].fileSize" value="'+ obj.fileSize+'" />')
+                    .append('<input type="hidden" name="feedFiles['+ idx + '].fileType" value="'+ obj.fileType+'" />');
+            });
+
+            return true;
+        },
+        init : function() {
+            this.bindImageUpload();
+            this.bindConfirmFileAttachment();
+            this.renderList();
         }
     };
+
+    $(function(){
+        Feed.init();
+    });
+
 </script>
+<div id="imgArea"></div>
