@@ -369,7 +369,7 @@ ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = 'qa추천';
 
 
 
-CREATE  TABLE `howling`.`keywords` (
+CREATE  TABLE `howling`.`keyword` (
   `keywordId` INT NOT NULL AUTO_INCREMENT COMMENT '키워드번호' ,
   `qaId` INT NOT NULL COMMENT 'qa번호',
   `wikiId` INT NOT NULL COMMENT 'wiki번호',
@@ -432,7 +432,7 @@ ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT = '댓글선택투표';
 
 
 
-CREATE  TABLE `howling`.`keywords_list` (
+CREATE  TABLE `howling`.`keyword_list` (
   `keywordId` INT NOT NULL COMMENT '키워드번호' ,
   `keywordName` VARCHAR(40) NOT NULL COMMENT '키워드' ,
   `keywordType` VARCHAR(20) NOT NULL COMMENT '키워드타입' ,

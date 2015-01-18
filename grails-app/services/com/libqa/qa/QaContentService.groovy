@@ -1,9 +1,9 @@
 package com.libqa.qa
 
 import com.libqa.application.enums.KeywordTypeEnum
+import com.libqa.common.Keyword
 import com.libqa.common.KeywordList
 import grails.transaction.Transactional
-import org.springframework.transaction.annotation.Propagation
 
 class QaContentService {
     static transactional = false

@@ -88,8 +88,8 @@ class SpaceController {
     }
 
     def save() {
-        log.debug("@ keywordArray = " + params.get("keywordArray"))
-        String keyword = params.get("keywordArray")
+        log.debug("@ keywordArray = " + params.get("keywordList"))
+        String keyword = params.get("keywordList")
 
         Space space = new Space(params)
         log.debug("@ params = " + params)
@@ -101,11 +101,12 @@ class SpaceController {
         space.updateDate = now
 
         try {
-            spaceService.saveSpace(space, keyword)
+            // spaceService.saveParam(params, keyword)
+            spaceService.saveSpaceAndKeywords(space, keyword)
             render(contentType: "application/json") {
                 ResponseData.success()
             }
-        } catch (Exception e) {
+        } catch (e) {
             log.error("## Trace : " + space.getErrors())
             log.error("## Error message 발생 : " + e.message)
             render(contentType: "application/json") {

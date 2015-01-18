@@ -51,6 +51,7 @@
                             <div class="modal-body" id="askEdit">
                                 <p class="help-block" name="description">공간 메인 화면에 입력한 설명이 display 됩니다. (markdown 지원) </p>
                                 <g:textArea name="description" id="description" value="" rows="10" cols="140"/>
+                                <input type="hidden" value="descriptionMarkup markup field" id="descriptionMarkup" name="descriptionMarkup">
                             </div>
                         </div>
 
@@ -155,7 +156,7 @@
 
                                 <div id="tag-info" class="form-inline" style="padding-bottom: 10px">
                                     <input type="text" class="form-control" size="29" id="interesting" placeholder="Keyword">
-                                    <input type="hidden" id="keywordArray" name="keywordArray">
+                                    <input type="hidden" id="keywordArray" name="keywordList" />
                                     <button class="btn btn-primary" type="button" id="keywordAdd">Add <i class="glyphicon glyphicon-plus"></i></button>
 
                                 </div>
@@ -194,21 +195,23 @@
      * 키워드 추가
      */
      $('#keywordAdd').click(function(){
-        var keyword = $('#interesting').val();
+         var keyword = $('#interesting').val();
+         alert('keywordData.length : ' + keywordData.length);
+         if (keyword == '' || keyword.length < 2) {
+             alert('키워드를 입력하세요.');
+             return;
+         }
+         if (keywordData.length == 3) {
+             alert('키워드는 최대 3건만 등록할 수 있습니다.');
+             return;
+         }
 
-        if (keyword == '' || keyword.length < 2) {
-            alert('키워드를 입력하세요.');
-            return;
-        }
-        if (keywordData.length > 3) {
-            alert('키워드는 최대 3건만 등록할 수 있습니다.');
-            return;
-        }
+         keywordData.push(keyword);
+         $('input[id=keywordArray]').val(keywordData.join(","));
 
-        keywordData.push(keyword);
-        $('#keywordArray').val(keywordData.join(","));
+         var arrays = $('#keywordArray').val();
 
-        alert($('#keywordArray').val());
+         alert('arrays :' + arrays);
     });
 
 
@@ -222,8 +225,9 @@
         alert('index : ' + index);
         if (index > -1) {
             keywordData.splice(index, 1);
+            $('input[id=keywordArray]').val(keywordData);
         }
-        $('#keywordArray').val(keywordData);
+
     });
 
 
@@ -265,6 +269,10 @@
         var titleImage= $("#fileAttachmentInput").val();
         var imagePath = $("#titleImagePath").val();
         var description = $("#description").val();
+
+        $('input[id=keywordArray]').val(keywordData);
+        var keys = $("#keywordArray").val();
+        alert('저장 keys: ' + keys);
         if (userId == null || userId.length == 0) {
             alert('로그인 정보가 존재 하지 않습니다.')
             return false;
@@ -285,7 +293,7 @@
             alert('공간 설명은 필수값입니다.')
             return false;
         }
-        if (keywordData.length < 1) {
+        if (keywordArray == null ) {
             alert('키워드는 최소 1건 등록해야 합니다.');
             return;
         }
