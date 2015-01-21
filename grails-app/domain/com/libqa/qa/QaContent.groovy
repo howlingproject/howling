@@ -26,8 +26,12 @@ class QaContent {
     Long updateUserId
     List<Keyword> keywords;
 
-    def findKeywordByQaId(){
+    def getKeywordByQaId(){
         Keyword.findAllByQaIdAndIsDeleted(this.qaId, 'N')
+    }
+
+    def getQaReplyByQaId(){
+        QaReply.findByQaIdAndIsDeleted(this.qaId,'N')
     }
 
     static hasMany = [qaReplys : QaReply, qaRecomands :QaRecommand]

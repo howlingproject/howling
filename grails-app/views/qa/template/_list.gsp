@@ -11,16 +11,18 @@
                 <div class="media-heading">
                     <span>${qaContent.insertDate}</span>
                     <div class="pull-right">
-                        <span class="label label-primary">Spring</span>
-                        <span class="label label-primary">Spring</span>
-                        <span class="label label-primary">Spring</span>
+                        <g:if test="!qaContent.keywordByQaId.IsEmpty()">
+                            <g:each in="${qaContent.keywordByQaId}" var="keyword">
+                                <span class="label label-primary">${keyword.keywordName}</span>
+                            </g:each>
+                        </g:if>
                     </div>
                 </div>
                 <div class="qna-title">
                     <span>${qaContent.title}</span>
                 </div>
                 ${qaContent.contents}
-                <span class="badge">1927</span>
+                <span class="badge">${qaContent.qaReplys.size()}</span>
             </div>
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 my-qna-rating">

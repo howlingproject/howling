@@ -18,7 +18,6 @@ class KeywordList {
     }
 
     static constraints = {
-        keywordListId(nullable: false)
         keywordName(nullable: false)
         keywordCount(nullable: false)
         keywordType(nullable: false)

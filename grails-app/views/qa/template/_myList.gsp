@@ -18,8 +18,11 @@
                         </span>
 
                         <div class="pull-right">
-                            <span class="label label-primary">Spring</span>
-                            <span class="label label-success">JAVA</span>
+                            <g:if test="!qaContent.keywordByQaId.IsEmpty()">
+                                <g:each in="${qaContent.keywordByQaId}" var="keyword">
+                                    <span class="label label-primary">${keyword.keywordName}</span>
+                                </g:each>
+                            </g:if>
                         </div>
 
                         <div class="qna-title">
@@ -28,7 +31,7 @@
 
                         <div>
                             ${qaContent.contents}
-                            <span class="badge">6</span>
+                            <span class="badge">${qaContent.qaReplys.size()}</span>
                         </div>
                     </div>
                 </div>
