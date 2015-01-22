@@ -6,9 +6,9 @@ Howling™ Project
 Howling™  - Social Q&A & Wiki for Community Version
 Howling™ is free software, available under the terms of a MIT license.(http://opensource.org/licenses/mit-license.php)
 
-
+Run Application
 =======
-Run-Server : /경로/HowlingProject/howling
+Run-Server : cd /path-to-your-directory/HowlingProject/howling and run under command.
 $ gradle grails-run-app
 
 debugging
