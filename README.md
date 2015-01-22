@@ -9,7 +9,10 @@ Howling™ is free software, available under the terms of a MIT license.(http://
 Run Application
 =======
 Run-Server : cd /path-to-your-directory/HowlingProject/howling and run under command.
+
+
 $ gradle grails-run-app
 
-debugging
+debugging mode 
+
 $ gradle grails-run-app --debug
