@@ -45,11 +45,7 @@
     <button type="button" class="btn btn-primary" id="saveWiki">저장</button>
 </div>
 
-<g:javascript src="bootstrap-tag-cloud/bootstrap-tag-cloud.js" />
-<link type="stylesheet" href="${resource(dir: 'css/bootstrap-tag-cloud', file: 'bootstrap-tag-cloud.css')}" />
 <link href="${resource(dir: 'css/sonjs', file: 'sonjs.css')}" rel="stylesheet">
-<script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
 <g:javascript src="sonjs/fn-son-markup.js"/>
 
 <script type="text/javascript">

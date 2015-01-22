@@ -69,8 +69,7 @@
 <link href="../css/bootstrap-tag-cloud/bootstrap-tag-cloud.css" rel="stylesheet">
 <script type='text/javascript' src="../js/bootstrap-tag-cloud/bootstrap-tag-cloud.js"></script>
 
-<script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+<link href="${resource(dir: 'css/sonjs', file: 'sonjs.css')}" rel="stylesheet">
 <g:javascript src="sonjs/fn-son-markup.js"/>
 
 <script>

@@ -9,14 +9,10 @@
 	jQuery.clientBrowser = function()
 	{
 		var client = "";
-		if($.browser.msie){    			// IE
+		if(navigator.userAgent.toLowerCase().indexOf('msie') > -1){    			// IE
 			client = "IE";
-	    }else if($.browser.mozilla){    // FF
-	    	client = "FF";
-	    }else if($.browser.safari){     // safari, crome
-	    	client = "SC";
-	    }else if($.browser.opera) {	//
-	    	client = "OP";
+	    }else{
+			client = "oher";
 	    }
 		return client;
 	};
