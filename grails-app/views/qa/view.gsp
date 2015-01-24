@@ -8,11 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title></title>
-    <script src="../js/edit/fn-son-markdown.js"></script>
-    <script src="../js/edit/imsi-edit-mini.js"></script>
-</head>
-
+    <title></title></head>
 <body>
     <!-- 메뉴 -->
     <div class="container contents-container">
@@ -87,8 +83,6 @@
     </script>
 
 <link href="${resource(dir: 'css/sonjs', file: 'sonjs.css')}" rel="stylesheet">
-<script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
 <g:javascript src="sonjs/fn-son-markup.js"/>
 </body>
 </html>

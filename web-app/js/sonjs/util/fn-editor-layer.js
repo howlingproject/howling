@@ -163,7 +163,7 @@ var jisung;
         open : function ( textEditor, $me, data ) {
 
         	this.hideImg();
-        	
+
         	var img = $("<div class=\"modal fade\" id=\"imgModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">   <div class=\"modal-dialog\">     <div class=\"modal-content\">     	<div class=\"modal-body\"> 			<form class=\"form\" role=\"form\"> 				<div class=\"form-group\"> 					<label for=\"exampleInputImgText\">Img Text</label> 					<input type=\"text\" class=\"form-control\" id=\"ImgText\" placeholder=\"Img Text\"> 				</div> 				<div class=\"form-group\"> 					<label for=\"exampleInputURL\">URL</label> 					<input type=\"text\" class=\"form-control\" id=\"ImgUrl\" placeholder=\"URL\"> 				</div> 			</form>       </div>       <div class=\"modal-footer\">         <button type=\"button\" class=\"sonwiki-btn btn btn-default btn-sm\" >Close</button>         <button type=\"button\" class=\"btn btn-primary\" id=\"ok\">Save changes</button>       </div>     </div>   </div> </div> ");
 
             img.find(".sonwiki-btn").on("click", function () {
