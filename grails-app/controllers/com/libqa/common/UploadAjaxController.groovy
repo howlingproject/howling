@@ -2,6 +2,7 @@ package com.libqa.common
 
 class UploadAjaxController {
     private static String SEPARATOR = "/"
+    private static String UPLOAD_TYPE_IMAGE = "image"
 
     def upload = {
         println params
@@ -11,7 +12,7 @@ class UploadAjaxController {
     }
 
     def fileUploader(def file, def uploadType, def viewType) {
-        uploadType = uploadType ?: "image"
+        uploadType = uploadType ?: UPLOAD_TYPE_IMAGE
 
         log.debug("####### File Info #######")
         log.debug("uploadType : " + uploadType)
@@ -22,7 +23,11 @@ class UploadAjaxController {
         log.debug("file.getSize : " + file?.getSize())
         log.debug("### servletContext.getContextPath() : " +servletContext.getContextPath())
 
-        boolean isAllowed = checkAllowedImageFormat(file?.getContentType(), viewType)
+        boolean isAllowed = true;
+        if(isUploadImageType(uploadType)) {
+            isAllowed = checkAllowedImageFormat(file?.getContentType(), viewType)
+        }
+
         // 업로드 가능 포맷이 아닐 경우 리턴
         if (!isAllowed) {
             render (contentType: "application/json") {
@@ -71,10 +76,15 @@ class UploadAjaxController {
                 'realName': file?.getOriginalFilename(),
                 'savedName': savedName,
                 'contextPath': contextPath,
+                'uploadType': uploadType,
                 'fileSize': file?.getSize(),
                 'filePath': filePath
             ]
         }
+    }
+
+    private boolean isUploadImageType(String uploadType) {
+        UPLOAD_TYPE_IMAGE.equals(uploadType)
     }
 
     /**
