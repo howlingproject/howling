@@ -66,10 +66,7 @@
 
 </div>
 
-<link href="../css/bootstrap-tag-cloud/bootstrap-tag-cloud.css" rel="stylesheet">
-<script type='text/javascript' src="../js/bootstrap-tag-cloud/bootstrap-tag-cloud.js"></script>
-
-<link href="${resource(dir: 'css/DualEditor', file: 'DualEditor.css')}" rel="stylesheet">
+<link href="${resource(dir: 'js/DualEditor', file: 'DualEditor.css')}" rel="stylesheet">
 <g:javascript src="DualEditor/DualEditor-core.js"/>
 
 <script>

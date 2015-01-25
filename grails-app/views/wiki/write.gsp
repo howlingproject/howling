@@ -45,7 +45,7 @@
     <button type="button" class="btn btn-primary" id="saveWiki">저장</button>
 </div>
 
-<link href="${resource(dir: 'css/DualEditor', file: 'DualEditor.css')}" rel="stylesheet">
+<link href="${resource(dir: 'js/DualEditor', file: 'DualEditor.css')}" rel="stylesheet">
 <g:javascript src="DualEditor/DualEditor-core.js"/>
 
 <script type="text/javascript">
