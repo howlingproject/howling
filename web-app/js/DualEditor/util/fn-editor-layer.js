@@ -30,7 +30,7 @@ var jisung;
 
 			for( var i=0 ; i < colorLength ; i += 1) {
 				var color = COLOR_BOX.colors[i];
-				var swatch = $('<a rel="' + color + '" href="javascript:void(null);" class="geditor_color_link" ></a>').css({ 'backgroundColor': color });
+				var swatch = $('<a rel="' + color + '" href="javascript:void(null);" class="dualEditor_color_link" ></a>').css({ 'backgroundColor': color });
 
 				swatch.on('click', function (e) {
 					e.preventDefault();
@@ -63,9 +63,9 @@ var jisung;
 
             this.hideTable();
 
-            var table = $("<div class='modal fade' id='tableModal' data-keyboard='false' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>   <div class='modal-dialog'>     <div class='modal-content'>       <div class='modal-body'>         		<form class='form-inline' id='tableHYform' role='form'> 			<div class='form-group'> 				<input type='number' class='form-control'> 행 x 			</div> 			<div class='form-group'> 				<input type='number' class='form-control'> 열 			</div> 			<button type='button' class='btn btn-primary'>적용</button> 		</form>        <hr>                <div id='tableHYdiv'>        </div>               </div>       <div class='modal-footer'>         <button type='button' class='sonwiki-btn btn btn-default btn-sm' >Close</button>         <button type='button' class='btn btn-primary' id='ok'>Save changes</button>       </div>     </div>   </div> </div>  ");
+            var table = $("<div class='modal fade' id='tableModal' data-keyboard='false' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>   <div class='modal-dialog'>     <div class='modal-content'>       <div class='modal-body'>         		<form class='form-inline' id='tableHYform' role='form'> 			<div class='form-group'> 				<input type='number' class='form-control'> 행 x 			</div> 			<div class='form-group'> 				<input type='number' class='form-control'> 열 			</div> 			<button type='button' class='btn btn-primary'>적용</button> 		</form>        <hr>                <div id='tableHYdiv'>        </div>               </div>       <div class='modal-footer'>         <button type='button' class='dualEditor-wiki-btn btn btn-default btn-sm' >Close</button>         <button type='button' class='btn btn-primary' id='ok'>Save changes</button>       </div>     </div>   </div> </div>  ");
 
-            table.find(".sonwiki-btn").on("click", function () {
+            table.find(".dualEditor-wiki-btn").on("click", function () {
                 $('#tableModal').modal('hide');
             })
 
@@ -134,9 +134,9 @@ var jisung;
 
         	this.hideLink();
         	
-        	var link = $("<div class=\"modal fade\" id=\"urlModal\" data-keyboard='false' role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">   <div class=\"modal-dialog\">     <div class=\"modal-content\">     	<div class=\"modal-body\"> 			<form class=\"form\" role=\"form\"> 				<div class=\"form-group\"> 					<label for=\"exampleInputLinkText\">Link Text</label> 					<input type=\"text\" class=\"form-control\" id=\"linkText\" placeholder=\"Link Text\"> 				</div> 				<div class=\"form-group\"> 					<label for=\"exampleInputURL\">URL</label> 					<input type=\"text\" class=\"form-control\" id=\"linkUrl\" placeholder=\"URL\"> 				</div> 			</form>       </div>       <div class=\"modal-footer\">         <button type=\"button\" class=\"sonwiki-btn btn btn-default btn-sm\" >Close</button>         <button type=\"button\" class=\"btn btn-primary\" id=\"ok\">Save changes</button>       </div>     </div>   </div> </div> ");
+        	var link = $("<div class=\"modal fade\" id=\"urlModal\" data-keyboard='false' role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">   <div class=\"modal-dialog\">     <div class=\"modal-content\">     	<div class=\"modal-body\"> 			<form class=\"form\" role=\"form\"> 				<div class=\"form-group\"> 					<label for=\"exampleInputLinkText\">Link Text</label> 					<input type=\"text\" class=\"form-control\" id=\"linkText\" placeholder=\"Link Text\"> 				</div> 				<div class=\"form-group\"> 					<label for=\"exampleInputURL\">URL</label> 					<input type=\"text\" class=\"form-control\" id=\"linkUrl\" placeholder=\"URL\"> 				</div> 			</form>       </div>       <div class=\"modal-footer\">         <button type=\"button\" class=\"dualEditor-wiki-btn btn btn-default btn-sm\" >Close</button>         <button type=\"button\" class=\"btn btn-primary\" id=\"ok\">Save changes</button>       </div>     </div>   </div> </div> ");
 
-            link.find(".sonwiki-btn").on("click", function () {
+            link.find(".dualEditor-wiki-btn").on("click", function () {
                 $('#urlModal').modal('hide');
             })
 
@@ -164,9 +164,9 @@ var jisung;
 
         	this.hideImg();
 
-        	var img = $("<div class=\"modal fade\" id=\"imgModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">   <div class=\"modal-dialog\">     <div class=\"modal-content\">     	<div class=\"modal-body\"> 			<form class=\"form\" role=\"form\"> 				<div class=\"form-group\"> 					<label for=\"exampleInputImgText\">Img Text</label> 					<input type=\"text\" class=\"form-control\" id=\"ImgText\" placeholder=\"Img Text\"> 				</div> 				<div class=\"form-group\"> 					<label for=\"exampleInputURL\">URL</label> 					<input type=\"text\" class=\"form-control\" id=\"ImgUrl\" placeholder=\"URL\"> 				</div> 			</form>       </div>       <div class=\"modal-footer\">         <button type=\"button\" class=\"sonwiki-btn btn btn-default btn-sm\" >Close</button>         <button type=\"button\" class=\"btn btn-primary\" id=\"ok\">Save changes</button>       </div>     </div>   </div> </div> ");
+        	var img = $("<div class=\"modal fade\" id=\"imgModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">   <div class=\"modal-dialog\">     <div class=\"modal-content\">     	<div class=\"modal-body\"> 			<form class=\"form\" role=\"form\"> 				<div class=\"form-group\"> 					<label for=\"exampleInputImgText\">Img Text</label> 					<input type=\"text\" class=\"form-control\" id=\"ImgText\" placeholder=\"Img Text\"> 				</div> 				<div class=\"form-group\"> 					<label for=\"exampleInputURL\">URL</label> 					<input type=\"text\" class=\"form-control\" id=\"ImgUrl\" placeholder=\"URL\"> 				</div> 			</form>       </div>       <div class=\"modal-footer\">         <button type=\"button\" class=\"dualEditor-wiki-btn btn btn-default btn-sm\" >Close</button>         <button type=\"button\" class=\"btn btn-primary\" id=\"ok\">Save changes</button>       </div>     </div>   </div> </div> ");
 
-            img.find(".sonwiki-btn").on("click", function () {
+            img.find(".dualEditor-wiki-btn").on("click", function () {
                 $('#imgModal').modal('hide');
             })
 

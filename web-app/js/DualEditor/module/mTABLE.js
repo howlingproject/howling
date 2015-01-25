@@ -1,4 +1,4 @@
-SONJS.markup.TABLE = function(contents){
+DualEditor.markup.TABLE = function(contents){
     var editText = contents;
 
     var regTitle = /^\|\|(.*)\|\|/igm;

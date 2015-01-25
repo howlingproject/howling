@@ -1,4 +1,4 @@
-SONJS.markup.ORDERLIST = function(contents){
+DualEditor.markup.ORDERLIST = function(contents){
     var editText = contents;
 
     var reg = /^[\d]. (.*)/igm;
@@ -8,7 +8,7 @@ SONJS.markup.ORDERLIST = function(contents){
 
     return editText;;
 }
-SONJS.markup.UNORDERLIST = function(contents){
+DualEditor.markup.UNORDERLIST = function(contents){
     var editText = contents;
 
     var reg = /^[\*\-\+] (.*)/igm;

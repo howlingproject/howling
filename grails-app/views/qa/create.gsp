@@ -69,14 +69,14 @@
 <link href="../css/bootstrap-tag-cloud/bootstrap-tag-cloud.css" rel="stylesheet">
 <script type='text/javascript' src="../js/bootstrap-tag-cloud/bootstrap-tag-cloud.js"></script>
 
-<link href="${resource(dir: 'css/sonjs', file: 'sonjs.css')}" rel="stylesheet">
-<g:javascript src="sonjs/fn-son-markup.js"/>
+<link href="${resource(dir: 'css/DualEditor', file: 'DualEditor.css')}" rel="stylesheet">
+<g:javascript src="DualEditor/DualEditor-core.js"/>
 
 <script>
 	var keywordData = [];
 
 	$(document).ready(function(){
-		SONJS.setting('${request.contextPath}',$("#editor"));
+		DualEditor.setting('${request.contextPath}',$("#editor"));
 	});
 
 	$('input[id="file-attachment"]').change(function () {

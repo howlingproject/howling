@@ -78,11 +78,11 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            SONJS.setting('${request.contextPath}',$("#editor"),'mini','100%');
+            DualEditor.setting('${request.contextPath}',$("#editor"),'mini','100%');
         });
     </script>
 
-<link href="${resource(dir: 'css/sonjs', file: 'sonjs.css')}" rel="stylesheet">
-<g:javascript src="sonjs/fn-son-markup.js"/>
+<link href="${resource(dir: 'css/DualEditor', file: 'DualEditor.css')}" rel="stylesheet">
+<g:javascript src="DualEditor/DualEditor-core.js"/>
 </body>
 </html>

@@ -17,7 +17,7 @@
     width: 100%;
 }
 
-.sonjs.form-control {
+.dualEditor.form-control {
     display: block;
     width: 100%;
     height: 100%;
@@ -36,20 +36,20 @@
     -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
-.sonjs-table > thead {
+.dualEditor-table > thead {
     background-color: #eee;
 }
 
-div button.sonwiki-btn {
+div button.dualEditor-wiki-btn {
     background-image: -webkit-linear-gradient(#fcfcfc, #eee);
 }
 
-.geditor_dropdown a:hover {
+.dualEditor_dropdown a:hover {
     color: #444 !important;
     text-decoration: none;
     background-color: #dde4ef;
 }
-.geditor_color_link{
+.dualEditor_color_link {
     padding: 0 !important;
     width: 15px !important;
     height: 15px !important;

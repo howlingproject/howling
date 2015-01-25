@@ -45,12 +45,12 @@
     <button type="button" class="btn btn-primary" id="saveWiki">저장</button>
 </div>
 
-<link href="${resource(dir: 'css/sonjs', file: 'sonjs.css')}" rel="stylesheet">
-<g:javascript src="sonjs/fn-son-markup.js"/>
+<link href="${resource(dir: 'css/DualEditor', file: 'DualEditor.css')}" rel="stylesheet">
+<g:javascript src="DualEditor/DualEditor-core.js"/>
 
 <script type="text/javascript">
     $(document).ready(function() {
-        SONJS.setting('${request.contextPath}',$("#editor"),'','100%');
+        DualEditor.setting('${request.contextPath}',$("#editor"),'','100%');
     });
 
     $("#saveWiki").on("click", function(e){
