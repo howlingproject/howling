@@ -1,6 +1,7 @@
 package com.libqa.space
 
 import com.libqa.application.enums.LayoutTypeEnum
+import com.libqa.common.Keyword
 import com.libqa.wiki.Wiki
 
 class Space {
@@ -17,6 +18,7 @@ class Space {
     Date updateDate
     Long insertUserId
     Long updateUserId
+    List<Keyword> keywords;
 
     static mapping = {
         version false

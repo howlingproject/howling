@@ -44,6 +44,23 @@ class WikiController {
 
     }
 
+    def recentList(){
+        render(
+            template: 'template/recentList',
+            model: [
+                wikiList: Wiki.findAllByUserId("ganji",[max:4, sort: "updateDate", order: "desc", offset: 0])
+            ]
+        )
+    }
+    def bestList(){
+        render(
+            template: 'template/bestList',
+            model: [
+                wikiList: Wiki.listOrderByLikeCount([max: 5, order: "desc", offset: 0])
+            ]
+        )
+    }
+
     def allList(){
         render(
             template: 'template/allList',

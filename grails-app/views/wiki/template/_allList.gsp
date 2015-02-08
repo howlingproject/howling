@@ -1,4 +1,3 @@
-
 <div class="nav-tabs-header">전체 위키</div>
 <g:each in="${wikiList}" var="wiki">
 <div class="media qna-item">
@@ -19,7 +18,13 @@
                         <span class="label label-primary">Spring</span>
                     </div>
                 </div>
-                ${wiki.title }
+                <g:set var="contets" value="${wiki.contents.replaceAll("<.*?>","").replaceAll("<\\.*?>","")}" />
+                <g:if test="${contets.length() <= 200}">
+                    ${contets}
+                </g:if>
+                <g:else>
+                    ${contets.substring(0,200)}...
+                </g:else>
             </div>
         </div>
         <div class="col-md-2 my-qna-rating">

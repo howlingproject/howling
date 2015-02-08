@@ -23,8 +23,4 @@ class KeywordListController {
             log.debug(e)
         }
     }
-
-    def keywordCheck(params) {
-        keywordListService.keywordCheck(params)
-    }
 }

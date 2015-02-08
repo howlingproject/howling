@@ -27,87 +27,10 @@
         <div class="panel-heading">
             <h3 class="panel-title">베스트 위키</h3>
         </div>
-        <div class="panel-body">
-
-            <!-- BEST 위키 컨텐츠 -->
-            <div class="row" style="padding-bottom: 10px;">
-                <div class="col-md-1">
-                    <div class="user-profile">
-                        <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                    </div>
-                </div>
-                <div class="col-md-11">
-                    <div class="row">
-                        <div class="col-md-8">
-                            사용자 13:30 사람 20명 리플 25개
-                        </div>
-                        <div class="col-md-4 text-right">
-                            페이시북 구플 트위트
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            한파 속 10만 인파 “국민을 적으로 돌리지 말라” 철도 파업 사수하고, 국민철도 지켜내자는 구호가 광장을 메웠다.
-                            글 내용은 두줄로 나오고 글자수는 대략 100자 ~200 자 사이로 출력하도록 하자. 글이 길어지면 글 줄임표를...              more
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- BEST 위키 컨텐츠 -->
-
-            <!-- BEST 위키 컨텐츠 -->
-            <div class="row" style="padding-bottom: 10px;">
-                <div class="col-md-1">
-                    <div class="user-profile">
-                        <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                    </div>
-                </div>
-                <div class="col-md-11">
-                    <div class="row">
-                        <div class="col-md-8">
-                            사용자 13:30 사람 20명 리플 25개
-                        </div>
-                        <div class="col-md-4 text-right">
-                            페이시북 구플 트위트
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            한파 속 10만 인파 “국민을 적으로 돌리지 말라” 철도 파업 사수하고, 국민철도 지켜내자는 구호가 광장을 메웠다.
-                            글 내용은 두줄로 나오고 글자수는 대략 100자 ~200 자 사이로 출력하도록 하자. 글이 길어지면 글 줄임표를...              more
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- BEST 위키 컨텐츠 -->
-
-            <!-- BEST 위키 컨텐츠 -->
-            <div class="row" style="padding-bottom: 10px;">
-                <div class="col-md-1">
-                    <div class="user-profile">
-                        <img alt="avatar" class="profile-image" src="../images/avatar.png" />
-                    </div>
-                </div>
-                <div class="col-md-11">
-                    <div class="row">
-                        <div class="col-md-8">
-                            사용자 13:30 사람 20명 리플 25개
-                        </div>
-                        <div class="col-md-4 text-right">
-                            페이시북 구플 트위트
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            한파 속 10만 인파 “국민을 적으로 돌리지 말라” 철도 파업 사수하고, 국민철도 지켜내자는 구호가 광장을 메웠다.
-                            글 내용은 두줄로 나오고 글자수는 대략 100자 ~200 자 사이로 출력하도록 하자. 글이 길어지면 글 줄임표를...              more
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- BEST 위키 컨텐츠 -->
-
+        <!-- BEST 위키 컨텐츠 -->
+        <div class="panel-body" id="bestWikiList">
         </div>
+        <!-- BEST 위키 컨텐츠 -->
     </div>
 </div>
 
@@ -137,47 +60,6 @@
 
     <!-- 전체 위키 -->
     <div id="allWikiList">
-
-
-
-    <div class="nav-tabs-header">전체 위키</div>
-    <g:each in="${wikiList}" var="wiki">
-        <div class="media qna-item">
-            <a class="pull-left" href="#">
-                <div class="user-profile">
-                    <img src="../images/avatar.png" class="profile-image" alt="avatar">
-                </div>
-            </a>
-            <div class="row">
-                <div class="col-xs-6 col-sm-8 col-md-8">
-                    <div class="media-body">
-                        <div class="media-heading">
-                            <span><g:formatDate format="yyyy-MM-dd HH:mm" date="${wiki.insertDate}"/></span>
-                            <div class="pull-right">
-                                <span class="label label-primary">Spring</span>
-                                <span class="label label-primary">Spring</span>
-                                <span class="label label-primary">Spring</span>
-                                <span class="label label-primary">Spring</span>
-                            </div>
-                        </div>
-
-                        ${wiki.contents}
-
-                    </div>
-                </div>
-                <div class="col-md-2 my-qna-rating">
-                    <button class="btn btn-sm btn-default btn-sm-fixed">답변 999</button>
-                    <button class="btn btn-sm btn-default btn-sm-fixed">추천 0</button>
-                </div>
-            </div>
-        </div>
-    </g:each>
-    <div class="top-buffer">&nbsp;</div>
-
-
-
-
-
     </div>
     <!--// 위키 -->
 
@@ -186,69 +68,8 @@
 <div class="col-md-3" style="padding-right: 0px;">
     <!-- 최근 활동 -->
     <div class="nav-tabs-header">최근 활동</div>
-    <div class="best-qna-item">
-        <div>
-            <span class="label label-primary">Spring</span>
-            <span class="label label-success">JAVA</span>
-            <strong> 스프링 AOP에 대해서 설명 좀</strong>
-        </div>
-        <div class="media">
-            <a class="pull-left" href="#">
-                <div class="user-profile">
-                    <img src="../images/avatar.png" class="profile-image" alt="avatar">
-                </div>
-            </a>
-            <div class="media-body">첫번째 타임라인 어쩌구 저쩌구해서 내용이 나오는데 어쩌구 저쩌구~? 솰라솰라...</div>
-        </div>
+    <div id="recentWikiList">
     </div>
-
-    <div class="best-qna-item">
-        <div>
-            <span class="label label-warning">JavaScript</span>
-            <strong> 자바스크립트 AOP 설명좀 </strong>
-        </div>
-        <div class="media">
-            <a class="pull-left" href="#">
-                <div class="user-profile">
-                    <img src="../images/avatar.png" class="profile-image" alt="avatar">
-                </div>
-            </a>
-            <div class="media-body">그런거 없습니다.그런거 없습니다.그런거 없습니다.그런거 없습니다.그런거 없습..</div>
-        </div>
-    </div>
-
-    <div class="best-qna-item">
-        <div>
-            <span class="label label-primary">Spring</span>
-            <span class="label label-success">JAVA</span>
-            <strong> 스프링 AOP에 대해서 설명 좀</strong>
-        </div>
-        <div class="media">
-            <a class="pull-left" href="#">
-                <div class="user-profile">
-                    <img src="../images/avatar.png" class="profile-image" alt="avatar">
-                </div>
-            </a>
-            <div class="media-body">첫번째 타임라인 어쩌구 저쩌구해서 내용이 나오는데 어쩌구 저쩌구~? 솰라솰라...</div>
-        </div>
-    </div>
-
-    <div class="best-qna-item">
-        <div>
-            <span class="label label-primary">Spring</span>
-            <span class="label label-success">JAVA</span>
-            <strong> 스프링 AOP에 대해서 설명 좀</strong>
-        </div>
-        <div class="media">
-            <a class="pull-left" href="#">
-                <div class="user-profile">
-                    <img src="../images/avatar.png" class="profile-image" alt="avatar">
-                </div>
-            </a>
-            <div class="media-body">첫번째 타임라인 어쩌구 저쩌구해서 내용이 나오는데 어쩌구 저쩌구~? 솰라솰라...</div>
-        </div>
-    </div>
-
     <!--// 최근 활동 -->
 </div>
 </div>
@@ -290,10 +111,24 @@
 
         renderList: function() {
             $.ajax({
+                url: '/howling/wiki/bestList',
+                failure: function(){ },
+                success: function(response) {
+                    $('#bestWikiList').html(response);
+                }
+            });
+            $.ajax({
                 url: '/howling/wiki/allList',
                 failure: function(){ },
                 success: function(response) {
                     $('#allWikiList').html(response);
+                }
+            });
+            $.ajax({
+                url: '/howling/wiki/recentList',
+                failure: function(){ },
+                success: function(response) {
+                    $('#recentWikiList').html(response);
                 }
             });
         }

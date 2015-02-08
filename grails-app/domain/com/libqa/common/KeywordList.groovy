@@ -7,7 +7,6 @@ import com.libqa.application.enums.KeywordTypeEnum
  */
 class KeywordList {
     Long keywordListId
-    Long keywordId
     String keywordName
     int keywordCount
     KeywordTypeEnum keywordType
@@ -18,14 +17,7 @@ class KeywordList {
         id name : 'keywordListId'
     }
 
-    static belongsTo = Keyword
-
-    // add to index
-
-
     static constraints = {
-        keywordListId(nullable: false)
-        keywordId(nullable: false)
         keywordName(nullable: false)
         keywordCount(nullable: false)
         keywordType(nullable: false)

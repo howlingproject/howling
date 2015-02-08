@@ -13,18 +13,17 @@ class QaContentService {
 
 
     @Transactional(rollbackFor = RuntimeException.class)
-    def saveWithKeyword(qaContentInstance) {
-//        try {
-            test(qaContentInstance,  KeywordTypeEnum.QA)
-//            qaSave(qaContentInstance)
-//            keywordListService.keywordCheck(qaContentInstance, KeywordTypeEnum.QA)
-//            keywordService.save(qaContentInstance, KeywordTypeEnum.QA)
-//        }catch(Exception e){
-//            throw new RuntimeException("제발제발!!!!!")
-//        }
+    def saveQaContentAndKeywordListAndKeyword(qaContentInstance) {
+        try {
+            saveQa(qaContentInstance)
+            keywordService.saveKeywordListAndKeyword(qaContentInstance, KeywordTypeEnum.QA)
+        }catch(Exception e){
+            log.debug(e.printStackTrace())
+            throw new RuntimeException("제발제발!!!!!")
+        }
     }
 
-    private qaSave(qaContentInstance) {
+    private saveQa(qaContentInstance) {
         qaContentInstance.insertDate = new Date()
         qaContentInstance.updateDate = new Date()
         qaContentInstance.save(failOnError:true)
@@ -75,7 +74,7 @@ class QaContentService {
             // 최근, 답변 (today, week, all)
             def today = new Date()
             def fromDate = searchDayType(params.dayType)
-            def qaIds = getQaIdByKeyword(params)
+            def qaIds = findQaIdByKeyword(params)
             def returnQaContentObj
             if (params.waitReply == 'Y') {
                 returnQaContentObj = QaContent.findAllByQaIdInListAndIsReplyedAndInsertDateBetweenAndIsDeleted(qaIds, 'N' , fromDate-1, today, 'N')
@@ -90,7 +89,7 @@ class QaContentService {
 
     def renderMyQaList(params){
         try {
-            def qaIds = getQaIdByKeyword(params)
+            def qaIds = findQaIdByKeyword(params)
             def returnMyQaContentObj
             if (params.viewType == 'myWrite') {
                 returnMyQaContentObj = QaContent.findAllByQaIdInListAndInsertUserIdAndIsDeleted(qaIds, '765' ,'N')
@@ -117,7 +116,7 @@ class QaContentService {
         return returnDate
     }
 
-    def getQaIdByKeyword(params){
+    def findQaIdByKeyword(params){
         return Keyword.findAllByKeywordTypeAndKeywordNameAndIsDeleted(params.keywordType, params.keywordName, 'N').qaId
     }
 

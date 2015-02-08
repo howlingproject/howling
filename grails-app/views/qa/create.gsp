@@ -11,32 +11,37 @@
 		<!-- 에디터 -->
 		<div id="editor" class="form-group"></div>
 		<!--// 에디터 -->
-		<div class="form-inline" id="tag-info">
-			<label for="keyword" class="sr-only">키워드</label>
-			<input type="text" class="form-control" id="keyword" style="width: 50%;" placeholder="키워드를 입력하세요. (최대 5개)">
-			<button type="button" class="btn btn-primary btn-sm">키워드추가 <i class="glyphicon glyphicon-plus"></i></button>
-			<ul id="tag-cloud" style="padding-left: 0px; width:100%;"></ul>
+		<div class="form-group">
+			<div class="col-md-pull-4">
+				<div class="form-inline" id="tag-info">
+					<input type="text" class="form-control" size="29" id="interesting" placeholder="Keyword">
+					<button type="button" class="btn btn-primary" id="keywordAdd">Add <i class="glyphicon glyphicon-plus"></i></button>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<ul id="tag-cloud" style="padding-left: 0px; width:100%;"></ul>
+			</div>
 		</div>
+		<input type="hidden" id="keywordArray" name="keywordList" />
+		<div class="form-inline">
+			<label for="keyword" class="sr-only">키워드</label>
+			<input type="text" class="form-control" id="keyword" style="width: 30%;" placeholder="키워드를 입력하세요. (최대 5개)">
+			<button type="button" class="btn btn-primary btn-sm">키워드추가</button>
 
-		%{--<div class="form-inline">--}%
-			%{--<label for="keyword" class="sr-only">키워드</label>--}%
-			%{--<input type="text" class="form-control" id="keyword" style="width: 30%;" placeholder="키워드를 입력하세요. (최대 5개)">--}%
-			%{--<button type="button" class="btn btn-primary btn-sm">키워드추가</button>--}%
+			<button type="button" class="btn btn-default btn-sm">
+				JAVA <a href="#"><i class="fa fa-times"></i></a>
+				<input type="hidden" name="keywords[0].keywordName" value="JAVA">
+			</button>
+			<button type="button" class="btn btn-default btn-sm">
+				Spring <a href="#"><i class="fa fa-times"></i></a>
+				<input type="hidden" name="keywords[1].keywordName" value="Spring">
+			</button>
+			<button type="button" class="btn btn-default btn-sm">
+				Ubuntu <a href="#"><i class="fa fa-times"></i></a>
+				<input type="hidden" name="keywords[2].keywordName" value="Ubuntu">
+			</button>
 
-			%{--<button type="button" class="btn btn-default btn-sm">--}%
-				%{--JAVA <a href="#"><i class="fa fa-times"></i></a>--}%
-				%{--<input type="hidden" name="keywordName" value="JAVA">--}%
-			%{--</button>--}%
-			%{--<button type="button" class="btn btn-default btn-sm">--}%
-				%{--Spring <a href="#"><i class="fa fa-times"></i></a>--}%
-				%{--<input type="hidden" name="keywordName" value="Spring">--}%
-			%{--</button>--}%
-			%{--<button type="button" class="btn btn-default btn-sm">--}%
-				%{--Ubuntu <a href="#"><i class="fa fa-times"></i></a>--}%
-				%{--<input type="hidden" name="keywordName" value="Ubuntu">--}%
-			%{--</button>--}%
-
-		%{--</div>--}%
+		</div>
 		<br>
 		<div class="form-group">
 			<div class="form-inline col-md-pull-10">
@@ -61,15 +66,14 @@
 
 </div>
 
-<g:javascript src="bootstrap-tag-cloud/bootstrap-tag-cloud.js" />
-<link type="stylesheet" href="${resource(dir: 'css/bootstrap-tag-cloud', file: 'bootstrap-tag-cloud.css')}" />
-<script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
-<g:javascript src="sonjs/fn-son-markup.js"/>
+<link href="${resource(dir: 'js/DualEditor', file: 'DualEditor.css')}" rel="stylesheet">
+<g:javascript src="DualEditor/DualEditor-core.js"/>
 
 <script>
+	var keywordData = [];
+
 	$(document).ready(function(){
-		SONJS.setting('${request.contextPath}',$("#editor"));
+		DualEditor.setting('${request.contextPath}',$("#editor"));
 	});
 
 	$('input[id="file-attachment"]').change(function () {
@@ -122,4 +126,44 @@
 			alert(data.message)
 		}
 	}
+
+	/**
+	 * 키워드 추가
+	 * 키워드가 3건 이상 등록 될 경우 폼을 disabled 한다.
+	 */
+	$('#keywordAdd').click(function(){
+		var keyword = $('#interesting').val();
+		if (keyword == '' || keyword.length < 2) {
+			alert('키워드를 입력하세요.');
+			return;
+		}
+		if (keywordData.length == 3) {
+			alert('키워드는 최대 3건만 등록할 수 있습니다.');
+			return;
+		}
+
+		keywordData.push(keyword);
+		$('input[id=keywordArray]').val(keywordData.join(","));
+
+		if (keywordData.length > 2) {
+			$("#interesting").attr("readonly",true);
+			$("#keywordAdd").attr("disabled",true);
+		}
+	});
+
+	/**
+	 * 키워드 삭제
+	 * 키워드가 삭제되면 폼을 enabled 한다.
+	 */
+	$('#tag-cloud').on('click', 'li', function (event) {
+		var keyword = $(event.target).text();
+		var index = keywordData.indexOf(keyword);
+
+		if (index > -1) {
+			keywordData.splice(index, 1);
+			$('input[id=keywordArray]').val(keywordData);
+			$("#interesting").attr("readonly",false);
+			$("#keywordAdd").attr("disabled",false);
+		}
+	});
 </script>

@@ -14,7 +14,9 @@ class FeedService {
             feedFile.userId = feed.userId
         }
 
-        feed.save(flush: true, failOnError:true)
+        if(!feed.save(flush: true, failOnError:true)) {
+            throw RuntimeException("Failed to save feed")
+        }
     }
 
     def deleteBy(feedId) {
