@@ -15,31 +15,45 @@ class SpaceService {
     def keywordService
 
 
-    def saveSpaceAndKeywords(Space space, String keyword) {
+    def saveSpaceAndKeywords(Space space) {
         log.info("@@@@@@ SpaceService : " + space)
-        log.info("@@@@@@ keyword : " + keyword)
+        log.info("@@@@@@ keyword : " + space.keywordList)
 
         Space newInstance = space.save(flush: true, failOnError: true)
         log.info("###newInstance : " + newInstance)
-        List<Keyword> keywordList = new ArrayList<>()
-
-        if (keyword != null) {
-            String [] keywords = keyword.split(",")
-            log.info("#Keywords Length :" + keywords.length)
-
-            for (int i = 0; i < keywords.length; i++) {
-                Keyword keywordDto = new Keyword()
-
-                log.info("#keywords[i]  : "+ i +" = " + keywords[i])
-                keywordDto.keywordName = keywords[i]
-                keywordDto.keywordType = KeywordTypeEnum.SPACE
-                keywordDto.spaceId = newInstance.spaceId
-                keywordList.add(keywordDto)
-            }
-        }
+//
+//        List<Keyword> keywordList = new ArrayList<>()
+//
+//        if (keyword != null) {
+//            String [] keywords = keyword.split(",")
+//            log.info("#Keywords Length :" + keywords.length)
+//
+//            for (int i = 0; i < keywords.length; i++) {
+//                Keyword keywordDto = new Keyword()
+//
+//                log.info("#keywords[i]  : "+ i +" = " + keywords[i])
+//                keywordDto.keywordName = keywords[i]
+//                keywordDto.keywordType = KeywordTypeEnum.SPACE
+//                keywordDto.spaceId = newInstance.spaceId
+//                keywordList.add(keywordDto)
+//            }
+//        }
 
         // TODO Keyword 저장 로직 호출
         keywordService.saveKeyword(newInstance, keywordList)
     }
 
+    def findByUpdateDateBetween(Date startDate, Date endDate) {
+        def space = Space.createCriteria()
+
+        def result = space.list (max : 10, offset : 0) {
+            and {
+                between("updateDate", startDate, endDate)
+                eq("isDeleted", "N")
+            }
+            order("updateDate", "DESC")
+        }
+
+        return result
+    }
 }

@@ -2,6 +2,8 @@ package com.libqa.space
 
 import com.libqa.application.enums.KeywordTypeEnum
 import com.libqa.application.web.ResponseData
+import com.libqa.common.Keyword
+import org.apache.commons.lang.time.DateUtils
 
 class SpaceController {
 
@@ -22,8 +24,26 @@ class SpaceController {
      */
     def main() {
         log.debug("SpaceController main!")
-        def allSpaces = Space.list()
-        [allSpaces:allSpaces]
+        Date startDate = params.get("startDate")
+        Date endDate = params.get("endDate")
+
+
+        if (startDate == null) {
+            startDate = DateUtils.addDays(new Date(), -1)
+        }
+        if (endDate == null) {
+            endDate = new Date()
+        }
+
+        log.info("# startDate : " + startDate)
+        log.info("# endDate : " + endDate)
+
+
+        def spaceList = spaceService.findByUpdateDateBetween(startDate, endDate)
+
+        log.info("@SpaceList = " + spaceList)
+
+        [spaceList:spaceList]
     }
 
     def form() {
@@ -89,8 +109,7 @@ class SpaceController {
 
     def save() {
         log.debug("@ keywordArray = " + params.get("keywordList"))
-        String keyword = params.get("keywordList")
-
+        println(params)
         Space space = new Space(params)
         log.debug("@ params = " + params)
         log.debug("@ space = " + space)
@@ -102,7 +121,7 @@ class SpaceController {
 
         try {
             // spaceService.saveParam(params, keyword)
-            spaceService.saveSpaceAndKeywords(space, keyword)
+            spaceService.saveSpaceAndKeywords(space)
             render(contentType: "application/json") {
                 ResponseData.success()
             }

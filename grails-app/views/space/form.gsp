@@ -16,7 +16,7 @@
                         <div class="control-group">
                             <div class="controls">
                                 <input type="text" class="form-control input-xlarge" id="title" name="title">
-                                <p class="help-block">공간 제목 입력 후 Tab 이동시 공간명 중복 검사를 합니다.</p>
+                                <p class="help-block" id="spaceDesc">(*) 공간 제목 입력 후 Tab 이동시 공간명 중복 검사를 합니다.</p>
                             </div>
                         </div>
                         <p style="padding-top:20px"></p>
@@ -31,7 +31,9 @@
                                     <input id="file-attachment" name="uploadField" type="file" style="display:none">
                                     <input id="fileAttachmentInput" class="form-control" type="text"
                                            placeholder="공간을 표현할 수 있는 대표 이미지를 등록하세요." name="titleImage">
+                                    <p class="help-block" id="spaceImage">(*) 업로드한 이미지를 미리볼 수 있습니다.</p>
                                 </div>
+
                                 <div>
                                     <button class="btn btn-info btn-default" type="button"
                                             onclick="$('input[id=file-attachment]').click();">파일선택
@@ -46,16 +48,16 @@
                             </div>
                         </div>
                         <p style="padding-top:20px"></p>
-                        <legend>공간 설명</legend>
+                        <legend style="margin-bottom: 0px">공간 설명</legend>
                         <div class="control-group">
                             <div class="modal-body" id="askEdit">
-                                <p class="help-block" name="description">공간 메인 화면에 입력한 설명이 display 됩니다. (markdown 지원) </p>
-                                <g:textArea name="description" id="description" value="" rows="10" cols="140"/>
-                                <input type="hidden" value="descriptionMarkup markup field" id="descriptionMarkup" name="descriptionMarkup">
+                                <div id="editorArea" name="editorArea" class="form-group"></div>
+                                <input type="hidden" value="" id="description" name="description">
+                                <input type="hidden" value="" id="descriptionMarkup" name="descriptionMarkup" value="description_markup">
+                                <p class="help-block">(*) 공간 메인 화면에 입력한 설명이 display 됩니다. (markdown 지원)</p>
                             </div>
                         </div>
 
-                        <p style="padding-top:20px"></p>
                         <legend>공개 여부</legend>
                         <div class="control-group">
                             <div class="controls">
@@ -160,7 +162,7 @@
 
                                 </div>
                             </div>
-                            <input type="hidden" id="keywordArray" name="keywordList" />
+                            <input type="hidden" name="keywordList" />
                             <div class="col-sm-4 col-md-4">
                                 <ul id="tag-cloud" style="padding-left: 0px; width:100%; " ></ul>
                             </div>
@@ -169,7 +171,7 @@
 
                     <div class="form-actions text-center">
                         <button type="submit" class="btn btn-primary">저장</button>
-                        <button type="reset" class="btn">취소</button>
+                        <button type="reset" class="btn" id="btnCancel">취소</button>
                     </div>
                 </g:formRemote>
             </div>
@@ -206,7 +208,12 @@
          }
 
          keywordData.push(keyword);
-         $('input[id=keywordArray]').val(keywordData.join(","));
+
+         var taskArray = new Array();
+         $("input[name=keywordList]").each(function() {
+             taskArray.push(keyword);
+         });
+
 
          if (keywordData.length > 2) {
              $("#interesting").attr("readonly",true);
@@ -224,7 +231,7 @@
 
         if (index > -1) {
             keywordData.splice(index, 1);
-            $('input[id=keywordArray]').val(keywordData);
+            $('input[name=keywordList]').val(keywordData);
             $("#interesting").attr("readonly",false);
             $("#keywordAdd").attr("disabled",false);
         }
@@ -245,9 +252,9 @@
             contentType: false ,
             success:function (req) {
                 if (req.success) {
-                    alert(req.contextPath+req.imagePath+req.docName);
-                    var titleImagePath = req.contextPath+req.imagePath;
-                    var imagePath = titleImagePath+req.docName;
+                    alert(req.contextPath+req.filePath+req.savedName);
+                    var titleImagePath = req.contextPath+req.filePath;
+                    var imagePath = titleImagePath+req.savedName;
                     $("#image-preview").remove();
                     $("#imagePreviewArea").html("<img src='"+imagePath+"' width=\"200\" alt=\"이미지 미리보기\" class=\"img-thumbnail image-preview\" id=\"image-preview\">");
                     $("#titleImagePath").val(titleImagePath);
@@ -259,6 +266,13 @@
         });
     });
 
+    $('#btnCancel').click(function(){
+        if(confirm('공간 생성을 취소하겠습니까?')) {
+            $(location).attr('href', "main");
+        }
+    });
+
+
     /**
      * Form value 검증
      */
@@ -268,8 +282,12 @@
         var title = $("#title").val();
         var titleImage= $("#fileAttachmentInput").val();
         var imagePath = $("#titleImagePath").val();
+        var wikiMarkUp = $("#wikiEditor").val();
+        // editor tag 세팅
+        $("#description").val(wikiMarkUp);
         var description = $("#description").val();
-        var keywords = $("#keywordArray").val();
+
+
 
         if (userId == null || userId.length == 0) {
             alert('로그인 정보가 존재 하지 않습니다.')
@@ -291,10 +309,6 @@
             alert('공간 설명은 필수값입니다.')
             return false;
         }
-        if (keywords == null || keywords == '') {
-            alert('키워드는 최소 1건 등록해야 합니다.');
-            return;
-        }
 
         return true;
     }
@@ -312,3 +326,16 @@
         }
     }
 </script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        SONJS.setting('${request.contextPath}',$("#editorArea"),'mini','100%');
+    });
+</script>
+
+<link href="${resource(dir: 'css/sonjs', file: 'sonjs.css')}" rel="stylesheet">
+<script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+<g:javascript src="sonjs/fn-son-markup.js"/>
